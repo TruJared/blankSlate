@@ -1,0 +1,20 @@
+---
+import Tag from "@components/Astro/Tag.astro";
+
+export interface TagCloud {
+	tags: { name: string; count?: number | string | undefined }[];
+}
+
+const { tags = [], customClass, } = Astro.props;
+---
+
+<div>
+	<p class="h6 text-4xl text-center mb-12 capitalize">Get Posts by Tag</p>
+</div>
+<div
+	class:list={customClass}
+	class="inline-flex flex-wrap justify-start items-center p-4 px-0 mt-2 mb-0.5"
+>
+	{tags.map((tag: any) => <Tag tag={tag.name} count={tag.count} size="lg" />)}
+</div>
+<hr class="my-5 text-theme-accent" />

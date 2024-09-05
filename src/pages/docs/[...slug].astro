@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import Post from '@layouts/Post.astro';
+
+export async function getStaticPaths() {
+  const postEntries = await getCollection('docs');
+  return postEntries.map(entry => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+---
+
+<Post collectionName="docs" slug={entry.slug} tags={entry.data.tags} />

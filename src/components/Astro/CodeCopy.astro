@@ -1,0 +1,40 @@
+---
+import type { ShikiConfig } from "astro";
+import type {
+	BundledLanguage,
+	LanguageRegistration,
+	SpecialLanguage,
+} from "shiki";
+
+import { SITE } from "@config";
+import { Code } from "astro:components";
+import CopyToClipboard from "./CopyToClipboard.astro";
+
+export interface CopyCodeProps {
+	code?: string;
+	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
+	customIcon?: JSX.Element;
+	theme?: ShikiConfig["theme"];
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+const {
+	code = "",
+	lang,
+	customIcon,
+	customClass,
+	theme = SITE.shikiConfig.theme,
+} = Astro.props as CopyCodeProps;
+---
+
+<div class:list={["relative p-0 m-0", customClass]}>
+	<CopyToClipboard
+		textToCopy={code}
+		customIcon={customIcon}
+		aria-label="Copy code to clipboard"
+		size={16}
+		customClass="absolute right-0 top-0"
+	/>
+	<Code lang={lang} theme={theme} code={code} />
+
+</div>

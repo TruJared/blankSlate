@@ -1,0 +1,145 @@
+@layer components {
+	/*
+======================================
+<(^.^)>  NEON TEXT ANIMATION  <(^.^)>
+======================================
+ */
+	.neon {
+		@apply text-theme-accent font-bold tracking-wider relative inline-block;
+		color: var(--color-accent);
+		text-shadow:
+			0 0 7px var(--color-accent),
+			0 0 10px var(--color-accent),
+			0 0 21px var(--color-accent),
+			0 0 42px var(--color-accent);
+		animation: neon-flicker 6s infinite alternate;
+		transition: transform 0.3s ease-out;
+	}
+
+	.neon::before {
+		content: attr(data-text);
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+		color: var(--color-text);
+		filter: blur(0.02em);
+		opacity: 0.8;
+	}
+
+	.neon::after {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: linear-gradient(
+			45deg,
+			transparent 5%,
+			rgba(255, 255, 255, 0.1) 5%,
+			rgba(255, 255, 255, 0.1) 10%,
+			transparent 10%
+		);
+		filter: blur(0.05em);
+		opacity: 0.5;
+		animation: neon-edge-glow 6s infinite alternate;
+	}
+
+	@keyframes neon-flicker {
+		0%,
+		18%,
+		22%,
+		25%,
+		53%,
+		57%,
+		100% {
+			text-shadow:
+				0 0 7px var(--color-accent),
+				0 0 10px var(--color-accent),
+				0 0 21px var(--color-accent),
+				0 0 42px var(--color-accent);
+		}
+		20%,
+		24%,
+		55%,
+		100% {
+			text-shadow:
+				0 0 2px var(--color-accent),
+				0 0 4px var(--color-accent);
+		}
+	}
+
+	@keyframes neon-edge-glow {
+		0%,
+		100% {
+			opacity: 0.1;
+		}
+		50% {
+			opacity: 0.3;
+		}
+	}
+
+	/*
+===================================
+<(^.^)>  DONUT ANIMATION  <(^.^)>
+===================================
+ */
+	.donut {
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+		border: 0.25em solid gainsboro;
+		border-top-color: black;
+		animation: donut-spin 4s ease-in-out infinite;
+	}
+
+	@keyframes donut-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		5% {
+			transform: rotate(170deg);
+		}
+		20% {
+			transform: rotate(180deg);
+		}
+		25% {
+			transform: rotate(-170deg);
+		}
+		40% {
+			transform: rotate(340deg);
+		}
+		54% {
+			transform: rotate(350deg);
+		}
+
+		65% {
+			transform: rotate(150deg);
+		}
+		70% {
+			transform: rotate(180deg);
+		}
+		100% {
+			transform: rotate(-360deg);
+		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	/* tailwind handles this for us when we use animations, but it's good to have a fallback in case no animations are used via tailwind */
+
+	.donut,
+	.neon {
+		animation: none;
+	}
+	.neon {
+		text-shadow:
+			0 0 2px var(--color-accent),
+			0 0 4px var(--color-accent);
+	}
+	.neon::after {
+		animation: none;
+		opacity: 0.2;
+	}
+}

@@ -1,0 +1,86 @@
+---
+import { SITE, NAVIGATION } from "@config";
+
+import { ViewTransitions } from "astro:transitions";
+
+import GoogleFonts from "@components/Astro/Head/GoogleFonts.astro";
+import DynamicMetaTags from "@components/Astro/Head/DynamicMetaTags.astro";
+import SocialMeta from "@components/Astro/Head/SocialMeta.astro";
+import ResourceLinks from "@components/Astro/Head/ResourceLinks.astro";
+
+import Nav from "@components/Astro/Nav.astro";
+import Title from "@components/Astro/Title.astro";
+
+import "@styles/global.css";
+
+export interface Props {
+	title?: string;
+	author?: string;
+	description?: string;
+	keywords?: string[];
+	ogImage?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+	canonicalUrl?: string;
+	logoSrc?: string;
+	showLogo?: boolean;
+	showTitleBackground?: boolean;
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+
+const {
+	title = SITE.title,
+	author = SITE.author,
+	description = SITE.description || SITE.title,
+	keywords = SITE.keywords,
+	ogImage = SITE.ogImage,
+	canonicalUrl = SITE.canonicalUrl,
+	logoSrc = SITE.logoSrc || null,
+	showTitleBackground = SITE.showTitleBackground || false,
+	publishedTime = "",
+	modifiedTime = "",
+	customClass = "",
+} = Astro.props;
+
+const metaTags = [
+	{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
+	{ name: "generator", content: "Astro" },
+	{ name: "description", content: SITE.description || SITE.title },
+	{ name: "keywords", content: SITE.keywords.join(", ") },
+	{ name: "title", content: SITE.title },
+	{ name: "author", content: SITE.author || SITE.title },
+	{ name: "sitemap", content: "/sitemap-index.xml" },
+	{ name: "publishedTime", content: publishedTime },
+	{ name: "modifiedTime", content: modifiedTime },
+	{ name: "robots", content: `index, ${SITE.disableIndexing ? 'noindex, nofollow' : 'index, follow'}` },
+
+];
+const fonts = SITE.fonts || [];
+---
+
+<html lang="en">
+	<head>
+		<!-- todo: confirm all tags are set -->
+		<DynamicMetaTags metaTags={metaTags} />
+		<GoogleFonts fonts={fonts} />
+		<SocialMeta
+			title={title}
+			author={author}
+			image={ogImage}
+			description={description}
+			keywords={keywords}
+			canonicalURL={canonicalUrl}
+		/>
+		<ViewTransitions />
+		{/*<ResourceLinks />*/}
+	</head>
+	<body class:list={[customClass]}>
+		<Title title={title} logoSrc={logoSrc ?? ""} showTitleBackground={showTitleBackground} />
+		<Nav links={NAVIGATION} />
+		<main class="min-h-100">
+
+			<slot />
+		</main>
+	</body>
+</html>

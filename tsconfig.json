@@ -1,33 +1,39 @@
 {
   "extends": "astro/tsconfigs/strict",
   "compilerOptions": {
-    "baseUrl": "src",
+    "baseUrl": ".",
     "jsx": "preserve",
     "jsxImportSource": "react",
     "paths": {
-      "@configs/*": [
-        "../configs/*"
-      ],
       "@assets/*": [
-        "assets/*"
+        "src/assets/*"
       ],
       "@components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@content/*": [
-        "content/*"
+        "src/content/*"
+      ],
+      "@config": [
+        "src/_alkaline_config.ts"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "src/layouts/*"
       ],
       "@pages/*": [
-        "pages/*"
+        "src/pages/*"
       ],
       "@styles/*": [
-        "styles/*"
+        "src/styles/*"
+      ],
+      "@types": [
+        "src/Types/types.d.ts"
       ],
       "@utils/*": [
-        "utils/*"
+        "src/utils/*"
+      ],
+      "@Types/*": [
+        "src/Types/*"
       ]
     }
   }

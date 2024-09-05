@@ -2,20 +2,25 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const { colors } = require("tailwindcss/defaultTheme");
 
-export default {
+const { SITE } = require("./src/_alkaline_config.ts");
 
+export default {
+	darkMode: "class",
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
-		colors: {
-			transparent: "transparent",
-		},
+		colors: {}, // delete this line to include the default colors
 		extend: {
+			colors: {
+				white: colors.white || "#ffffff",
+				black: colors.black || "#000000",
+				grey: "#707070",
+				transparent: "transparent",
+			},
 			backgroundColor: {
 				theme: {
-					base: "var(--color-background)",
-					alt: "var(--color-text)",
+					primary: "var(--color-background)",
+					secondary: "var(--color-text)",
 					accent: "var(--color-accent)",
-					grey: "hsla(0, 0%, 70%, 0.55)", // Light slate grey
 				},
 			},
 			backgroundImage: {
@@ -29,7 +34,7 @@ export default {
 					shape: "ellipse",
 					position: "center right",
 					colors: [
-						// "var(--color-background)",
+						"var(--color-background)",
 						"var(--color-accent)",
 						"var(--color-text)",
 						"var(--color-shadow)",
@@ -38,37 +43,55 @@ export default {
 			},
 			borderColor: {
 				theme: {
-					base: "var(--color-border)",
-					alt: "var(--color-accent)",
+					primary: "var(--color-accent-alt)",
+					secondary: "var(--color-text)",
+					accent: "var(--color-accent)",
 				},
 			},
 			boxShadowColor: {
 				theme: {
-					base: "var(--color-shadow)",
+					primary: "var(--color-shadow)",
+					secondary: "var(--color-text)",
+					accent: "var(--color-accent)",
 				},
 			},
 			textColor: {
 				theme: {
-					base: "var(--color-text)",
+					primary: "var(--color-text)",
+					secondary: "var(--color-text-alt)",
 					accent: "var(--color-accent)",
-					alt: "var(--color-text-alt)",
 				},
 			},
 			textDecorationColor: {
 				theme: {
-					base: "var(--color-text)",
+					primary: "var(--color-text)",
+					secondary: "var(--color-text-alt)",
 					accent: "var(--color-accent)",
-					alt: "var(--color-text-alt)",
 				},
 			},
 			fontFamily: {
-				sans: ["Recursive", ...defaultTheme.fontFamily.sans],
-				serif: ["Recursive", ...defaultTheme.fontFamily.serif],
-				mono: ["Rubik Mono One", ...defaultTheme.fontFamily.mono],
+				sans: [
+					`"${SITE.fonts
+						.find((o) => o.typeface === "sans")
+						?.fontFamily.replace(/\+/g, " ")}"`,
+					...defaultTheme.fontFamily.sans,
+				],
+				serif: [
+					`"${SITE.fonts
+						.find((o) => o.typeface === "serif")
+						?.fontFamily.replace(/\+/g, " ")}"`,
+					...defaultTheme.fontFamily.serif,
+				],
+				mono: [
+					`"${SITE.fonts
+						.find((o) => o.typeface === "mono")
+						?.fontFamily.replace(/\+/g, " ")}"`,
+					...defaultTheme.fontFamily.mono,
+				],
 			},
 		},
 	},
-	plugins: [],
+	plugins: [require("@tailwindcss/typography")],
 };
 
 /**

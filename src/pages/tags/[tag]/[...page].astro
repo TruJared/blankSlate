@@ -1,0 +1,49 @@
+---
+import { SITE } from "@config";
+import { COLLECTION_NAMES } from "@content/collections";
+import type { PaginateFunction } from "astro";
+import { getCollection } from "astro:content";
+import Posts from "@layouts/Posts.astro";
+
+type Post = {
+  data: {
+    tags?: string[];
+  };
+};
+
+export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
+  const posts: Post[] = (
+    await Promise.all(
+      COLLECTION_NAMES.map(async (collection) => await getCollection(collection))
+    )
+  ).flat();
+
+  const uniqueTags = [
+    ...new Set(posts.flatMap((post) => post.data.tags ?? [])),
+  ];
+
+  return uniqueTags.flatMap((tag) => {
+    if (tag === undefined) return [];
+    const filteredPosts = posts.filter(
+      (post) => post.data.tags && post.data.tags.includes(tag)
+    );
+    return paginate(filteredPosts, {
+      params: { tag },
+      pageSize: SITE.postsPerPage,
+      props: { tag },
+    });
+  });
+}
+
+const { page } = Astro.props;
+const { tag } = Astro.params ?? {};
+const posts = page?.data ?? [];
+---
+
+<Posts
+  posts={posts}
+  page={page}
+  subtitle={`Showing all posts for ${tag}`}
+  collectionName={tag}
+  title={tag?.toUpperCase()}
+/>

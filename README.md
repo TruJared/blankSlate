@@ -1,8 +1,6 @@
-# ◻ Blank Slate
+# ![logo](./public/alkaline--sm.png)  Alkaline
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+[]tags n stuff
 
 ## OBJECTIVE
 
@@ -16,6 +14,7 @@
 - [Tailwind CSS](https://tailwindcss.com/)
 - [mdx](https://mdxjs.com/)
 - [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
 
 ## Included Integrations and Features 🛠️
 
@@ -23,20 +22,21 @@
 - [x] [astroIcon](https://github.com/natemoo-re/astro-icon#readme)
 - [x] [robots.txt](https://github.com/alextim/astro-lib/tree/main/packages/astro-robots-txt#readme)
 - [x] [sitemap](https://docs.astro.build/en/guides/integrations-guide/sitemap/)
-- [ ] Blog with RSS feed
+- [x] Blog with RSS feed
 - [x] Multiple color schemes
-- [ ] Basic layout, spacing, and typography out of the box
-- [ ] Easily editable layout, spacing, and typography
-- [ ] Google Fonts
-- [ ] Minimalist design
-- [ ] SEO friendly
-- [ ] Fast load times
-- [ ] Responsive design
-- [ ] Typescript **that won't get in your way** 😅
-- [ ] Accessibility features
-- [ ] Easy image optimization
-- [ ] Analytics integration
+- [X] Basic layout, spacing, and typography out of the box
+- [X] Easily editable layout, spacing, and typography
+- [X] Dead Easy Google Font loading (just add the fontFamily to the config 😱)
+- [X] Minimalist design
+- [X] SEO friendly
+- [X] Fast load times
+- [X] Responsive design
+- [X] Typescript **that won't get in your way** 😅
+- [X] Easy image optimization
+- [X] Analytics integration
+- [X] Iconography
 - [ ] Helpful documentation
+- [ ] Accessibility features
 - [ ] And so much more!
 
 ## Quick Start 🚀
@@ -57,11 +57,25 @@
 
 ## TODO - pre-launch
 
-- [ ] pins, tags, shortcodes, etc...
-- [ ] add copy button to Shiki code blocks
-- [ ] config cleanup (lots of busy work in that one) 😞
+- [X] RSS feed
+- [X] Pagination on tags page
+- [X] some mdx pages
+- [X] some astro pages
+- [X] some basic components
+- [X] tags page
+- [X] add copy button to Shiki code blocks
+- [X] config cleanup (lots of busy work in that one) 😞
+- [X] iconography instead of emoji or better emoji handling
+- [X] Google Font types
+- [X] Research how other use custom classes in their astro component props
+- [X] view transitions - tweak
+- [ ] Multi-language support
+- [ ] docs
 - [ ] table of contents for docs
-
-## TODO - post-launch
-
 - [ ] look into releasing on Astro's theme site
+
+## TODO - post-launch (maybe)
+
+- [ ] Themes 2.0 (decorations, icons, fonts, etc...)
+- [ ] Astro DB features (like buttons, comments??)?
+- [ ] Map Syntax Highlighting to theme-color

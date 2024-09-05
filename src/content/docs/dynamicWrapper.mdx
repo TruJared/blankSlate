@@ -1,0 +1,32 @@
+see src\components\Astro\Card.astro
+
+## explanation
+
+https://docs.astro.build/en/guides/styling/#combining-classes-with-classlist
+
+## Usage
+
+```astro
+
+---
+export interface Props {
+ title: string;
+ description: string;
+ rounded?: boolean;
+ alt?: boolean;
+}
+
+const { title, description, rounded = false, alt = false } = Astro.props;
+
+const dynamicWrapper = [
+ "border-2",
+  ..., // other classes
+ "p-4",
+];
+---
+
+<div
+ class:list={[dynamicWrapper, { "rounded-lg": rounded, "bg-theme-primary": alt }]}
+>
+... rest of the code
+</div>

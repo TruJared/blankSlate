@@ -1,0 +1,48 @@
+---
+export interface ResourceLinksProps {
+  dnsPrefetchUrls?: string[];
+  preconnectUrls?: { href: string; crossorigin?: boolean }[];
+  preloadResources?: { href: string; as: string; type?: string }[];
+  prefetchResources?: string[];
+}
+
+
+const {
+  dnsPrefetchUrls = [],
+  preconnectUrls = [],
+  preloadResources = [],
+  prefetchResources = [],
+} = Astro.props as ResourceLinksProps;
+---
+
+{
+  // This component generates resource hints for the browser to optimize loading of resources.
+  // It takes in four optional arrays of URLs: dnsPrefetchUrls, preconnectUrls, preloadResources, and prefetchResources.
+  // Each array corresponds to a specific type of resource hint:
+  // - dnsPrefetchUrls: URLs for DNS prefetching to resolve domain names before a request is made.
+  // - preconnectUrls: URLs for preconnecting to servers to establish early connections.
+  // - preloadResources: URLs for preloading resources like scripts, styles, or fonts.
+  // - prefetchResources: URLs for prefetching resources that might be needed in the near future.
+}
+
+<>
+  {dnsPrefetchUrls?.map((url) => (
+    <link rel="dns-prefetch" href={url} />
+  ))}
+
+  {preconnectUrls?.map(({ href, crossorigin }) => (
+    <link
+      rel="preconnect"
+      href={href}
+      crossorigin={crossorigin ? "anonymous" : undefined}
+    />
+  ))}
+
+  {preloadResources?.map(({ href, as, type }, index) => (
+    <link rel="preload" href={href} as={as} type={type} />
+  ))}
+
+  {prefetchResources?.map((url ) => (
+    <link rel="prefetch" href={url} />
+  ))}
+</>

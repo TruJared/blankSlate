@@ -1,3 +1,259 @@
-body {
- background-color: gainsboro;
+@import "./themes.css";
+@import "./animations.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+@layer base {
+
+	/** General **/
+
+	html {
+		@apply antialiased;
+		@apply min-h-[100svh] w-full flex flex-col items-center bg-theme-primary text-theme-primary bg-gradient-linear font-sans;
+	}
+
+	body {
+		@apply min-h-[100svh] w-full max-w-5xl;
+	}
+
+	/** Lazy Layout **/
+	section {
+		@apply p-2 my-2 sm:p-6;
+	}
+
+	section + section {
+		@apply mt-0 pt-0;
+	}
+
+	article {
+		@apply p-1 m-1 sm:p-2 leading-relaxed text-base;
+	}
+
+	section article:first-of-type {
+		@apply mt-0;
+	}
+
+	section article:last-of-type {
+		@apply mb-0;
+	}
+
+	div {
+		@apply px-2 m-2 sm:p-2;
+	}
+
+	/** Typography **/
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6,
+	.h1,
+	.h2,
+	.h3,
+	.h4,
+	.h5,
+	.h6 {
+		@apply tracking-widest font-bold font-serif;
+	}
+
+	h5,
+	h6,
+	.h5,
+	.h6 {
+		@apply font-mono uppercase;
+	}
+
+	h1,
+	.h1 {
+		@apply text-4xl text-theme-accent leading-relaxed md:text-5xl;
+	}
+
+	h2,
+	.h2 {
+		@apply text-4xl text-theme-accent leading-normal;
+	}
+
+	h3,
+	.h3 {
+		@apply text-3xl mb-2;
+	}
+
+	h4,
+	.h4 {
+		@apply text-xl mb-2;
+	}
+
+	h5,
+	.h5 {
+		@apply text-lg font-light mb-1;
+	}
+
+	h6,
+	.h6 {
+		@apply text-sm font-extralight mb-1;
+	}
+
+	p,
+	li,
+	a {
+		@apply text-theme-primary font-extralight py-1;
+	}
+
+	a {
+		@apply underline underline-offset-2 decoration-2 decoration-theme-accent hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20 cursor-pointer;
+	}
+
+	pre:has(code) {
+		@apply font-mono text-sm border border-theme-secondary rounded-lg p-6 my-4 mx-0 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms];
+	}
+
+	code,
+	blockquote {
+		word-wrap: break-word;
+	}
+
+	pre > code {
+		white-space: pre;
+	}
+
+	blockquote {
+		@apply border-l-4 border-theme-accent pl-4 italic text-theme-primary;
+	}
+
+	::selection {
+		@apply bg-theme-accent text-theme-secondary;
+	}
+
+	/** scrollbar **/
+
+	html {
+		overflow-y: auto;
+	}
+
+	/* width */
+	::-webkit-scrollbar {
+		@apply w-3;
+	}
+
+	/* Track */
+	::-webkit-scrollbar-track {
+		@apply shadow-theme-primary;
+	}
+
+	/* Handle */
+	::-webkit-scrollbar-thumb {
+		@apply bg-theme-accent;
+	}
+
+	/* Handle on hover */
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-theme-secondary bg-opacity-50 cursor-pointer;
+	}
+
+	/* code block scroll */
+	pre:has(code)::-webkit-scrollbar {
+		@apply w-1 h-1;
+	}
+}
+
+/** prose **/
+
+@layer components {
+	.prose {
+		@apply text-theme-primary text-lg font-extralight leading-relaxed;
+	}
+
+	.prose h1 {
+		@apply text-4xl text-theme-secondary leading-relaxed md:text-5xl tracking-widest;
+	}
+
+	.prose h2 {
+		@apply text-4xl text-theme-accent leading-normal tracking-widest mt-8 first:mt-0;
+	}
+
+	.prose h3 {
+		@apply text-3xl text-theme-primary tracking-widest mt-4;
+	}
+
+	.prose h4 {
+		@apply text-xl text-theme-primary tracking-widest mt-2;
+	}
+
+	.prose h5 {
+		@apply text-lg text-theme-primary font-light mb-1 font-mono uppercase;
+	}
+
+	.prose h6 {
+		@apply text-sm text-theme-primary font-extralight mb-1 font-mono uppercase;
+	}
+
+	.prose p {
+		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2 mt-1;
+	}
+
+
+	.prose a {
+		@apply underline underline-offset-2 decoration-2 decoration-theme-accent hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20;
+	}
+
+	.prose blockquote {
+		@apply border-l-4 border-theme-secondary pl-4 italic text-theme-primary;
+	}
+
+	.prose ul,
+	.prose ol {
+		@apply list-disc list-inside;
+	}
+
+	.prose li {
+		@apply text-theme-primary text-lg font-extralight leading-relaxed list-none py-1;
+	}
+
+	.prose pre {
+
+		@apply font-mono text-sm border border-theme-secondary rounded-md -mt-4 mb-10 py-8 px-2 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
+		/* No background highlight for code blocks */
+	}
+
+	.prose code:not(pre code) {
+		@apply bg-theme-secondary text-theme-secondary px-1 rounded; /* Background highlight for inline code only */
+	}
+
+	.prose
+		strong:not(
+			h1 strong,
+			h2 strong,
+			h3 strong,
+			h4 strong,
+			h5 strong,
+			h6 strong
+		) {
+		@apply text-theme-primary font-extralight relative tracking-wider; /* Changed to font-semibold and font-sans for readability */
+	}
+
+	.prose ::selection {
+		@apply bg-theme-accent text-theme-secondary;
+	}
+}
+
+/** helper classes **/
+
+@layer components {
+	.is-title {
+		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+	}
+	.is-title-alt {
+		@apply text-5xl font-bold font-serif bg-theme-accent text-theme-secondary tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+	}
+	.focused {
+		@apply outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;
+	}
+	.disabled {
+		@apply pointer-events-none opacity-50 no-underline;
+	}
 }

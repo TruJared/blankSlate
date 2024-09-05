@@ -1,0 +1,44 @@
+---
+export interface MetaTag {
+  name?: string;
+  property?: string;
+  content: string;
+}
+
+export interface Props {
+  metaTags: MetaTag[];
+}
+
+const { metaTags = [] } = Astro.props;
+---
+
+{
+  /*
+  Example metaTags array:
+  const metaTags = [
+    { name: 'name', content: 'jared' },
+    { property: 'fb:app_id', content: '12345' },
+    { name: 'description', content: 'This is a description' },
+    { name: 'google-site-verification', content: '12345' },
+    { name: 'msvalidate.01', content: '12345' },
+    ...
+  ];
+
+  Example output:
+  <meta name="name" content="jared" />
+  <meta property="fb:app_id" content="12345" />
+  <meta name="description" content="This is a description" />
+  <meta name="google-site-verification" content="12345" />
+	<meta name="msvalidate.01" content="12345" />
+  */
+}
+
+<>
+  {metaTags?.map((tag) => (
+    <meta
+      name={tag.name}
+      property={tag.property}
+      content={tag.content}
+    />
+  ))}
+</>

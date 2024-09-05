@@ -1,0 +1,36 @@
+---
+import { getCollection } from "astro:content";
+import Layout from  "@layouts/Layout.astro"
+import TagCloud from "../../components/Astro/TagCloud.astro";
+import { COLLECTION_NAMES } from "@content/collections";
+
+
+// Get all entries from all collections
+const allEntries = await Promise.all(
+	COLLECTION_NAMES.map((collection) => getCollection(collection)));
+
+
+// Flatten the array of entries and extract all tags
+const allTags = allEntries.flat().flatMap((entry) => entry.data.tags || []);
+
+// Count occurrences of each tag
+const tagCounts = allTags.reduce(
+	(acc, tag) => {
+		acc[tag] = (acc[tag] || 0) + 1;
+		return acc;
+	},
+	{} as Record<string, number>
+);
+
+// Sort tags by count (descending) and create tag objects
+const sortedTags = Object.entries(tagCounts)
+	.sort(([, a], [, b]) => b - a)
+	.map(([tag, count]) => ({ name: tag, count }));
+
+---
+
+<Layout title="Tags">
+<section>
+	 <TagCloud tags={sortedTags} />
+</section>
+</Layout>

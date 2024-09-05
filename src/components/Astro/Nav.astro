@@ -1,0 +1,30 @@
+---
+import ToggleTheme from "@components/Astro/ToggleTheme.astro";
+import type { Navigation } from "@types";
+
+export interface Props {
+	links: Navigation[]; // Change this line
+	themeNames?: string[];
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+const { links = [], customClass } = Astro.props;
+---
+
+<nav
+	aria-label="Main navigation"
+	class:list={["flex flex-wrap justify-between items-center p-4", customClass]}
+>
+	<ul class="flex flex-wrap mb-2 sm:mb-0 sm:mr-6">
+		{
+			links.map((obj) => (
+				<li class="px-1 first:pl-0">
+					<a href={obj.href} class="px-2 first:pl-0">
+							{obj.text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+	<ToggleTheme />
+</nav>

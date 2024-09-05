@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+	title: string;
+	description: string;
+	rounded?: boolean;
+	alt?: boolean;
+	image?: string;
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+const {
+	title,
+	description,
+	rounded = false,
+	alt = false,
+	// image = "",
+	customClass,
+} = Astro.props;
+
+const dynamicWrapper = [
+	"border-2",
+	"border-theme-secondary",
+	"shadow-theme-accent",
+	"shadow-md",
+	"mx-2",
+	"mb-6",
+	"p-4",
+	"w-full",
+	"md:w-1/2",
+	"lg:w-1/4",
+];
+---
+
+<div
+	class:list={[
+		...dynamicWrapper,
+		{
+			"rounded-lg": rounded,
+			"bg-theme-primary": alt,
+			"bg-theme-secondary": !alt,
+		},
+		customClass,
+	]}
+>
+	<h2
+		class:list={[
+			"center",
+			"uppercase",
+			"font-bold",
+			"mb-2",
+			{ "text-theme-secondary": !alt, "text-theme-primary": alt },
+		]}
+	>
+		{title}
+	</h2>
+	<hr
+		class:list={[
+			"border-theme-accent border-1 mb-2",
+			{ "border-theme-secondary": alt },
+		]}
+	/>
+	<p class:list={[{ "text-theme-secondary": !alt, "text-theme-primary": alt }]}>
+		{description}
+	</p>
+</div>

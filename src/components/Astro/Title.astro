@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+	title: string;
+	showTitleBackground: boolean;
+	logoSrc: string | null
+	customClass?: string | Array<{ [key: string]: boolean | string }>;}
+
+
+const { title, showTitleBackground, logoSrc, customClass, } = Astro.props;
+---
+
+<h1
+	class:list={[
+		"p-2",
+		{ "is-title-alt": showTitleBackground, "is-title mb-2": !showTitleBackground, "pl-2": !logoSrc },
+		customClass,
+	]}
+>
+	<span class="flex items-center">
+		{
+			logoSrc && (
+				<Image
+					src={logoSrc}
+					alt="Logo"
+					width={64}
+					height={64}
+					class="px-2 inline mr-2"
+				/>
+			)
+		}
+		{title}
+	</span>
+</h1>
+<hr />

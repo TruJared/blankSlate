@@ -1,30 +1,30 @@
-
-
+import { SITE } from "./src/_alkaline_config";
+import robotsConfig from './src/utils/robots-txt.config';
+import { COLLECTION_NAMES } from "./src/content/collections";
 import { defineConfig } from "astro/config";
-
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
-
 import tailwind from "@astrojs/tailwind";
 import robotsTxt from "astro-robots-txt";
 import icon from "astro-icon";
 
 // https://astro.build/config
 export default defineConfig({
+	site: SITE.url,
 	integrations: [
 		react(),
 		sitemap(),
 		tailwind(),
-		robotsTxt(),
+		robotsTxt({robotsConfig}),
 		icon(),
 		mdx({
-			shikiConfig: {
-				theme: "poimandres", // https://shiki.matsu.io/themes
-			},
-			// TODO: remarkPlugins: [], rehypePlugins: []
-
-			// additional plugins
+			shikiConfig: SITE.shikiConfig,
 		}),
+		// TODO: remarkPlugins: [],
+		// additional plugins
 	],
+	content: {
+		collections: COLLECTION_NAMES.map((collection) => ({ name: collection, type: 'content' })),
+	},
 });
