@@ -5,7 +5,7 @@ import type {
 	Blog,
 	Socials,
 	Navigation,
-} from "@types";
+} from "./Types/types.d";
 
 //  SITE socials - used for the site footer
 export const socials: Socials = {
@@ -50,7 +50,7 @@ export const SITE: Site = {
 		"Alkaline is a theme for Astro that is designed to be easy to customize and use.",
 	keywords: ["astro", "theme"],
 	disableIndexing: false, // true for no indexing
-	logoSrc:  null, // in public folder png or svg
+	logoSrc: '/logo.png' ||null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
 	favicon: "/favicon.png", // in public folder png or svg
 	socials: socials,

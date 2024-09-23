@@ -35,9 +35,9 @@
 - [X] Easy image optimization
 - [X] Analytics integration
 - [X] Iconography
+- [X] And so much more!
 - [ ] Helpful documentation
 - [ ] Accessibility features
-- [ ] And so much more!
 
 ## Quick Start 🚀
 
@@ -58,7 +58,7 @@
 ## TODO - pre-launch
 
 - [X] RSS feed
-- [X] Pagination on tags page
+- [X] Pagination
 - [X] some mdx pages
 - [X] some astro pages
 - [X] some basic components

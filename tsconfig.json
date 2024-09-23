@@ -5,6 +5,9 @@
     "jsx": "preserve",
     "jsxImportSource": "react",
     "paths": {
+      "@config": [
+        "src/_alkaline_config.ts"
+      ],
       "@assets/*": [
         "src/assets/*"
       ],
@@ -13,9 +16,6 @@
       ],
       "@content/*": [
         "src/content/*"
-      ],
-      "@config": [
-        "src/_alkaline_config.ts"
       ],
       "@layouts/*": [
         "src/layouts/*"
@@ -26,15 +26,12 @@
       "@styles/*": [
         "src/styles/*"
       ],
-      "@types": [
-        "src/Types/types.d.ts"
-      ],
       "@utils/*": [
         "src/utils/*"
       ],
-      "@Types/*": [
+      "@types/*": [
         "src/Types/*"
       ]
     }
-  }
+  },
 }
