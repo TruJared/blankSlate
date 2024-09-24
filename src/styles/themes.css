@@ -42,16 +42,8 @@
 	--color-gradient: rgba(102, 192, 244, 0.3);
 	--color-text: #c7d5e0;
 	--color-accent: #ff6900;
-	--color-accent-alt: #66c0f4;
+	--color-accent-alt: #21668d;
 	--color-shadow: var(--color-gradient);
-}
-.theme-color-saver {
-	--color-background: #000000;
-	--color-gradient: #000000;
-	--color-text: #ffffff;
-	--color-accent: #ffffff;
-	--color-accent-alt: #000000;
-	--color-shadow: #ffffff;
 }
 .theme-Cthulhu-fhtagn {
 	--color-background: #1a3c3c;
@@ -108,4 +100,12 @@
 	--color-accent: #fed941;
 	--color-accent-alt: #133057;
 	--color-shadow: rgba(254, 217, 65, 0.3);
+}
+.theme-two-tone {
+	--color-background: #000000;
+	--color-gradient: #000000;
+	--color-text: #ffffff;
+	--color-accent: #ffffff;
+	--color-accent-alt: #000000;
+	--color-shadow: #ffffff;
 }

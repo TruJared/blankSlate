@@ -123,4 +123,8 @@ export const DOCS: Docs = {
 	author: AUTHORS[0].name,
 	description: SITE.description || "",
 	keywords: SITE.keywords,
+	postsPerPage: 10,
 };
+
+// export the collection names list
+export const COLLECTION_NAMES_LIST = ["blog", "docs"] as const;

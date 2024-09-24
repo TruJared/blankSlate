@@ -147,7 +147,7 @@
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		@apply bg-theme-secondary;
+		@apply bg-theme-accent;
 	}
 
 	/* Handle on hover */

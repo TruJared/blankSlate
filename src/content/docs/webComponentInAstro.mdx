@@ -1,0 +1,34 @@
+---
+title: "Web Component in Astro"
+description: "Learn how to use web components in Astro."
+published: 2024-05-01
+updated: 2024-05-01
+tags: [Astro, Web Components JavaScript]
+subtitle: "Learn how to use web components in Astro."
+---
+
+Yes, you're absolutely correct. In the BackToTop.astro file, we essentially built a web component. Let's break it down:
+The HTML structure is defined in the Astro component's template.
+The JavaScript part uses the Custom Elements API, which is a key part of the Web Components standard:
+
+```javascript
+class BackToTop extends HTMLElement {
+     // ... class implementation ...
+   }
+
+   customElements.define("back-to-top", BackToTop);
+```
+
+This creates a custom element named <back-to-top>.
+The component encapsulates its own behavior:
+It manages its own state (visibility based on scroll position)
+It handles its own events (scroll and click)
+The component is used with a custom tag:
+
+```javascript
+   <back-to-top></back-to-top>
+```
+
+This approach combines Astro's component structure with native web component functionality. It's not a fully isolated web component (it doesn't use Shadow DOM, for instance), but it follows many web component principles.
+The benefit of this approach in Astro is that it allows for the component's HTML to be rendered at build time (for better initial load performance), while the interactive behavior is added client-side through the custom element.
+So yes, you've essentially created a lightweight web component within the Astro framework!

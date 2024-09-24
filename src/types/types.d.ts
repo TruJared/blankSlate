@@ -1,7 +1,7 @@
 import type { ShikiConfig } from "astro";
 import type { GoogleFontFamily } from "./google-fonts";
 import type { IconifyIcon } from "@iconify/types";
-import type { CollectionNames } from "../content/config";
+import type { CollectionNamesList } from "../content/collections";
 
 export type Font = {
 	typeface: "sans" | "serif" | "mono";
@@ -66,12 +66,7 @@ export type Blog = {
 	postsPerPage: number;
 };
 
-export type Docs = {
-	title: string;
-	author: string;
-	description: string;
-	keywords: string[];
-};
+export type Docs = Blog;
 
 // This type is auto-generated. Do not edit manually.
-export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-color-saver' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax';
+export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax' | 'theme-two-tone';

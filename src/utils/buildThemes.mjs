@@ -86,7 +86,7 @@ async function main() {
   console.log(chalk.blue('Generating type definition and value files for themes...'));
   await generateFiles(themeNames);
 
-  console.log(chalk.green('Theme names extraction and file generation completed successfully! 🎉'));
+  console.log(chalk.greenBright('Theme names extraction and file generation completed successfully! 🎉'));
 }
 
 main().catch(error => {

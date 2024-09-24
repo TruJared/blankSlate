@@ -1,9 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import type { CollectionNames } from "@content/collections";
+import { COLLECTION_NAMES_LIST } from "@config";
 
-import { COLLECTION_NAMES } from "@content/collections";
-import { SITE } from "@config";
+import { SITE } from "@config"
 
 import { Icon } from "astro-icon/components";
 
@@ -14,12 +13,12 @@ import Tag from "@components/Astro/Tag.astro";
 export interface Props {
 	posts: any; // TODO: type
 	page?: any; // TODO: type
-	collectionName: CollectionNames | string | undefined;
+	collectionName: typeof COLLECTION_NAMES_LIST[number] | string | undefined;
 	title?: string | undefined;
 	description?: string;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 
-	filter?: (entry: CollectionEntry<CollectionNames>) => boolean;
+	filter?: (entry: CollectionEntry<typeof COLLECTION_NAMES_LIST[number]>) => boolean;
 	includeDrafts?: boolean;
 	subtitle?: string;
 }
@@ -27,7 +26,7 @@ export interface Props {
 const {
 	posts,
 	page,
-	collectionName = COLLECTION_NAMES[0],
+	collectionName = COLLECTION_NAMES_LIST[0],
 	title,
 	subtitle,
 	description = title,

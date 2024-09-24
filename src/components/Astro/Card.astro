@@ -7,6 +7,7 @@ export interface Props {
 	rounded?: boolean;
 	alt?: boolean;
 	image?: string;
+	shadowSize?: "sm" | "md" | "lg" | "none" |null;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
 
@@ -16,13 +17,13 @@ const {
 	rounded = false,
 	alt = false,
 	// image = "",
+	shadowSize = "sm",
 	customClass,
 } = Astro.props;
 
 const dynamicWrapper = [
 	"border-2",
-	"shadow-theme-shadow",
-	"shadow-md",
+	"shadow-theme-primary",
 	"mx-2",
 	"mb-6",
 	"p-4",
@@ -39,6 +40,10 @@ const dynamicWrapper = [
 			"rounded-lg": rounded,
 			"bg-theme-primary border-theme-primary": !alt,
 			"bg-theme-secondary border-theme-secondary": alt,
+			"shadow-sm": shadowSize === "sm",
+			"shadow-md": shadowSize === "md",
+			"shadow-lg": shadowSize === "lg",
+			"shadow-none": shadowSize === "none",
 		},
 		customClass,
 	]}

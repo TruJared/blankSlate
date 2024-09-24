@@ -35,6 +35,7 @@
 		}
 
 		connectedCallback() {
+			this.backToTopButton = document.getElementById("back-to-top");
 			window.addEventListener("scroll", () => this.toggleBackToTopButton());
 			this.backToTopButton?.addEventListener("click", () => this.scrollToTop());
 			this.toggleBackToTopButton(); // Initial check

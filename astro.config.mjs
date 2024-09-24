@@ -1,6 +1,6 @@
-import { SITE } from "./src/_alkaline_config";
+import { SITE, COLLECTION_NAMES_LIST } from "./src/_alkaline_config";
 import robotsConfig from './src/utils/robots-txt.config';
-import { COLLECTION_NAMES } from "./src/content/collections";
+
 import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 import mdx from "@astrojs/mdx";
@@ -25,6 +25,6 @@ export default defineConfig({
 		// additional plugins
 	],
 	content: {
-		collections: COLLECTION_NAMES.map((collection) => ({ name: collection, type: 'content' })),
+		collections: COLLECTION_NAMES_LIST.map((collection) => ({ name: collection, type: 'content' })),
 	},
 });

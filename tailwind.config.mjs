@@ -25,6 +25,8 @@ export default {
 				theme: {
 					primary: "var(--color-background)",
 					secondary: "var(--color-text)",
+					accent: "var(--color-accent)",
+					accentAlt: "var(--color-accent-alt)",
 				},
 			},
 			backgroundImage: {

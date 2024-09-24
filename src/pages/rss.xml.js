@@ -1,7 +1,7 @@
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
 import { SITE, BLOG } from "@config";
-import { COLLECTION_NAMES } from "@content/collections";
+import { COLLECTION_NAMES } from "@content/collectionsData";
 
 export async function GET(context) {
   const allPosts = await Promise.all(COLLECTION_NAMES.map(async (collection) => {
