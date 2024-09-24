@@ -36,10 +36,11 @@ const postCollectionSchema = {
 
 // use destructuring for overrides or additional fields
 
-let collectionSchemas = {};
+let collectionSchemas: { [key: string]: any } = {};
 
-collectionSchemas = collectionNames.map((collectionName) => {
-	return (collectionSchemas[collectionName] = defineCollection({
+// @ts-ignore
+collectionNames.forEach((collectionName) => {
+	collectionSchemas[collectionName] = defineCollection({
 		type: "content",
 		schema: () =>
 			z.object({
@@ -59,7 +60,7 @@ collectionSchemas = collectionNames.map((collectionName) => {
 					.default(collectionName === "blog" ? BLOG.title : DOCS.title)
 					.optional(),
 			}),
-	}));
+	});
 });
 
 export const collections = collectionSchemas;

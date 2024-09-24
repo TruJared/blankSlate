@@ -4,7 +4,7 @@ import type {
 	Docs,
 	Blog,
 	Socials,
-	Navigation,
+	NavEntry,
 } from "./Types/types.d";
 
 //  SITE socials - used for the site footer
@@ -82,7 +82,7 @@ export const SITE: Site = {
 	// If you're having trouble with the fonts not loading, it's probably because the font family name is incorrect or the font weights are not supported for that font family
 };
 
-export const NAVIGATION: Navigation[] = [
+export const NAVIGATION: NavEntry[] = [
 	{
 		href: "/",
 		text: "Home",
@@ -126,5 +126,5 @@ export const DOCS: Docs = {
 	postsPerPage: 10,
 };
 
-// export the collection names list
+// export the name of the collections as a list - must be the same as the name of the collection in the collections directory
 export const COLLECTION_NAMES_LIST = ["blog", "docs"] as const;

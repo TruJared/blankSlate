@@ -1,5 +1,5 @@
 ---
-import type { Font } from "@types";
+import type { Font } from "../../../Types/types";
 
 export interface Props {
 	fonts: Font[];
@@ -25,8 +25,8 @@ function buildGoogleFontsUrl(fonts: Font[]) {
 
 		// if ital we have to change the format of the fontWeights to match the google fonts api 0,300;0,400;1,300;1,400 etc
 		if (font?.fontWeights && font?.fontWeights?.length > 0 && font.includeItalic) {
-			const regularWeights = font.fontWeights.map((weight) => `0,${weight}`);
-			const italicWeights = font.fontWeights.map((weight) => `1,${weight}`);
+			const regularWeights = font.fontWeights.map((weight: any) => `0,${weight}`);
+			const italicWeights = font.fontWeights.map((weight: any) => `1,${weight}`);
 			fontQuery += `${[...regularWeights, ...italicWeights].join(";")}`;
 		}
 

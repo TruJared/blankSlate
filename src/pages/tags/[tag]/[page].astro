@@ -1,6 +1,5 @@
 ---
-import { SITE } from "@config";
-import { COLLECTION_NAMES } from "@content/collectionstions";
+import { SITE, COLLECTION_NAMES_LIST } from "@config";
 import type { PaginateFunction, } from "astro";
 import { getCollection } from "astro:content";
 import Posts from "@layouts/Posts.astro";
@@ -14,7 +13,7 @@ type Post = {
 export async function getStaticPaths({ paginate }: { paginate: PaginateFunction }) {
   const posts: Post[] = (
     await Promise.all(
-      COLLECTION_NAMES.map(async (collection) => await getCollection(collection))
+      COLLECTION_NAMES_LIST.map(async (collection) => await getCollection(collection))
     )
   ).flat();
 

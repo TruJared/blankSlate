@@ -56,7 +56,7 @@ export type NavEntry = {
 	text: string;
 };
 
-export type Navigation = NavEntry;
+
 
 export type Blog = {
 	title: string;

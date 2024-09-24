@@ -6,9 +6,11 @@
     "dev": "npm run build:themes && astro dev",
     "start": "npm run build:themes && astro dev",
     "build": "npm run build:themes && astro check && astro build",
+    "check": "npm run build:themes && astro check",
     "preview": "npm run build:themes && astro preview",
     "astro": "astro",
-    "build:themes": "node ./src/utils/buildThemes.mjs"
+    "build:themes": "node ./src/utils/buildThemes.mjs",
+    "nuke": "rm -rf .astro && rm -rf node_modules -v && npm i && npm run build:themes"
   },
   "dependencies": {
     "@astrojs/check": "^0.9.3",

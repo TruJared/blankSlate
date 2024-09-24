@@ -1,9 +1,9 @@
 ---
 import ToggleTheme from "@components/Astro/ToggleTheme.astro";
-import type { Navigation } from "@types";
+import type { NavEntry } from "../../Types/types";
 
 export interface Props {
-	links: Navigation[]; // Change this line
+	links: NavEntry[];
 	themeNames?: string[];
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
