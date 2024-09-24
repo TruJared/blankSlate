@@ -74,4 +74,4 @@ export type Docs = {
 };
 
 // This type is auto-generated. Do not edit manually.
-export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-brutal' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax' | 'theme-vans';
+export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-color-saver' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax';

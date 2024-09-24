@@ -1,0 +1,64 @@
+---
+
+---
+
+<button
+	id="back-to-top"
+	class="fixed bottom-0 right-0 w-0 h-0
+			border-l-[48px] border-b-[48px]
+			border-l-transparent border-b-theme-accent
+			hover:border-b-theme-primary
+			transition-opacity duration-300 opacity-0 invisible focus:outline-none
+      group
+      group-hover:border-b-theme-primary"
+	aria-label="Back to top"
+>
+	<svg
+		xmlns="http://www.w3.org/2000/svg"
+		class="h-6 w-6 absolute bottom-1 right-1 text-theme-accent group group-hover:animate-bounce "
+		fill="currentColor"
+		viewBox="0 0 20 20"
+	>
+		<path
+			fill-rule="evenodd"
+			d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+			clip-rule="evenodd"
+		/>
+	</svg>
+</button>
+
+<script>
+	class BackToTop extends HTMLElement {
+		constructor() {
+			super();
+			this.backToTopButton = document.getElementById("back-to-top");
+		}
+
+		connectedCallback() {
+			window.addEventListener("scroll", () => this.toggleBackToTopButton());
+			this.backToTopButton?.addEventListener("click", () => this.scrollToTop());
+			this.toggleBackToTopButton(); // Initial check
+		}
+
+		toggleBackToTopButton() {
+			if (window.scrollY > window.innerHeight) {
+				this.backToTopButton?.classList.remove("opacity-0", "invisible");
+				this.backToTopButton?.classList.add("opacity-100");
+			} else {
+				this.backToTopButton?.classList.remove("opacity-100");
+				this.backToTopButton?.classList.add("opacity-0", "invisible");
+			}
+		}
+
+		scrollToTop() {
+			window.scrollTo({
+				top: 0,
+				behavior: "smooth",
+			});
+		}
+	}
+
+	customElements.define("back-to-top", BackToTop);
+</script>
+
+<back-to-top></back-to-top>

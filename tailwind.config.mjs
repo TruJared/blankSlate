@@ -8,19 +8,23 @@ export default {
 	darkMode: "class",
 	content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
 	theme: {
-		colors: {}, // delete this line to include the default colors
+		colors: {}, // delete this line to include the default Tailwind colors
 		extend: {
 			colors: {
 				white: colors.white || "#ffffff",
 				black: colors.black || "#000000",
-				grey: "#707070",
+				slate: {
+					300: "#e2e8f0",
+					400: "#94a3b8",
+					700: "#334155",
+					900: "#0f172a",
+				},
 				transparent: "transparent",
 			},
 			backgroundColor: {
 				theme: {
 					primary: "var(--color-background)",
 					secondary: "var(--color-text)",
-					accent: "var(--color-accent)",
 				},
 			},
 			backgroundImage: {
@@ -43,30 +47,28 @@ export default {
 			},
 			borderColor: {
 				theme: {
-					primary: "var(--color-accent-alt)",
-					secondary: "var(--color-text)",
-					accent: "var(--color-accent)",
+					primary: "var(--color-accent)",
+					secondary: "var(--color-accent-alt)",
 				},
 			},
 			boxShadowColor: {
 				theme: {
 					primary: "var(--color-shadow)",
 					secondary: "var(--color-text)",
-					accent: "var(--color-accent)",
 				},
 			},
 			textColor: {
 				theme: {
 					primary: "var(--color-text)",
-					secondary: "var(--color-text-alt)",
+					secondary: "var(--color-background)",
 					accent: "var(--color-accent)",
+					accentAlt: "var(--color-accent-alt)",
 				},
 			},
 			textDecorationColor: {
 				theme: {
-					primary: "var(--color-text)",
-					secondary: "var(--color-text-alt)",
-					accent: "var(--color-accent)",
+					primary: "var(--color-accent)",
+					secondary: "var(--color-accent-alt)",
 				},
 			},
 			fontFamily: {

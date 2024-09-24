@@ -1,12 +1,11 @@
 ---
 export interface Props {
 	text: string;
-	tooltip?: string;
 	neonify?: boolean | "true" | "false";
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
 
-const { text, customClass, neonify = false, tooltip = text } = Astro.props;
+const { text, customClass, neonify = false, } = Astro.props;
 ---
 
 <span class="relative inline-block group">
@@ -20,16 +19,16 @@ const { text, customClass, neonify = false, tooltip = text } = Astro.props;
 
 	<span
 		class:list={[
-			"absolute z-10 hidden group-hover:block font-semiboldtracking-wider font-mono rounded py-2 px-4 bottom-full left-1/2 transform -translate-x-1/2 mb-1 whitespace-nowrap shadow-sm",
+			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono rounded py-2 px-4 bottom-full left-1/2 transform -translate-x-1/2 mb-1 whitespace-nowrap shadow-sm",
 			{
 				"bg-theme-primary text-theme-primary text-base border-2 border-theme-accent shadow-theme-accent":
 					neonify,
-				"bg-[#747474] text-white text-sm border-1 border-theme-primary shadow-theme-grey":
+				"bg-[#747474] text-white border-1 border-theme-primary shadow-theme-grey":
 					!neonify,
 			},
 		]}
 	>
-		{tooltip}
+		{text}
 		<span
 			class:list={[
 				"absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent",

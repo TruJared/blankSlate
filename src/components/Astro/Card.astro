@@ -21,8 +21,7 @@ const {
 
 const dynamicWrapper = [
 	"border-2",
-	"border-theme-secondary",
-	"shadow-theme-accent",
+	"shadow-theme-shadow",
 	"shadow-md",
 	"mx-2",
 	"mb-6",
@@ -38,8 +37,8 @@ const dynamicWrapper = [
 		...dynamicWrapper,
 		{
 			"rounded-lg": rounded,
-			"bg-theme-primary": alt,
-			"bg-theme-secondary": !alt,
+			"bg-theme-primary border-theme-primary": !alt,
+			"bg-theme-secondary border-theme-secondary": alt,
 		},
 		customClass,
 	]}
@@ -50,18 +49,19 @@ const dynamicWrapper = [
 			"uppercase",
 			"font-bold",
 			"mb-2",
-			{ "text-theme-secondary": !alt, "text-theme-primary": alt },
+			{ "text-theme-primary": !alt, "text-theme-secondary": alt },
 		]}
 	>
 		{title}
 	</h2>
 	<hr
 		class:list={[
-			"border-theme-accent border-1 mb-2",
+			"border-1 mb-2",
+			{ "border-theme-primary": !alt },
 			{ "border-theme-secondary": alt },
 		]}
 	/>
-	<p class:list={[{ "text-theme-secondary": !alt, "text-theme-primary": alt }]}>
+	<p class:list={[{ "text-theme-primary": !alt, "text-theme-secondary": alt }]}>
 		{description}
 	</p>
 </div>

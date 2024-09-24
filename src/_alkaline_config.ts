@@ -55,9 +55,9 @@ export const SITE: Site = {
 	favicon: "/favicon.png", // in public folder png or svg
 	socials: socials,
 	locale: "en_US",
-	postsPerPage: 1,
+	postsPerPage: 10,
 	shikiConfig: {
-		theme: "tokyo-night",
+		theme: "night-owl",
 	},
 
 	// https://fonts.google.com/

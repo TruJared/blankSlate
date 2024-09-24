@@ -69,6 +69,7 @@
 - [X] Google Font types
 - [X] Research how other use custom classes in their astro component props
 - [X] view transitions - tweak
+- [X] docker support
 - [ ] Multi-language support
 - [ ] docs
 - [ ] table of contents for docs

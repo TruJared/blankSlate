@@ -105,7 +105,7 @@
 	}
 
 	a {
-		@apply underline underline-offset-2 decoration-2 decoration-theme-accent hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20 cursor-pointer;
+		@apply underline underline-offset-2 decoration-2 decoration-theme-primary hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20 cursor-pointer;
 	}
 
 	pre:has(code) {
@@ -122,11 +122,11 @@
 	}
 
 	blockquote {
-		@apply border-l-4 border-theme-accent pl-4 italic text-theme-primary;
+		@apply border-l-4 border-theme-primary pl-4 italic text-theme-primary;
 	}
 
 	::selection {
-		@apply bg-theme-accent text-theme-secondary;
+		@apply bg-theme-secondary text-theme-secondary;
 	}
 
 	/** scrollbar **/
@@ -147,7 +147,7 @@
 
 	/* Handle */
 	::-webkit-scrollbar-thumb {
-		@apply bg-theme-accent;
+		@apply bg-theme-secondary;
 	}
 
 	/* Handle on hover */
@@ -198,7 +198,7 @@
 
 
 	.prose a {
-		@apply underline underline-offset-2 decoration-2 decoration-theme-accent hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20;
+		@apply underline underline-offset-2 decoration-2 decoration-theme-primary hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20;
 	}
 
 	.prose blockquote {
@@ -237,7 +237,7 @@
 	}
 
 	.prose ::selection {
-		@apply bg-theme-accent text-theme-secondary;
+		@apply bg-theme-secondary text-theme-secondary;
 	}
 }
 
@@ -248,7 +248,7 @@
 		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
 	}
 	.is-title-alt {
-		@apply text-5xl font-bold font-serif bg-theme-accent text-theme-secondary tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+		@apply text-5xl font-bold font-serif bg-theme-secondary text-theme-secondary tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
 	}
 	.focused {
 		@apply outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;

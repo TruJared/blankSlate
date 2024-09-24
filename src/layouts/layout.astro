@@ -10,6 +10,7 @@ import ResourceLinks from "@components/Astro/Head/ResourceLinks.astro";
 
 import Nav from "@components/Astro/Nav.astro";
 import Title from "@components/Astro/Title.astro";
+import BackToTop from "@components/Astro/BackToTop.astro";
 
 import "@styles/global.css";
 
@@ -27,7 +28,6 @@ export interface Props {
 	showTitleBackground?: boolean;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
-
 
 const {
 	title = SITE.title,
@@ -53,8 +53,10 @@ const metaTags = [
 	{ name: "sitemap", content: "/sitemap-index.xml" },
 	{ name: "publishedTime", content: publishedTime },
 	{ name: "modifiedTime", content: modifiedTime },
-	{ name: "robots", content: `index, ${SITE.disableIndexing ? 'noindex, nofollow' : 'index, follow'}` },
-
+	{
+		name: "robots",
+		content: `index, ${SITE.disableIndexing ? "noindex, nofollow" : "index, follow"}`,
+	},
 ];
 const fonts = SITE.fonts || [];
 ---
@@ -76,11 +78,15 @@ const fonts = SITE.fonts || [];
 		{/*<ResourceLinks />*/}
 	</head>
 	<body class:list={[customClass]}>
-		<Title title={title} logoSrc={logoSrc ?? ""} showTitleBackground={showTitleBackground} />
+		<Title
+			title={title}
+			logoSrc={logoSrc ?? ""}
+			showTitleBackground={showTitleBackground}
+		/>
 		<Nav links={NAVIGATION} />
-		<main class="min-h-100">
-
+		<main>
 			<slot />
 		</main>
+			<BackToTop />
 	</body>
 </html>
