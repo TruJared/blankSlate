@@ -1,6 +1,6 @@
 ---
 import type { CollectionEntry } from "astro:content";
-import { COLLECTION_NAMES_LIST } from "@config";
+import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
 
 import { SITE } from "@config"
 
@@ -69,7 +69,8 @@ const {
 						</a>
 					</p>
 					<p>{post.data.pubDatetime?.toDateString()}</p>
-					<p>By {post.data.author}</p>
+					{/* TODO: componentize this */}
+					<p>Posted by {AUTHORS.find(author => author.id === post.data.author)?.name}</p>
 				</div>
 			))
 		}

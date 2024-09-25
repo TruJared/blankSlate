@@ -1,10 +1,10 @@
 import css from 'css';
-import { readFile, writeFile } from 'fs/promises';
+import { readFile, writeFile, mkdir } from 'fs/promises';
 import path from 'path';
 import chalk from 'chalk';
 
 const inputFile = path.resolve('src/styles/themes.css');
-const outputTypeFile = path.resolve('./src/types/types.d.ts');
+const outputTypeFile = path.resolve('./src/types/types.ts');
 const outputNamesFile = path.resolve('./src/utils/themeNames.js');
 
 
@@ -48,6 +48,10 @@ export const themeNames = [${themeNames.map(name => `'${name}'`).join(', ')}];
 `;
 
   try {
+    // Ensure directories exist
+    await mkdir(path.dirname(outputTypeFile), { recursive: true });
+    await mkdir(path.dirname(outputNamesFile), { recursive: true });
+
     // Update types file
     let existingTypes = await readFile(outputTypeFile, 'utf-8');
     const themeNamesTypeRegex = /\/\/ This type is auto-generated[\s\S]*?export type ThemeNames[^;]*;/;
@@ -65,13 +69,9 @@ export const themeNames = [${themeNames.map(name => `'${name}'`).join(', ')}];
     }
 
     // Update themeNames.js
-    const existingNames = await readFile(outputNamesFile, 'utf-8');
-    if (existingNames.trim() !== namesContent.trim()) {
-      await writeFile(outputNamesFile, namesContent, 'utf-8');
-      console.log(chalk.green(`Successfully updated ${outputNamesFile}`));
-    } else {
-      console.log(chalk.yellow(`No changes needed in ${outputNamesFile}`));
-    }
+    await writeFile(outputNamesFile, namesContent, 'utf-8');
+    console.log(chalk.green(`Successfully updated ${outputNamesFile}`));
+
   } catch (error) {
     console.error(chalk.red(`Error writing files: ${error.message}`));
     process.exit(1);
@@ -82,11 +82,13 @@ async function main() {
   console.log(chalk.blue('Starting theme names extraction...'));
   const themeNames = await extractThemeNames();
   console.log(chalk.cyan(`Found ${themeNames.length} themes: ${themeNames.join(', ')}`));
-
+  console.log('');
   console.log(chalk.blue('Generating type definition and value files for themes...'));
   await generateFiles(themeNames);
 
   console.log(chalk.greenBright('Theme names extraction and file generation completed successfully! 🎉'));
+  console.log('');
+  console.log(chalk.magentaBright('Astro preparing for lift off! 🚀'));
 }
 
 main().catch(error => {

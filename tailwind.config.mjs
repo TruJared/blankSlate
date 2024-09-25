@@ -93,6 +93,13 @@ export default {
 					...defaultTheme.fontFamily.mono,
 				],
 			},
+			typography: {
+				DEFAULT: {
+					css: {
+						maxWidth: "85ch",
+					},
+				},
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],

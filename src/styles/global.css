@@ -5,9 +5,7 @@
 @tailwind components;
 @tailwind utilities;
 
-
 @layer base {
-
 	/** General **/
 
 	html {
@@ -162,10 +160,9 @@
 }
 
 /** prose **/
-
 @layer components {
 	.prose {
-		@apply text-theme-primary text-lg font-extralight leading-relaxed;
+		@apply text-theme-primary text-lg font-extralight leading-relaxed md:m-auto;
 	}
 
 	.prose h1 {
@@ -196,9 +193,8 @@
 		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2 mt-1;
 	}
 
-
 	.prose a {
-		@apply underline underline-offset-2 decoration-2 decoration-theme-primary hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20;
+		@apply text-theme-primary underline-offset-2 decoration-2 decoration-theme-primary hover:decoration-theme-secondary hover:text-theme-accent hover:bg-opacity-20 cursor-pointer;
 	}
 
 	.prose blockquote {
@@ -215,7 +211,6 @@
 	}
 
 	.prose pre {
-
 		@apply font-mono text-sm border border-theme-secondary rounded-md -mt-4 mb-10 py-8 px-2 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
 		/* No background highlight for code blocks */
 	}
@@ -240,6 +235,7 @@
 		@apply bg-theme-secondary text-theme-secondary;
 	}
 }
+
 
 /** helper classes **/
 

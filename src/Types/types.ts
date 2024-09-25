@@ -1,11 +1,17 @@
 import type { ShikiConfig } from "astro";
 import type { GoogleFontFamily } from "./google-fonts";
-import type { IconifyIcon } from "@iconify/types";
 import type { CollectionNamesList } from "../content/collections";
+
+//  Accepts GoogleFontFamily for Google Fonts types(about 250 listed).
+//  Accept any other string if Google Fonts types doesn't import - comment out the import to remove the font types
+
+type FontFamily =
+	| GoogleFontFamily
+	| (GoogleFontFamily extends never ? string : never);
 
 export type Font = {
 	typeface: "sans" | "serif" | "mono";
-	fontFamily: GoogleFontFamily | string;
+	fontFamily: FontFamily;
 	fontWeights: number[] | string[] | null;
 	includeItalic?: boolean;
 };
@@ -56,8 +62,6 @@ export type NavEntry = {
 	text: string;
 };
 
-
-
 export type Blog = {
 	title: string;
 	author: string;
@@ -69,4 +73,4 @@ export type Blog = {
 export type Docs = Blog;
 
 // This type is auto-generated. Do not edit manually.
-export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax' | 'theme-two-tone';
+export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-Alkaline' | 'theme-1337' | 'theme-blue-steel' | 'theme-Cthulhu-fhtagn' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peas-and-carrots' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-syntax' | 'theme-two-tone';

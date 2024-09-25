@@ -69,6 +69,14 @@
 	--color-accent-alt: #a85400;
 	--color-shadow: rgba(0, 0, 0, 0.6);
 }
+.theme-peas-and-carrots {
+	--color-background: #f5f3e8;
+	--color-gradient: #eae7d9;
+	--color-text: #4a5d28;
+	--color-accent: #d17844;
+	--color-accent-alt: #a85751;
+	--color-shadow: #b8cc94;
+}
 .theme-peppermint {
 	--color-background: #ffffff;
 	--color-gradient: #f0f7f7;

@@ -1,5 +1,4 @@
 ---
-import { SITE } from "@config";
 import Favicon from "@components/Astro/Head/Favicon.astro";
 
 export interface Props {
@@ -11,6 +10,7 @@ export interface Props {
 	canonicalURL?: string;
 	siteName?: string;
 	locale?: string;
+	logoSrc?: string;
 	author?: string;
 	publishedTime?: string;
 	modifiedTime?: string;
@@ -20,15 +20,16 @@ export interface Props {
 }
 
 const {
-	title = SITE.title,
-	description = SITE.description,
+	title,
+	description,
 	type = "website",
-	image = SITE.ogImage,
-	favicon = SITE.favicon,
+	image,
+	favicon,
 	canonicalURL = Astro.url.href,
-	siteName = SITE.title,
+	siteName,
 	locale = "en_US",
-	author = SITE.author,
+	author,
+	logoSrc,
 	publishedTime,
 	modifiedTime,
 	keywords,
@@ -56,10 +57,10 @@ switch (type) {
 			publisher: {
 				"@type": "Organization",
 				name: siteName,
-				...(SITE.logoSrc && {
+				...(logoSrc && {
 					logo: {
 						"@type": "ImageObject",
-						url: new URL(SITE.logoSrc, Astro.site),
+						url: new URL(logoSrc, Astro.site),
 					},
 				}),
 			},

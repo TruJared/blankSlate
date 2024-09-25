@@ -1,0 +1,16 @@
+---
+import Tag from "@components/Astro/Tag.astro";
+
+
+export interface Props {
+	tags: string[];
+}
+
+
+const { tags } = Astro.props;
+console.log("🚀 ~ tags:", tags)
+---
+
+<div class="flex flex-wrap mx-0 px-0 -mt-4">
+	{tags.map((tag) => <Tag tag={tag} size="xs" />)}
+</div>

@@ -70,13 +70,13 @@
 - [X] Research how other use custom classes in their astro component props
 - [X] view transitions - tweak
 - [X] docker support
-- [ ] Multi-language support
 - [ ] docs
 - [ ] table of contents for docs
 - [ ] look into releasing on Astro's theme site
 
 ## TODO - post-launch (maybe)
 
+- [ ] Multi-language support
 - [ ] Themes 2.0 (decorations, icons, fonts, etc...)
 - [ ] Astro DB features (like buttons, comments??)?
 - [ ] Map Syntax Highlighting to theme-color

@@ -2,7 +2,7 @@
 export interface Props {
 	tag: string;
 	count?: number | string | undefined;
-	size?: "sm" | "md" | "lg";
+	size?: "xs" | "sm" | "md" | "lg";
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
 
@@ -12,17 +12,18 @@ const { tag, count, size = "md", customClass } = Astro.props;
 
 <span
 	class:list={[
-		"h6 bg-secondary border border-theme-secondary text-xs text-white inline-flex justify-center items-center hover:cursor-pointer hover:bg-theme-secondary hover:text-theme-secondary hover:border-theme-primary transition-all duration-300",
+		"h6 bg-secondary border border-theme-secondary text-xs text-white inline-flex justify-center items-center hover:cursor-pointer hover:bg-theme-primary hover:text-theme-accent hover:border-theme-primary transition-all duration-300",
 		customClass,
-		{ "py-0.5 px-0.5 mr-1": size === "sm" },
-		{ "py-1 px-1 mr-0.5": size === "md" },
-		{ "py-2 px-2 m-2": size === "lg" },
+		{ "py-0.5 px-0.5 mr-1": size === "xs" },
+		{ "py-1 px-1 mr-2": size === "sm" },
+		{ "py-1.5 px-1.5 mr-2.5": size === "md" },
+		{ "py-2 px-2 m-3": size === "lg" },
 	]}
 >
 	<a
 		href={`/tags/${tag}`}
 		class:list={[
-			"hover:text-theme-secondary hover:cursor-pointer no-underline",
+			"hover:cursor-pointer no-underline",
 			{ "text-xs": size === "sm" },
 			{ "text-sm": size === "md" || size === "lg" },
 		]}

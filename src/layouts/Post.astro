@@ -1,12 +1,12 @@
 ---
-import { COLLECTION_NAMES_LIST } from "@config";
+import {COLLECTION_NAMES_LIST, AUTHORS } from "@config";
 
 
 import { getCollection } from "astro:content";
 import { Icon } from "astro-icon/components";
 
 import Layout from "@layouts/Layout.astro";
-import Tag from "@components/Astro/Tag.astro";
+import Tags from "@components/Astro/Tags.astro";
 
 export interface Props {
 	collectionName: typeof COLLECTION_NAMES_LIST[number];
@@ -35,17 +35,16 @@ const { Content } = await entry.render();
 	title={entry.data.title}
 	description={entry.data.description}
 	logoSrc={""}
-	customClass={customClass}
 >
-	<article>
+	<article class:list={["prose", customClass]}>
 		{entry.data.subtitle && <h2>{entry.data.subtitle}</h2>}
-		<span class="flex row items-center mt-2">
+		<span class="flex row items-center">
 			<Icon
 				name="ph:pencil-simple-line"
-				class="text-theme-primary inline mr-2"
+				class="text-theme-primary inline -mt-6"
 			/>
-			<p class="text-sm text-theme-primaryfont-mono">
-				Posted by {entry.data.author}
+			<p class="text-sm text-theme-primary font-mono">
+				Posted by {AUTHORS.find(author => author.id === entry.data.author)?.name}
 				{
 					entry.data.pubDatetime
 						? `on ${entry.data.pubDatetime.toDateString()}`
@@ -54,13 +53,7 @@ const { Content } = await entry.render();
 			</p>
 		</span>
 		{
-			entry.data.tags && (
-				<div class="flex flex-wrap">
-					{entry.data.tags.map((tag: string) => (
-						<Tag tag={tag} size="sm" />
-					))}
-				</div>
-			)
+			entry.data.tags && <Tags tags={entry.data.tags} />
 		}
 		<Content />
 	</article>

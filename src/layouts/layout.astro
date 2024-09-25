@@ -46,13 +46,7 @@ const {
 const metaTags = [
 	{ name: "viewport", content: "width=device-width, initial-scale=1.0" },
 	{ name: "generator", content: "Astro" },
-	{ name: "description", content: SITE.description || SITE.title },
-	{ name: "keywords", content: SITE.keywords.join(", ") },
-	{ name: "title", content: SITE.title },
-	{ name: "author", content: SITE.author || SITE.title },
 	{ name: "sitemap", content: "/sitemap-index.xml" },
-	{ name: "publishedTime", content: publishedTime },
-	{ name: "modifiedTime", content: modifiedTime },
 	{
 		name: "robots",
 		content: `index, ${SITE.disableIndexing ? "noindex, nofollow" : "index, follow"}`,

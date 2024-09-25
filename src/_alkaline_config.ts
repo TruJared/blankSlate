@@ -5,7 +5,7 @@ import type {
 	Blog,
 	Socials,
 	NavEntry,
-} from "./Types/types.d";
+} from "./Types/types";
 
 //  SITE socials - used for the site footer
 export const socials: Socials = {
@@ -50,16 +50,16 @@ export const SITE: Site = {
 		"Alkaline is a theme for Astro that is designed to be easy to customize and use.",
 	keywords: ["astro", "theme"],
 	disableIndexing: false, // true for no indexing
-	logoSrc: '/logo.png' ||null, // in public folder png or svg
+	logoSrc: "/logo.png" || null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
 	favicon: "/favicon.png", // in public folder png or svg
 	socials: socials,
 	locale: "en_US",
 	postsPerPage: 10,
 	shikiConfig: {
-		theme: "night-owl",
+		theme: "poimandres",
 	},
-
+	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
 	// https://fonts.google.com/
 	fonts: [
 		{
@@ -126,5 +126,5 @@ export const DOCS: Docs = {
 	postsPerPage: 10,
 };
 
-// export the name of the collections as a list - must be the same as the name of the collection in the collections directory
+// export the name(s) of the collections as a list - must match the name of the collection in the collections directory
 export const COLLECTION_NAMES_LIST = ["blog", "docs"] as const;
