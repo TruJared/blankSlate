@@ -17,17 +17,23 @@
 		@apply min-h-[100svh] w-full max-w-5xl;
 	}
 
-	/** Lazy Layout **/
-	section {
-		@apply p-2 my-2 sm:p-6;
-	}
+	/** Layout **/
 
-	section + section {
-		@apply mt-0 pt-0;
+	main {
+		@apply p-4 my-4 sm:p-6 sm:my-6;
 	}
 
 	article {
-		@apply p-1 m-1 sm:p-2 leading-relaxed text-base;
+		@apply p-2 m-2 sm:p-4 sm:m-4;
+	}
+
+	/* Remove or adjust these if they're causing issues */
+	section {
+		@apply p-4 my-4 sm:p-6 sm:my-6;
+	}
+
+	div {
+		@apply p-2 m-2 sm:p-4;
 	}
 
 	section article:first-of-type {
@@ -36,10 +42,6 @@
 
 	section article:last-of-type {
 		@apply mb-0;
-	}
-
-	div {
-		@apply px-2 m-2 sm:p-2;
 	}
 
 	/** Typography **/
@@ -56,7 +58,7 @@
 	.h4,
 	.h5,
 	.h6 {
-		@apply tracking-widest font-bold font-serif;
+		@apply mb-4 mt-8 tracking-widest font-bold font-serif;
 	}
 
 	h5,
@@ -68,38 +70,38 @@
 
 	h1,
 	.h1 {
-		@apply text-4xl text-theme-accent leading-relaxed md:text-5xl;
+		@apply text-3xl sm:text-4xl md:text-5xl text-theme-accent leading-tight;
 	}
 
 	h2,
 	.h2 {
-		@apply text-4xl text-theme-accent leading-normal;
+		@apply text-2xl sm:text-3xl md:text-4xl text-theme-accent leading-tight;
 	}
 
 	h3,
 	.h3 {
-		@apply text-3xl mb-2;
+		@apply text-xl sm:text-2xl md:text-3xl mb-4;
 	}
 
 	h4,
 	.h4 {
-		@apply text-xl mb-2;
+		@apply text-lg sm:text-xl md:text-2xl mb-3;
 	}
 
 	h5,
 	.h5 {
-		@apply text-lg font-light mb-1;
+		@apply text-lg font-light my-1;
 	}
 
 	h6,
 	.h6 {
-		@apply text-sm font-extralight mb-1;
+		@apply text-sm font-extralight my-1;
 	}
 
 	p,
 	li,
 	a {
-		@apply text-theme-primary font-extralight py-1;
+		@apply text-base sm:text-lg md:text-xl leading-relaxed;
 	}
 
 	a {
@@ -107,7 +109,7 @@
 	}
 
 	pre:has(code) {
-		@apply font-mono text-sm border border-theme-secondary rounded-lg p-6 my-4 mx-0 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms];
+		@apply font-mono text-sm border border-theme-secondary rounded-lg p-6 my-4 mx-2 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms];
 	}
 
 	code,
@@ -135,7 +137,7 @@
 
 	/* width */
 	::-webkit-scrollbar {
-		@apply w-3;
+		@apply w-2;
 	}
 
 	/* Track */
@@ -162,7 +164,7 @@
 /** prose **/
 @layer components {
 	.prose {
-		@apply text-theme-primary text-lg font-extralight leading-relaxed md:m-auto;
+		@apply text-theme-primary text-lg font-extralight leading-relaxed md:m-auto max-w-4xl;
 	}
 
 	.prose h1 {
@@ -170,15 +172,15 @@
 	}
 
 	.prose h2 {
-		@apply text-4xl text-theme-accent leading-normal tracking-widest mt-8 first:mt-0;
+		@apply text-4xl text-theme-accent leading-normal tracking-widest mt-8 mb-2;
 	}
 
 	.prose h3 {
-		@apply text-3xl text-theme-primary tracking-widest mt-4;
+		@apply text-3xl text-theme-primary tracking-widest mt-14 mb-2;
 	}
 
 	.prose h4 {
-		@apply text-xl text-theme-primary tracking-widest mt-2;
+		@apply text-xl text-theme-primary tracking-widest mt-10 mb-2;
 	}
 
 	.prose h5 {
@@ -190,7 +192,7 @@
 	}
 
 	.prose p {
-		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2 mt-1;
+		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2 mt-1 mb-6;
 	}
 
 	.prose a {
@@ -211,12 +213,11 @@
 	}
 
 	.prose pre {
-		@apply font-mono text-sm border border-theme-secondary rounded-md -mt-4 mb-10 py-8 px-2 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
-		/* No background highlight for code blocks */
+		@apply font-mono text-sm border border-theme-secondary rounded-md -mt-4 mb-8 py-8 px-6 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
 	}
 
 	.prose code:not(pre code) {
-		@apply bg-theme-secondary text-theme-secondary px-1 rounded; /* Background highlight for inline code only */
+		@apply bg-theme-secondary text-theme-secondary px-1 rounded;
 	}
 
 	.prose
@@ -228,7 +229,7 @@
 			h5 strong,
 			h6 strong
 		) {
-		@apply text-theme-primary font-extralight relative tracking-wider; /* Changed to font-semibold and font-sans for readability */
+		@apply text-theme-primary font-extralight relative tracking-wider;
 	}
 
 	.prose ::selection {
@@ -236,15 +237,14 @@
 	}
 }
 
-
 /** helper classes **/
 
 @layer components {
 	.is-title {
-		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip tracking-tight leading-tight md:text-6xl tracking-widest leading-normal;
 	}
 	.is-title-alt {
-		@apply text-5xl font-bold font-serif bg-theme-secondary text-theme-secondary tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+		@apply text-5xl font-bold font-serif bg-theme-secondary text-theme-secondary tracking-tight leading-tight md:text-6xl tracking-widest leading-normal;
 	}
 	.focused {
 		@apply outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;

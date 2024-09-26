@@ -1,10 +1,9 @@
 import type { ShikiConfig } from "astro";
 import type { GoogleFontFamily } from "./google-fonts";
-import type { CollectionNamesList } from "../content/collections";
+
 
 //  Accepts GoogleFontFamily for Google Fonts types(about 250 listed).
-//  Accept any other string if Google Fonts types doesn't import - comment out the import to remove the font types
-
+//  Accept any other string if Google Fonts types doesn't import - comment out the import to remove the font hints
 type FontFamily =
 	| GoogleFontFamily
 	| (GoogleFontFamily extends never ? string : never);

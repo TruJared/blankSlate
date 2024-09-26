@@ -27,6 +27,10 @@ const postCollectionSchema = {
 		.object({
 			src: z.string(),
 			alt: z.string().optional(),
+			width: z.number().optional(),
+			height: z.number().optional(),
+			format: z.enum(['webp', 'jpg', 'png']).optional(),
+			quality: z.number().min(0).max(100).optional(),
 		})
 		.optional()
 		.default({ src: SITE.ogImage || "" }),

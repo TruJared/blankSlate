@@ -1,21 +1,23 @@
 ---
-import {COLLECTION_NAMES_LIST, AUTHORS } from "@config";
-
+import { COLLECTION_NAMES_LIST, AUTHORS } from "@config";
 
 import { getCollection } from "astro:content";
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 import Layout from "@layouts/Layout.astro";
 import Tags from "@components/Astro/Tags.astro";
 
+import placeholderImage from "@assets/placehold.jpg";
+
 export interface Props {
-	collectionName: typeof COLLECTION_NAMES_LIST[number];
+	collectionName: (typeof COLLECTION_NAMES_LIST)[number];
 	slug: string;
 	tags: string[] | undefined;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
+	class?: string | Record<string, boolean>;
 }
 
-const { collectionName, slug, customClass } = Astro.props;
+const { class: className, collectionName, slug } = Astro.props;
 
 const entry = (await getCollection(collectionName)).find(
 	(entry) => entry.slug === slug
@@ -36,15 +38,17 @@ const { Content } = await entry.render();
 	description={entry.data.description}
 	logoSrc={""}
 >
-	<article class:list={["prose", customClass]}>
-		{entry.data.subtitle && <h2>{entry.data.subtitle}</h2>}
+	<article class:list={["prose", className]}>
+		{entry.data.subtitle && <h2 class="mb-4">{entry.data.subtitle}</h2>}
 		<span class="flex row items-center">
 			<Icon
 				name="ph:pencil-simple-line"
 				class="text-theme-primary inline -mt-6"
 			/>
 			<p class="text-sm text-theme-primary font-mono">
-				Posted by {AUTHORS.find(author => author.id === entry.data.author)?.name}
+				Posted by {
+					AUTHORS.find((author) => author.id === entry.data.author)?.name
+				}
 				{
 					entry.data.pubDatetime
 						? `on ${entry.data.pubDatetime.toDateString()}`
@@ -52,9 +56,14 @@ const { Content } = await entry.render();
 				}
 			</p>
 		</span>
-		{
-			entry.data.tags && <Tags tags={entry.data.tags} />
-		}
+		{entry.data.tags && <Tags tags={entry.data.tags} class="ml-4" />}
+		<Image
+			src={entry.data.image || placeholderImage}
+			alt={entry.data.alt || entry.data.title}
+			class="w-full h-auto max-h-50vh object-cover"
+			width={1200}
+			height={630}
+		/>
 		<Content />
 	</article>
 </Layout>

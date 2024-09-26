@@ -43,7 +43,7 @@ export const AUTHORS: Author[] = [
 
 export const SITE: Site = {
 	title: "Alkaline",
-	showTitleBackground: false,
+	showTitleBackground: true,
 	url: "https://fakesite.fake", // ! make sure to change this ! //
 	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
 	description:

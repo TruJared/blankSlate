@@ -1,11 +1,8 @@
 ---
 import type { CollectionEntry } from "astro:content";
 import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
-
 import { SITE } from "@config"
-
 import { Icon } from "astro-icon/components";
-
 import Pagination from "@components/Astro/Pagination.astro";
 import Layout from "@layouts/Layout.astro";
 import Tag from "@components/Astro/Tag.astro";
@@ -17,7 +14,6 @@ export interface Props {
 	title?: string | undefined;
 	description?: string;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
-
 	filter?: (entry: CollectionEntry<typeof COLLECTION_NAMES_LIST[number]>) => boolean;
 	includeDrafts?: boolean;
 	subtitle?: string;
@@ -35,47 +31,40 @@ const {
 ---
 
 <Layout title={title} description={description} customClass={customClass}>
-	<section>
-		<div>
-			{
-				subtitle && (
-					<p class="h6 text-4xl text-center mb-12 capitalize">{subtitle}</p>
-				)
-			}
-		</div>
-		{
-			posts?.map((post: any) => (
-				<div class="mb-12">
-					{}{" "}
+	<main>
+		{subtitle && (
+			<h1 class="h6 text-4xl text-center mb-12 capitalize">{subtitle}</h1>
+		)}
+		{posts?.map((post: any) => (
+			<article class="mb-12">
+				<a
+					href={`/${post.collection || collectionName}/${post.slug}`}
+					class="no-underline"
+				>
+					<h2 class="mb-6">{post.data.title}</h2>
+				</a>
+				<div class="flex flex-wrap">
+					<Icon name="ph:tag" size={22} class="mr-3 mt-1" />
+					{post.data.tags?.map((tag: string) => (
+						<Tag tag={tag} size="sm" />
+					))}
+				</div>
+				<p class="mt-6">
+					{post.data.description}{" "}
 					<a
 						href={`/${post.collection || collectionName}/${post.slug}`}
-						class="no-underline"
+						class="text-theme-primary pl-2"
 					>
-						<h2 class="mb-6">{post.data.title}</h2>
+						Read more...
 					</a>
-					<div class="flex flex-wrap">
-						<Icon name="ph:tag" size={22} class="mr-3 mt-1" />
-						{post.data.tags?.map((tag: string) => (
-							<Tag tag={tag} size="sm" />
-						))}
-					</div>
-					<p class="mt-6">
-						{post.data.description}{" "}
-						<a
-							href={`/${post.collection || collectionName}/${post.slug}`}
-							class="text-theme-primary pl-2"
-						>
-							Read more...
-						</a>
-					</p>
-					<p>{post.data.pubDatetime?.toDateString()}</p>
-					{/* TODO: componentize this */}
-					<p>Posted by {AUTHORS.find(author => author.id === post.data.author)?.name}</p>
-				</div>
-			))
-		}
-{SITE.postsPerPage < page?.total &&
-		<Pagination page={page} />
-}
-	</section>
+				</p>
+				<p>{post.data.pubDatetime?.toDateString()}</p>
+				{/* TODO: componentize this */}
+				<p>
+					Posted by {AUTHORS.find(author => author.id === post.data.author)?.name}
+				</p>
+			</article>
+		))}
+		{SITE.postsPerPage < page?.total && <Pagination page={page} />}
+	</main>
 </Layout>

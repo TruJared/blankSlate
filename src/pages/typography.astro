@@ -5,82 +5,87 @@ import { Icon } from "astro-icon/components";
 ---
 
 <Layout title="_Typography">
-	<section>
+	<h1 class="mb-8">Typography Examples</h1>
+
+	<section class="mb-12">
+		<h2 class="mb-4">Headings</h2>
 		<article>
 			<h1>Heading 1</h1>
 			<h2>Heading 2</h2>
-			<br />
 			<h3>Heading 3</h3>
 			<h4>Heading 4</h4>
-			<br />
 			<h5>Heading 5</h5>
 			<h6>Heading 6</h6>
 		</article>
 	</section>
-	<section>
 
-	</section>
-	<section>
-		<h2>Paragraphs</h2>
+	<section class="mb-12">
+		<h2 class="mb-4">Paragraphs</h2>
 		<article>
-			<h3>Very Cool Paragraph</h3>
-			<p>
+			<h3 class="mb-2">Sample Paragraph</h3>
+			<p class="mb-4">
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec
-				purus lacinia tincidunt nec
+				purus lacinia tincidunt nec lorem ipsum dolor sit amet.
 			</p>
 			<p>
-				ut urna nec purus lacinia tincidunt nec lorem ipsum dolor sit amet,
-				consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec
+				Ut urna nec purus lacinia tincidunt nec lorem ipsum dolor sit amet,
+				consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec.
 			</p>
 		</article>
 	</section>
-	<section>
-		<h2>Lists</h2>
-		<article>
-			<h3>Unordered List</h3>
-			<ul>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-			</ul>
-			<div></div>
-			<h3>Ordered List</h3>
-			<ol>
-				<li>Item 1</li>
-				<li>Item 2</li>
-				<li>Item 3</li>
-			</ol>
+
+	<section class="mb-12">
+		<h2 class="mb-4">Lists</h2>
+		<article class="grid grid-cols-1 md:grid-cols-2 gap-8">
+			<div>
+				<h3 class="mb-2">Unordered List</h3>
+				<ul class="list-disc pl-5">
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ul>
+			</div>
+			<div>
+				<h3 class="mb-2">Ordered List</h3>
+				<ol class="list-decimal pl-5">
+					<li>Item 1</li>
+					<li>Item 2</li>
+					<li>Item 3</li>
+				</ol>
+			</div>
 		</article>
 	</section>
-	<section>
-		<h2>Blockquotes</h2>
+
+	<section class="mb-12">
+		<h2 class="mb-4">Blockquotes</h2>
 		<article>
-			<blockquote>
+			<blockquote class="border-l-4 border-gray-300 pl-4 italic">
 				<p>
-					lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
-					nec purus lacinia tincidunt nec
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
+					nec purus lacinia tincidunt nec.
 				</p>
 			</blockquote>
 		</article>
 	</section>
-	<section>
-		<h2>Code</h2>
+
+	<section class="mb-12">
+		<h2 class="mb-4">Code</h2>
 		<article>
-			<p>
-				lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec
-				purus lacinia tincidunt nec
+			<p class="mb-4">
+				Here's an example of inline code: <code class="bg-gray-100 p-1 rounded">const x = 42;</code>
 			</p>
+			<CodeCopy lang="javascript" code={`const greeting = "Hello, World!";`} />
 		</article>
-		<CodeCopy lang="javascript" code={`const greeting = "Hello, World!";`} />
 	</section>
+
 	<section>
-		<h2>Links</h2>
+		<h2 class="mb-4">Links</h2>
 		<article>
-			<div class="flex mx-0 px-0">
-				<a class="pr-1" href="https://google.com">External Link</a>
+			<div class="flex items-center mb-2">
+				<a href="https://google.com" class="pr-1 text-blue-600 hover:underline">External Link</a>
 				<Icon name="ph:link" size="18" class="inline" />
 			</div>
-			<a href="/">Internal Link</a>
+			<a href="/" class="text-blue-600 hover:underline">Internal Link</a>
 		</article>
 	</section>
 

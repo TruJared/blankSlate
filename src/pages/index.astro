@@ -3,7 +3,6 @@ import Tooltip from "@components/Astro/Tooltip.astro";
 import Layout from "@layouts/Layout.astro";
 import Card from "@components/Astro/Card.astro";
 
-
 // export interface Props {
 // 	title?: string;
 // 	author?: string;
@@ -24,43 +23,45 @@ import Card from "@components/Astro/Card.astro";
 // 	pubDatetime,
 // 	modDatetime,
 // } = Astro.props;
-
 ---
 
 <Layout>
 	<section class="pt-0 mt-0">
-		<p>
-			Nothing exciting to see here, except for the <Tooltip
-				text="cool"
-				neonify={true}
-			/> neon effect!
-		</p>
+		<article>
+			<p>
+				Nothing exciting to see here, except for the <Tooltip
+					text="cool"
+					neonify={true}
+				/> neon effect!
+			</p>
+		</article>
 
-
-		<div class="flex flex-col justify-around md:flex-row">
-			<Card
-				title="card"
-				description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
-				rounded={true}
-			/>
-			<Card
-				title="card"
-				description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
-				rounded={true}
-				alt={true}
-				shadowSize="md"
-			/>
-			<Card
-				title="card"
-				description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
-				shadowSize="lg"
-			/>
-			<Card
-				title="card"
-				description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
-				alt={true}
-				shadowSize="none"
-			/>
-		</div>
+		<article>
+			<div class="flex flex-col justify-around md:flex-row">
+				<Card
+					title="card"
+					description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
+					rounded={true}
+				/>
+				<Card
+					title="card"
+					description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
+					rounded={true}
+					alt={true}
+					shadowSize="md"
+				/>
+				<Card
+					title="card"
+					description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
+					shadowSize="lg"
+				/>
+				<Card
+					title="card"
+					description="lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt nec"
+					alt={true}
+					shadowSize="none"
+				/>
+			</div>
+		</article>
 	</section>
 </Layout>
