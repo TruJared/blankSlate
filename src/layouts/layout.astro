@@ -10,7 +10,7 @@ import ResourceLinks from "@components/Astro/Head/ResourceLinks.astro";
 
 import Nav from "@components/Astro/Nav.astro";
 import Title from "@components/Astro/utils/Title.astro";
-import BackToTop from "@components/Astro/BackToTop.astro";
+import BackToTop from "@components/Astro/utils/BackToTop.astro";
 
 import "@styles/global.css";
 
@@ -38,7 +38,7 @@ const {
 	canonicalUrl = SITE.canonicalUrl,
 	logoSrc = SITE.logoSrc || null,
 	showTitleBackground = SITE.showTitleBackground || false,
-	faviconSrc = SITE.faviconSrc || null,
+	faviconSrc = SITE.faviconSrc,
 	publishedTime = "",
 	modifiedTime = "",
 	customClass = "",

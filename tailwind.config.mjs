@@ -26,7 +26,7 @@ export default {
 					primary: "var(--color-background)",
 					secondary: "var(--color-text)",
 					accent: "var(--color-accent)",
-					accentAlt: "var(--color-accent-alt)",
+					"accent-alt": "var(--color-accent-alt)",
 				},
 			},
 			backgroundImage: {
@@ -64,7 +64,7 @@ export default {
 					primary: "var(--color-text)",
 					secondary: "var(--color-background)",
 					accent: "var(--color-accent)",
-					accentAlt: "var(--color-accent-alt)",
+					"accent-alt": "var(--color-accent-alt)",
 				},
 			},
 			textDecorationColor: {

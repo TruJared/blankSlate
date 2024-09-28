@@ -1,9 +1,22 @@
 ---
 export interface Props {
 	text: string;
+	showHeadingBackground?: boolean;
 }
 
-const { text } = Astro.props;
+const { text, showHeadingBackground = true } = Astro.props;
 ---
 
-<p class="h6 text-4xl text-center mt-12 mb-10 md:mt-24 md:mb-12 mx-4 capitalize leading-relaxed">{text}</p>
+<div class="flex justify-center mt-12 mb-10 md:mt-24 md:mb-12">
+	<p
+		class:list={[
+			"h6 text-4xl text-center mx-4 capitalize leading-relaxed",
+			{
+				"bg-theme-secondary text-theme-secondary leading-none p-4 inline-block": showHeadingBackground,
+				"w-full": !showHeadingBackground,
+			},
+		]}
+	>
+		{text}
+	</p>
+</div>

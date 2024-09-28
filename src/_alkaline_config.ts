@@ -52,8 +52,8 @@ export const SITE: Site = {
 	keywords: ["astro", "theme"],
 	disableIndexing: false, // true for no indexing
 	logoSrc: "/logo.png" || null, // in public folder png or svg
+	faviconSrc: "/favicon.png" || null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
-	faviconSrc: "/favicon.png", // in public folder png or svg
 	socials: socials,
 	locale: "en_US",
 	postsPerPage: 10,
@@ -127,4 +127,4 @@ export const DOCS: Docs = {
 };
 
 // export the name(s) of the collections as a list - must match the name of the collection in the collections directory
-export const COLLECTION_NAMES_LIST = ["blog", "docs"] as const;
+export const COLLECTION_NAMES_LIST = ["blog", "docs"];
