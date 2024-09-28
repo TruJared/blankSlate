@@ -19,11 +19,11 @@ const { text, customClass, neonify = false, } = Astro.props;
 
 	<span
 		class:list={[
-			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono rounded py-2 px-4 bottom-full left-1/2 transform -translate-x-1/2 mb-1 whitespace-nowrap shadow-sm",
+			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono rounded py-2 px-4 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm",
 			{
 				"bg-theme-primary text-theme-primary text-base border-2 border-theme-accent shadow-theme-accent":
 					neonify,
-				"bg-[#747474] text-white border-1 border-theme-primary shadow-theme-grey":
+				"bg-[#747474] text-white border border-theme-primary shadow-theme-primary":
 					!neonify,
 			},
 		]}
@@ -31,11 +31,14 @@ const { text, customClass, neonify = false, } = Astro.props;
 		{text}
 		<span
 			class:list={[
-				"absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent",
+				"absolute bottom-[-8px] left-1/2 transform -translate-x-1/2 w-0 h-0",
+				"border-l-[8px] border-l-transparent",
+				"border-r-[8px] border-r-transparent",
 				{
-					"border-t-theme-accent": neonify,
-					"border-t-[#747474]": !neonify,
+					"border-t-[8px] border-t-theme-accent": neonify,
+					"border-t-[8px] border-t-[#747474]": !neonify,
 				},
-			]}></span>
+			]}
+		></span>
 	</span>
 </span>

@@ -1,0 +1,52 @@
+---
+import { Image } from "astro:assets";
+
+export interface Props {
+	title: string;
+	showTitleBackground: boolean;
+	logoSrc: string | null;
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
+---
+
+<div
+	class:list={[
+		"flex border-b-4 rounded mx-2 lg:mx-0",
+		{
+			"border-theme-secondary": showTitleBackground,
+			"border-theme-accent": !showTitleBackground,
+		},
+	]}
+>
+	{
+		logoSrc && (
+			<span
+				class:list={[
+					"flex logo-wrapper items-center p-4 bg-theme-accent rounded-tl",
+					{
+						"rounded-tl-none": !showTitleBackground,
+					},
+				]}
+			>
+				<span class="flex items-center">
+					<Image src={logoSrc} alt="Logo" width={64} height={64} class="" />
+				</span>
+			</span>
+		)
+	}
+	<h1
+		class:list={[
+			"py-2 m-0 w-full rounded",
+			{
+				"is-title-alt leading-none pl-4 py-5": showTitleBackground,
+				"is-title p-0": !showTitleBackground,
+				"pl-4 rounded-none rounded-tr": logoSrc,
+			},
+			customClass,
+		]}
+	>
+		{title}
+	</h1>
+</div>

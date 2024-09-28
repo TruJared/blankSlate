@@ -1,8 +1,8 @@
 ---
-import Tooltip from "@components/Astro/Tooltip.astro";
+import Tooltip from "@components/Astro/utils/Tooltip.astro";
 import Layout from "@layouts/Layout.astro";
 import Card from "@components/Astro/Card.astro";
-
+import PageHeading from "@components/Astro/utils/PageHeading.astro";
 // export interface Props {
 // 	title?: string;
 // 	author?: string;
@@ -26,7 +26,8 @@ import Card from "@components/Astro/Card.astro";
 ---
 
 <Layout>
-	<section class="pt-0 mt-0">
+	<PageHeading text="Alkaline: A Neutral Base To Power Your Next Project" />
+	<section>
 		<article>
 			<p>
 				Nothing exciting to see here, except for the <Tooltip

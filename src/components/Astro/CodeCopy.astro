@@ -8,7 +8,7 @@ import type {
 
 import { SITE } from "@config";
 import { Code } from "astro:components";
-import CopyToClipboard from "./CopyToClipboard.astro";
+import CopyToClipboard from "./utils/CopyToClipboard.astro";
 
 export interface CopyCodeProps {
 	code?: string;
@@ -27,13 +27,13 @@ const {
 } = Astro.props as CopyCodeProps;
 ---
 
-<div class:list={["relative p-0 m-0", customClass]}>
+<div class:list={["relative py-1 px-4 m-0", customClass]}>
 	<CopyToClipboard
 		textToCopy={code}
 		customIcon={customIcon}
 		aria-label="Copy code to clipboard"
-		size={16}
-		customClass="absolute right-2"
+		size={10}
+		customClass="absolute top-4 right-4"
 	/>
 	<Code lang={lang} theme={theme} code={code} />
 

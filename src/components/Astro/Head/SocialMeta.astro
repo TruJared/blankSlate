@@ -11,6 +11,7 @@ export interface Props {
 	siteName?: string;
 	locale?: string;
 	logoSrc?: string;
+	faviconSrc?: string;
 	author?: string;
 	publishedTime?: string;
 	modifiedTime?: string;
@@ -30,6 +31,7 @@ const {
 	locale = "en_US",
 	author,
 	logoSrc,
+	faviconSrc,
 	publishedTime,
 	modifiedTime,
 	keywords,
@@ -106,7 +108,7 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 <meta name="description" content={description} />
 <link rel="canonical" href={canonicalURL} />
 <link rel="sitemap" href="/sitemap-index.xml" />
-<Favicon url={favicon} />
+<Favicon url={faviconSrc} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />

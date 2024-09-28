@@ -1,5 +1,5 @@
 ---
-import Tooltip from "@components/Astro/Tooltip.astro";
+import Tooltip from "@components/Astro/utils/Tooltip.astro";
 
 export interface Props {
 	textToCopy: string;
@@ -18,44 +18,39 @@ const {
 } = Astro.props;
 ---
 
-
-
-		<button
-			aria-label={ariaLabel}
-			class:list={[
-				"group inline-flex items-center p-1 m-1 opacity-60 text-theme-accent border border-theme-primary rounded-lg transition-colors duration-[1500ms] active:bg-theme-secondary active:text-theme-secondary hover:opacity-100",
-				customClass,
-			]}
-			data-text-to-copy={textToCopy}
-		>
-			{
-				customIcon ? (
-					customIcon
-				) : (
-					<svg
-						xmlns="http://www.w3.org/2000/svg"
-						width={size}
-						height={size}
-						viewBox="0 0 24 24"
-						fill="none"
-						stroke="currentColor"
-						stroke-width="2"
-						stroke-linecap="round"
-						stroke-linejoin="round"
-						role="img"
-						aria-label="Copy icon"
-						class="feather feather-copy text-theme-accent-alt"
-					>
-						<rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
-						<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-					</svg>
-				)
-			}
-			<span class="ml-1 text-xs font-semibold copied-text sr-only">Copied!</span
+<button
+	aria-label={ariaLabel}
+	class:list={[
+		"group inline-flex items-center p-1 m-1 opacity-60 text-theme-accent border border-theme-primary rounded transition-colors duration-[1500ms] active:bg-theme-secondary active:text-theme-secondary hover:opacity-100",
+		customClass,
+	]}
+	data-text-to-copy={textToCopy}
+>
+	{
+		customIcon ? (
+			customIcon
+		) : (
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				width={size}
+				height={size}
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				role="img"
+				aria-label="Copy icon"
+				class="feather feather-copy text-theme-accent-alt"
 			>
-		</button>
-
-
+				<rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
+				<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
+			</svg>
+		)
+	}
+	<span class="ml-1 text-xs font-semibold copied-text sr-only">Copied!</span>
+</button>
 
 <script>
 	document.addEventListener("astro:page-load", () => {

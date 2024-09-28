@@ -5,4 +5,4 @@ import Posts from "@layouts/Posts.astro";
 const posts = await getCollection("blog", (entry: any) => !entry.data.draft);
 ---
 
-<Posts collectionName="blog" title="Blog" posts={posts} />
+<Posts collectionName="blog" title="Blog" posts={posts} subtitle="Blog Posts" />

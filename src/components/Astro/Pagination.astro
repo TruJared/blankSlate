@@ -5,22 +5,22 @@ export interface Props {
 }
 
 const { page, customClass } = Astro.props;
-const {  currentPage, lastPage, url } = page;
+const { currentPage, lastPage, url } = page;
 const { next, prev } = url;
 ---
 
-			<nav class:list={["flex justify-start items-center", customClass]}>
-				<a href={prev} class:list={["text-theme-primary p-2", {"disabled": !prev }]}>
-					{" "}
-					← Previous{" "}
-				</a>
+<nav class:list={["flex justify-start items-center", customClass]}>
+	<a href={prev} class:list={["text-theme-primary p-2", { disabled: !prev }]}>
+		{" "}
+		← Previous{" "}
+	</a>
 
-				<span class="px-2">
-					Page {currentPage} of {lastPage}
-				</span>
+	<span class="px-2">
+		Page {currentPage} of {lastPage}
+	</span>
 
-				<a href={next} class:list={["text-theme-primary p-2", {"disabled": !next }]}>
-					{" "}
-					Next →{" "}
-				</a>
-			</nav>
+	<a href={next} class:list={["text-theme-primary p-2", { disabled: !next }]}>
+		{" "}
+		Next →{" "}
+	</a>
+</nav>

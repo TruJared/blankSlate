@@ -1,3 +1,4 @@
+import { flattenDiagnosticMessageText } from "typescript";
 import type {
 	Site,
 	Author,
@@ -52,7 +53,7 @@ export const SITE: Site = {
 	disableIndexing: false, // true for no indexing
 	logoSrc: "/logo.png" || null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
-	favicon: "/favicon.png", // in public folder png or svg
+	faviconSrc: "/favicon.png", // in public folder png or svg
 	socials: socials,
 	locale: "en_US",
 	postsPerPage: 10,
@@ -98,10 +99,9 @@ export const NAVIGATION: NavEntry[] = [
 	{
 		href: "/tags",
 		text: "Tags",
-	},
-	{
-		href: "/themes",
-		text: "Themes",
+	}, {
+		href: "/elements",
+		text: "Elements",
 	},
 	{
 		href: "/typography",

@@ -13,12 +13,12 @@ const { links = [], customClass } = Astro.props;
 
 <nav
 	aria-label="Main navigation"
-	class:list={["flex flex-wrap justify-between items-center p-4", customClass]}
+	class:list={["flex flex-nowrap mt-2 px-2 lg:px-0", customClass]}
 >
-	<ul class="flex flex-wrap mb-2 sm:mb-0 sm:mr-6">
+	<ul class="inline-flex flex-wrap mb-2 sm:mb-0 sm:mr-6">
 		{
 			links.map((obj) => (
-				<li class="px-1 first:pl-0">
+				<li class="pr-2 first:pl-0">
 					<a href={obj.href} class="px-2 first:pl-0">
 							{obj.text}
 					</a>
@@ -26,5 +26,5 @@ const { links = [], customClass } = Astro.props;
 			))
 		}
 	</ul>
-	<ToggleTheme />
+	<ToggleTheme class="ml-auto" />
 </nav>

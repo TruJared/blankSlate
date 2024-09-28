@@ -9,7 +9,7 @@ import SocialMeta from "@components/Astro/Head/SocialMeta.astro";
 import ResourceLinks from "@components/Astro/Head/ResourceLinks.astro";
 
 import Nav from "@components/Astro/Nav.astro";
-import Title from "@components/Astro/Title.astro";
+import Title from "@components/Astro/utils/Title.astro";
 import BackToTop from "@components/Astro/BackToTop.astro";
 
 import "@styles/global.css";
@@ -24,7 +24,7 @@ export interface Props {
 	modifiedTime?: string;
 	canonicalUrl?: string;
 	logoSrc?: string;
-	showLogo?: boolean;
+	faviconSrc?: string;
 	showTitleBackground?: boolean;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
@@ -38,6 +38,7 @@ const {
 	canonicalUrl = SITE.canonicalUrl,
 	logoSrc = SITE.logoSrc || null,
 	showTitleBackground = SITE.showTitleBackground || false,
+	faviconSrc = SITE.faviconSrc || null,
 	publishedTime = "",
 	modifiedTime = "",
 	customClass = "",
@@ -67,6 +68,7 @@ const fonts = SITE.fonts || [];
 			description={description}
 			keywords={keywords}
 			canonicalURL={canonicalUrl}
+			faviconSrc={faviconSrc}
 		/>
 		<ViewTransitions />
 		{/*<ResourceLinks />*/}
