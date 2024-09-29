@@ -9,6 +9,6 @@ export interface Props {
 const { class: className, tags } = Astro.props;
 ---
 
-<div class:list={["flex, flex-wrap, mx-0, px-0, -mt-4", className]}>
+<div class:list={["flex, flex-wrap, mx-0, px-0", className]}>
 	{tags.map((tag) => <Tag tag={tag} size="xs" />)}
 </div>

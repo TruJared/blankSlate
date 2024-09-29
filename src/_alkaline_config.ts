@@ -9,36 +9,37 @@ import type {
 } from "./Types/types";
 
 //  SITE socials - used for the site footer
-export const socials: Socials = {
-	email: "jared@jaredmakes.com",
-	twitter: "https://twitter.com/jaredmakes",
-	github: "...",
-	linkedin: "...",
-	youtube: "...",
-	instagram: "...",
-	facebook: "...",
-	tiktok: "...",
-	twitch: "...",
-	discord: "...",
-	website: "...",
-	other: "...",
-};
+export const socials: Socials[] = [
+	{
+		platform: "email",
+		url: "jared@jaredmakes.com",
+
+	},
+	{
+		platform: "github",
+		url: "https://github.com/TruJared/blankSlate",
+	},
+	{
+		platform: "web",
+		url: "https://jaredmakes.com",
+	}
+];
 
 export const AUTHORS: Author[] = [
 	{
 		id: 1,
-		email: socials.email || "",
 		name: "Jared Truscott",
 		socials: socials, // assumes that the author has the same socials as the site - change if needed
+		email: null,
 	},
 	{
 		id: 2,
 		email: "guestAuthor@coolGuestAuthors.com",
 		name: "Mr. Cool Ice",
-		socials: {
-			email: "guestAuthor@coolGuestAuthors.com",
-			twitter: "https://twitter.com/coolGuestAuthors",
-		},
+		socials: [{
+			platform: "web",
+			url: "https://jaredmakes.com",
+		}],
 	},
 ];
 
@@ -47,9 +48,8 @@ export const SITE: Site = {
 	showTitleBackground: true,
 	url: "https://fakesite.fake", // ! make sure to change this ! //
 	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
-	description:
-		"Alkaline is a theme for Astro that is designed to be easy to customize and use.",
-	keywords: ["astro", "theme"],
+	description: "A Neutral Base For Your Next Creation",
+	keywords: ["astro", "theme", "blog"],
 	disableIndexing: false, // true for no indexing
 	logoSrc: "/logo.png" || null, // in public folder png or svg
 	faviconSrc: "/favicon.png" || null, // in public folder png or svg
@@ -60,8 +60,8 @@ export const SITE: Site = {
 	shikiConfig: {
 		theme: "poimandres",
 	},
-	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
 	// https://fonts.google.com/
+	// * edit or remove ./Types/google-fonts.d.ts to add/remove font types * //
 	fonts: [
 		{
 			typeface: "serif",
@@ -99,7 +99,8 @@ export const NAVIGATION: NavEntry[] = [
 	{
 		href: "/tags",
 		text: "Tags",
-	}, {
+	},
+	{
 		href: "/elements",
 		text: "Elements",
 	},

@@ -7,7 +7,8 @@ import Pagination from "@components/Astro/Pagination.astro";
 import Layout from "@layouts/Layout.astro";
 import Tag from "@components/Astro/utils/Tag.astro";
 import PageHeading from "@components/Astro/utils/PageHeading.astro";
-import CodeCopy from "@components/Astro/CodeCopy.astro";
+import Author from "@components/Astro/utils/Author.astro";
+
 export interface Props {
 	posts: any; // TODO: type
 	page?: any; // TODO: type
@@ -56,14 +57,13 @@ const {
 							</div>
 							<h2 class="">{post.data.title}</h2>
 						</a>
-						<div class="flex flex-wrap mb-4">
-							<Icon name="ri:price-tag-3-line" size={22} class="mr-1 mt-5" />
+						<div class="flex flex-wrap mb-5">
 							{post.data.tags?.map((tag: string) => (
 								<Tag tag={tag} size="sm" />
 							))}
 						</div>
 					</div>
-					<p class="mt-6">
+					<p>
 						{post.data.description}{" "}
 						<a
 							href={`/${post.collection || collectionName}/${post.slug}`}
@@ -72,11 +72,15 @@ const {
 							Read more...
 						</a>
 					</p>
-					<p>{post.data.pubDatetime?.toDateString()}</p>
-					{/* TODO: componentize this */}
-					<p>
+					{post.data.pubDatetime && (
+						<p>{post.data.pubDatetime?.toDateString()}</p>
+					)}
+					<p class="text-theme-primary font-mono">
 						Posted by{" "}
-						{AUTHORS.find((author) => author.id === post.data.author)?.name}
+						<Author
+							authorId={post.data.author}
+							pubDateTime={post.data.pubDatetime}
+						/>
 					</p>
 				</article>
 			))

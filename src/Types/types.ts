@@ -1,7 +1,6 @@
 import type { ShikiConfig } from "astro";
 import type { GoogleFontFamily } from "./google-fonts";
 
-
 //  Accepts GoogleFontFamily for Google Fonts types(about 250 listed).
 //  Accept any other string if Google Fonts types doesn't import - comment out the import to remove the font hints
 type FontFamily =
@@ -15,26 +14,70 @@ export type Font = {
 	includeItalic?: boolean;
 };
 
+type Platforms =
+	| "behance"
+	| "bitbucket"
+	| "bluesky"
+	| "codepen"
+	| "deviantart"
+	| "discord"
+	| "dribbble"
+	| "email"
+	| "evernote"
+	| "facebook"
+	| "figma"
+	| "flickr"
+	| "github"
+	| "gitlab"
+	| "global"
+	| "instagram"
+	| "kickstarter"
+	| "lastfm"
+	| "line"
+	| "linkedin"
+	| "mastodon"
+	| "medium"
+	| "messenger"
+	| "notion"
+	| "patreon"
+	| "pinterest"
+	| "producthunt"
+	| "quora"
+	| "reddit"
+	| "rss"
+	| "skype"
+	| "slack"
+	| "snapchat"
+	| "soundcloud"
+	| "spotify"
+	| "stackoverflow"
+	| "telegram"
+	| "threads"
+	| "tiktok"
+	| "trello"
+	| "tumblr"
+	| "twitch"
+	| "twitter"
+	| "twitter-x"
+	| "viber"
+	| "vimeo"
+	| "vk"
+	| "web" // global
+	| "wechat"
+	| "whatsapp"
+	| "youtube";
+
 export type Socials = {
-	email?: string;
-	twitter?: string;
-	github?: string;
-	linkedin?: string;
-	youtube?: string;
-	instagram?: string;
-	facebook?: string;
-	tiktok?: string;
-	twitch?: string;
-	discord?: string;
-	website?: string;
-	other?: string;
+	platform: Platforms;
+	url: string;
+	userName?: string;
 };
 
 export type Author = {
 	id: number;
-	email: string;
 	name: string;
-	socials: Socials;
+	socials: Socials[];
+	email?: string | null;
 };
 
 export type Site = {
@@ -50,10 +93,10 @@ export type Site = {
 	ogImage?: string;
 	locale?: string;
 	faviconSrc?: string;
-	socials?: Socials;
 	canonicalUrl?: string;
 	fonts: Font[];
 	showTitleBackground?: boolean;
+	socials: Socials[];
 };
 
 export type NavEntry = {
@@ -72,4 +115,18 @@ export type Blog = {
 export type Docs = Blog;
 
 // This type is auto-generated. Do not edit manually.
-export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-deep-sea' | 'theme-generic' | 'theme-haunted' | 'theme-invisible' | 'theme-leet' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-spring' | 'theme-syntax';
+export type ThemeNames =
+	| "theme-light"
+	| "theme-dark"
+	| "theme-deep-sea"
+	| "theme-generic"
+	| "theme-haunted"
+	| "theme-invisible"
+	| "theme-leet"
+	| "theme-neon-bliss"
+	| "theme-old-couch"
+	| "theme-peppermint"
+	| "theme-pop-punk"
+	| "theme-slime"
+	| "theme-spring"
+	| "theme-syntax";

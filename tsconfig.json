@@ -29,9 +29,6 @@
       "@utils/*": [
         "src/utils/*"
       ],
-      "@types/*": [
-        "src/Types/*"
-      ]
     }
   }
 }

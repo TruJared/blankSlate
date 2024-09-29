@@ -1,0 +1,43 @@
+---
+import SocialIcon from "./SocialIcon.astro";
+
+export interface Social {
+	platform: string;
+	url: string;
+	userName?: string;
+}
+
+export interface Props {
+	socials: Social[];
+	size?: number;
+	fill?: boolean;
+	class?: string | Record<string, boolean | string>;
+}
+
+const { socials, size, fill = false, class: className } = Astro.props;
+
+function getIconSize(count: number): number {
+	// use size if size else size relative to count
+	if (size) return size;
+	if (count <= 3) return 24;
+	if (count <= 7) return 20;
+	return 22;
+}
+
+const iconSize = getIconSize(socials.length);
+---
+
+<span class:list={["inline-flex max-w-[240px] flex-wrap", className]}>
+	{
+		socials.map((social) => (
+			<SocialIcon
+				platform={social.platform}
+				url={social.url}
+				userName={social.userName}
+				size={iconSize}
+				fill={fill}
+
+			/>
+		))
+	}
+</span>

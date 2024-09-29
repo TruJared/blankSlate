@@ -7,6 +7,7 @@ import { Icon } from "astro-icon/components";
 
 import Layout from "@layouts/Layout.astro";
 import Tags from "@components/Astro/Tags.astro";
+import Author from "@components/Astro/utils/Author.astro";
 
 import placeholderImage from "@assets/placehold.jpg";
 
@@ -42,24 +43,14 @@ const { Content } = await entry.render();
 	<section>
 		{entry.data.subtitle && <p class="h2 md:mx-14">{entry.data.subtitle}</p>}
 		<article class:list={["prose", className]}>
-			<span class="flex row items-center">
-				<p class="text-sm text-theme-primary font-mono">
-					Posted by {
-						AUTHORS.find((author) => author.id === entry.data.author)?.name
-					}
-					{
-						entry.data.pubDatetime
-							? `on ${entry.data.pubDatetime.toDateString()}`
-							: ""
-					}
-				</p>
-			</span>
-
+			Posted by <Author
+				authorId={entry.data.author}
+				pubDateTime={entry.data.pubDatetime}
+			/>
 			{
 				entry.data.tags && (
-					<span class="flex items-center">
-						<Icon name="ri:price-tag-3-line" size={22} class="mr-1 -mb-1" />
-						<Tags tags={entry.data.tags} class="" />
+					<span class="flex items-baseline mt-3">
+						<Tags tags={entry.data.tags} />
 					</span>
 				)
 			}

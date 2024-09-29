@@ -5,13 +5,14 @@ export interface TagCloud {
 	tags: { name: string; count?: number | string | undefined }[];
 }
 
-const { tags = [], customClass, } = Astro.props;
+const { tags = [], customClass } = Astro.props;
 ---
 
-
 <div
-	class:list={customClass}
-	class="inline-flex flex-wrap justify-start items-center px-0 mb-0.5 "
+	class:list={[
+		"inline-flex flex-wrap justify-start items-center px-0 mb-0.5 ",
+		customClass,
+	]}
 >
 	{tags.map((tag: any) => <Tag tag={tag.name} count={tag.count} size="lg" />)}
 </div>

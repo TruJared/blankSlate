@@ -1,0 +1,22 @@
+---
+import type { Author } from "../../../Types/types";
+import { AUTHORS } from "@config";
+import SocialsCloud from "@components/Astro/utils/SocialsCloud.astro";
+
+export interface Props {
+	authorId: number;
+	pubDateTime: Date | null;
+  class?: string | Record<string, boolean | string>;
+}
+
+const { authorId, pubDateTime = null, class: className } = Astro.props;
+---
+
+<span class:list={["text-theme-primary font-mono", className]}>
+	{AUTHORS.find((author) => author.id === authorId)?.name}
+	{pubDateTime ? `on ${pubDateTime.toDateString()}` : ""}
+	<SocialsCloud
+		socials={AUTHORS.find((author) => author.id === authorId)?.socials || []}
+		size={16}
+	/>
+</span>

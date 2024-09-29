@@ -1,0 +1,55 @@
+---
+import { Icon } from "astro-icon/components";
+
+export interface Props {
+	platform: string;
+	url: string;
+	userName?: string;
+	size?: number;
+	fill?: boolean;
+  iconPrefix?: string; //  i.e. "ri"
+	class?: string | Record<string, boolean | string>;
+}
+
+const {
+ platform,
+	url,
+	userName,
+	size = 24,
+	fill = false,
+	iconPrefix = "ri",
+	class: className,
+} = Astro.props;
+
+
+function buildIconName(platform: string, fill: boolean, iconPrefix: string) {
+
+const iconName = () => {
+	switch (platform) {
+		case "web":
+			return "globe";
+		case "email":
+			return "mail-open";
+		case "twitter":
+			return "twitter";
+		default:
+			return platform;
+	}
+};
+
+const iconModifier = fill ? "fill" : "line";
+
+return `${iconPrefix}:${iconName()}-${iconModifier}`
+}
+
+ const iconName = buildIconName(platform, fill, iconPrefix);
+---
+
+<a href={url} target="_blank" class="hover:text-theme-accent no-underline m-0 p-0">
+	<Icon
+		name={iconName}
+		size={size}
+		title={userName || platform}
+		class:list={["mr-0.5 -mb-0.5", {className}]}
+	/>
+</a>

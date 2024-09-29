@@ -8,7 +8,7 @@ export interface Props {
 	image?: string;
   favicon?: string;
 	canonicalURL?: string;
-	siteName?: string;
+	platform?: string;
 	locale?: string;
 	logoSrc?: string;
 	faviconSrc?: string;
@@ -26,7 +26,7 @@ const {
 	type = "website",
 	image,
 	canonicalURL = Astro.url.href,
-	siteName,
+	platform,
 	locale = "en_US",
 	author,
 	logoSrc,
@@ -57,7 +57,7 @@ switch (type) {
 			},
 			publisher: {
 				"@type": "Organization",
-				name: siteName,
+				name: platform,
 				...(logoSrc && {
 					logo: {
 						"@type": "ImageObject",
@@ -116,7 +116,7 @@ Object.entries(jsonLdData).forEach(([key, value]) => {
 <meta property="og:description" content={description} />
 <meta property="og:image" content={imageUrl} />
 <meta property="og:image:alt" content={title} />
-<meta property="og:site_name" content={siteName} />
+<meta property="og:site_name" content={platform} />
 <meta property="og:locale" content={locale} />
 {
 	publishedTime && (
