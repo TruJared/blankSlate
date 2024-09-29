@@ -1,57 +1,41 @@
 /*
-   The first theme defined for :root will be the default theme.
-	 all themes must start with .theme-
- */
+	must start with .theme- (UI will render without the .theme- prefix)
+*/
 
 :root,
 /* default theme */
 .theme-light {
-	--color-background: #f0f0f0;
-	--color-gradient: #d6eff8;
-	--color-text: #040910;
-	--color-accent: #d74247;
-	--color-accent-alt: #264899;
-	--color-shadow: #aacfd5;
-}
-.theme-dark {
-	--color-background: #182220;
-	--color-gradient: #1b2521;
-	--color-text: #f8f1dd;
-	--color-accent: #095e36;
-	--color-accent-alt: #2b303b;
-	--color-shadow: var(--color-gradient);
-}
-.theme-Alkaline {
 	--color-background: #ffffff;
 	--color-gradient: #f0e6d2;
 	--color-text: #3a3a3a;
 	--color-accent: #249280;
 	--color-accent-alt: #ff4747;
-	--color-shadow: rgba(166, 198, 234, 0.3);
+	--color-shadow: #1b2838;
 }
-.theme-1337 {
-	--color-background: #0d0208;
-	--color-gradient: #001f00;
-	--color-text: #00ff41;
-	--color-accent: #08f7fe;
-	--color-accent-alt: #005f2c;
-	--color-shadow: #003b00;
-}
-.theme-blue-steel {
+.theme-dark {
 	--color-background: #1b2838;
-	--color-gradient: rgba(102, 192, 244, 0.3);
-	--color-text: #c7d5e0;
-	--color-accent: #ff6900;
-	--color-accent-alt: #21668d;
-	--color-shadow: var(--color-gradient);
+	--color-gradient: #3a3a3a;
+	--color-text: #f0e6d2;
+	--color-accent: #ff4747;
+	--color-accent-alt: #249280;
+	--color-shadow: #ffffff;
 }
-.theme-Cthulhu-fhtagn {
+
+.theme-deep-sea {
 	--color-background: #1a3c3c;
 	--color-gradient: #0a1e1e;
 	--color-text: #a3e7dd;
 	--color-accent: #50fa7b;
 	--color-accent-alt: #082329;
 	--color-shadow: #005f5f;
+}
+.theme-generic {
+	--color-background: #f0f0f0;
+	--color-gradient: #d6eff8;
+	--color-text: #040910;
+	--color-accent: #d74247;
+	--color-accent-alt: #264899;
+	--color-shadow: #aacfd5;
 }
 .theme-haunted {
 	--color-background: #0f0f0f;
@@ -61,13 +45,29 @@
 	--color-accent-alt: #000000;
 	--color-shadow: hsla(248, 30%, 24%, 0.747);
 }
+.theme-invisible {
+	--color-background: #1e2723;
+	--color-gradient: #2a3c2f;
+	--color-text: #e6dcc1;
+	--color-accent: #7d5a3c;
+	--color-accent-alt: #b8a86a;
+	--color-shadow: #162019;
+}
+.theme-leet {
+	--color-background: #0d0208;
+	--color-gradient: #001f00;
+	--color-text: #00ff41;
+	--color-accent: #08f7fe;
+	--color-accent-alt: #005f2c;
+	--color-shadow: #003b00;
+}
 .theme-neon-bliss {
 	--color-background: #0d0221;
 	--color-gradient: #1a1a2e;
 	--color-text: #08f7fe;
 	--color-accent: #00ff9f;
 	--color-accent-alt: #fe53bb;
-	--color-shadow: rgba(8, 247, 254, 0.3);
+	--color-shadow: hsla(182, 99%, 51%, 0.3);
 }
 .theme-old-couch {
 	--color-background: #1a110d;
@@ -75,7 +75,7 @@
 	--color-text: #e6b785;
 	--color-accent: #ff7f00;
 	--color-accent-alt: #a85400;
-	--color-shadow: rgba(0, 0, 0, 0.6);
+	--color-shadow: hsla(0, 0%, 0%, 0.6);
 }
 .theme-peppermint {
 	--color-background: #ffffff;
@@ -83,7 +83,7 @@
 	--color-text: #2a2a2a;
 	--color-accent: #ff0000;
 	--color-accent-alt: #7fbfbf;
-	--color-shadow: rgba(255, 0, 0, 0.15);
+	--color-shadow: hsla(0, 100%, 50%, 0.15);
 }
 .theme-pop-punk {
 	--color-background: #1a1a1a;
@@ -91,7 +91,7 @@
 	--color-text: #ffffff;
 	--color-accent: #ff1493;
 	--color-accent-alt: #1ab81a;
-	--color-shadow: rgba(255, 20, 147, 0.5);
+	--color-shadow: hsla(328, 100%, 54%, 0.5);
 }
 .theme-slime {
 	--color-background: #030901;
@@ -115,5 +115,5 @@
 	--color-text: #fffffe;
 	--color-accent: #fed941;
 	--color-accent-alt: #133057;
-	--color-shadow: rgba(254, 217, 65, 0.3);
+	--color-shadow: hsla(48, 99%, 63%, 0.3);
 }

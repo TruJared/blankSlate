@@ -25,9 +25,6 @@
 		@apply p-1 m-1 md:p-2 md:m-2;
 	}
 
-
-
-	/** Typography **/
 	/** Typography **/
 
 	h1,
@@ -247,10 +244,10 @@
 
 @layer components {
 	.is-title {
-		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+		@apply text-5xl font-bold font-serif bg-gradient-radial text-transparent bg-clip-text overflow-clip md:text-6xl lg:tracking-widest lg:leading-normal;
 	}
 	.is-title-alt {
-		@apply text-5xl font-bold font-serif bg-theme-secondary text-theme-secondary tracking-tight leading-tight md:text-6xl lg:tracking-widest lg:leading-normal;
+		@apply text-5xl font-bold font-serif bg-theme-secondary text-theme-secondary md:text-6xl lg:tracking-widest lg:leading-normal;
 	}
 	.focused {
 		@apply outline-2 outline-offset-1 focus-visible:no-underline focus-visible:outline-dashed;

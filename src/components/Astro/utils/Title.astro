@@ -13,7 +13,7 @@ const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
 
 <div
 	class:list={[
-		"flex border-b-4 rounded mx-2 lg:mx-0",
+		"flex border-b-4",
 		{
 			"border-theme-secondary": showTitleBackground,
 			"border-theme-accent": !showTitleBackground,
@@ -24,10 +24,7 @@ const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
 		logoSrc && (
 			<span
 				class:list={[
-					"flex logo-wrapper items-center p-4 bg-theme-accent rounded-tl",
-					{
-						"rounded-tl-none": !showTitleBackground,
-					},
+					"flex logo-wrapper items-center p-4 bg-theme-accent",
 				]}
 			>
 				<span class="flex items-center">
@@ -38,11 +35,11 @@ const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
 	}
 	<h1
 		class:list={[
-			"py-2 m-0 w-full rounded",
+			"py-2 m-0 w-full",
 			{
 				"is-title-alt leading-none pl-4 py-5": showTitleBackground,
 				"is-title p-0": !showTitleBackground,
-				"pl-4 rounded-none rounded-tr": logoSrc,
+				"pl-4": logoSrc,
 			},
 			customClass,
 		]}
