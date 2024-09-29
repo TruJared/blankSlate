@@ -1,21 +1,21 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
-import { SITE } from "@config"
-import {Image} from "astro:assets"
+import { SITE } from "@config";
+import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Pagination from "@components/Astro/Pagination.astro";
 import Layout from "@layouts/Layout.astro";
 import Tag from "@components/Astro/utils/Tag.astro";
 import PageHeading from "@components/Astro/utils/PageHeading.astro";
+import CodeCopy from "@components/Astro/CodeCopy.astro";
 export interface Props {
 	posts: any; // TODO: type
 	page?: any; // TODO: type
-	collectionName: typeof COLLECTION_NAMES_LIST[number] | string | undefined;
+	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	title?: string | undefined;
 	description?: string;
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
-	filter?: (entry: CollectionEntry<typeof COLLECTION_NAMES_LIST[number]>) => boolean;
+	filter?: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	includeDrafts?: boolean;
 	subtitle?: string;
 }
@@ -32,42 +32,55 @@ const {
 ---
 
 <Layout title={title} description={description} customClass={customClass}>
-
-		{subtitle && (
-			<PageHeading text={subtitle} showHeadingBackground/>
-		)}
-		{posts?.map((post: any) => (
-			<article class="mb-12">
-				<div class="flex flex-row">
-				<a
-					href={`/${post.collection || collectionName}/${post.slug}`}
-					class="no-underline"
-				>
-					<h2 class="mb-6">{post.data.title}</h2>
-				</a>
-				</div>
-				<div class="flex flex-wrap">
-					<Icon name="ph:tag" size={22} class="mr-3 mt-1" />
-					{post.data.tags?.map((tag: string) => (
-						<Tag tag={tag} size="sm" />
-					))}
-				</div>
-				<p class="mt-6">
-					{post.data.description}{" "}
-					<a
-						href={`/${post.collection || collectionName}/${post.slug}`}
-						class="text-theme-primary pl-2"
-					>
-						Read more...
-					</a>
-				</p>
-				<p>{post.data.pubDatetime?.toDateString()}</p>
-				{/* TODO: componentize this */}
-				<p>
-					Posted by {AUTHORS.find(author => author.id === post.data.author)?.name}
-				</p>
-			</article>
-		))}
-		{SITE.postsPerPage < page?.total && <Pagination page={page} />}
-
+	{subtitle && <PageHeading text={subtitle} showHeadingBackground />}
+	<section>
+		{
+			posts?.map((post: any) => (
+				<article class="mb-12">
+					<div class="">
+						<a
+							href={`/${post.collection || collectionName}/${post.slug}`}
+							class="no-underline flex flex-row items-center mb-2 group"
+						>
+							<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
+								{post.data.image && (
+									<Image
+										src={post.data.image}
+										alt={post.data.alt || post.data.title || "Post Image"}
+										width={128}
+										height={128}
+										class="object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0"
+										loading="lazy"
+									/>
+								)}
+							</div>
+							<h2 class="">{post.data.title}</h2>
+						</a>
+						<div class="flex flex-wrap mb-4">
+							<Icon name="ri:price-tag-3-line" size={22} class="mr-1 mt-5" />
+							{post.data.tags?.map((tag: string) => (
+								<Tag tag={tag} size="sm" />
+							))}
+						</div>
+					</div>
+					<p class="mt-6">
+						{post.data.description}{" "}
+						<a
+							href={`/${post.collection || collectionName}/${post.slug}`}
+							class="text-theme-primary pl-2"
+						>
+							Read more...
+						</a>
+					</p>
+					<p>{post.data.pubDatetime?.toDateString()}</p>
+					{/* TODO: componentize this */}
+					<p>
+						Posted by{" "}
+						{AUTHORS.find((author) => author.id === post.data.author)?.name}
+					</p>
+				</article>
+			))
+		}
+	</section>
+	{SITE.postsPerPage < page?.total && <Pagination page={page} />}
 </Layout>

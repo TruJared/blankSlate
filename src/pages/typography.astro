@@ -3,6 +3,51 @@ import Layout from "@layouts/Layout.astro";
 import CodeCopy from "@components/Astro/CodeCopy.astro";
 import { Icon } from "astro-icon/components";
 import PageHeading from "@components/Astro/utils/PageHeading.astro";
+
+
+const code = `
+---
+import type { ShikiConfig } from "astro";
+import type {
+	BundledLanguage,
+	LanguageRegistration,
+	SpecialLanguage,
+} from "shiki";
+
+import { SITE } from "@config";
+import { Code } from "astro:components";
+import CopyToClipboard from "./utils/CopyToClipboard.astro";
+
+export interface CopyCodeProps {
+	code?: string;
+	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
+	customIcon?: JSX.Element;
+	theme?: ShikiConfig["theme"];
+	customClass?: string | Array<{ [key: string]: boolean | string }>;
+}
+
+const {
+	code = "",
+	lang,
+	customIcon,
+	customClass,
+	theme = SITE.shikiConfig.theme,
+} = Astro.props as CopyCodeProps;
+---
+
+<div class:list={["relative py-1 px-4 m-0", customClass]}>
+	<CopyToClipboard
+		textToCopy={code}
+		customIcon={customIcon}
+		aria-label="Copy code to clipboard"
+		size={10}
+		customClass="absolute top-4 right-4"
+	/>
+	<Code lang={lang} theme={theme} code={code} />
+
+</div>
+`
+
 ---
 
 <Layout title="_Typography">
@@ -74,11 +119,10 @@ import PageHeading from "@components/Astro/utils/PageHeading.astro";
 		<article>
 			<h2 class="mb-4">Code</h2>
 			<p class="mb-4">
-				Here's an example of inline code: <code class="bg-white/20 p-1 rounded"
-					>const x = 42;</code
-				>
+				Here's an example of inline code: <code>const x = 42;</code>
 			</p>
-			<CodeCopy lang="javascript" code={`const greeting = "Hello, World!";`} />
+			<p>Here's an example of a code block:</p>
+			<CodeCopy lang="astro" code={code} />
 		</article>
 	</section>
 
@@ -89,7 +133,7 @@ import PageHeading from "@components/Astro/utils/PageHeading.astro";
 				<a href="https://google.com" class="pr-1 text-blue-600 hover:underline"
 					>External Link</a
 				>
-				<Icon name="ph:link" size="18" class="inline" />
+				<Icon name="ri:link-m" size="18" class="inline" />
 			</div>
 			<a href="/" class="text-blue-600 hover:underline">Internal Link</a>
 		</article>

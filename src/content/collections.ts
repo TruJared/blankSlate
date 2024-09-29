@@ -32,8 +32,7 @@ const postCollectionSchema = {
 			format: z.enum(["webp", "jpg", "png"]).optional(),
 			quality: z.number().min(0).max(100).optional(),
 		})
-		.optional()
-		.default({ src: SITE.ogImage || "" }),
+		.optional(),
 	canonicalURL: z.string().url().optional(),
 	// slug: no need to define slug, it will be generated automatically but you can add it manually in the frontmatter as well - https://docs.astro.build/en/guides/content-collections/#defining-custom-slugs
 };

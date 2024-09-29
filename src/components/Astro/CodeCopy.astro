@@ -13,7 +13,6 @@ import CopyToClipboard from "./utils/CopyToClipboard.astro";
 export interface CopyCodeProps {
 	code?: string;
 	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
-	customIcon?: JSX.Element;
 	theme?: ShikiConfig["theme"];
 	customClass?: string | Array<{ [key: string]: boolean | string }>;
 }
@@ -21,7 +20,6 @@ export interface CopyCodeProps {
 const {
 	code = "",
 	lang,
-	customIcon,
 	customClass,
 	theme = SITE.shikiConfig.theme,
 } = Astro.props as CopyCodeProps;
@@ -30,11 +28,10 @@ const {
 <div class:list={["relative py-1 px-4 m-0", customClass]}>
 	<CopyToClipboard
 		textToCopy={code}
-		customIcon={customIcon}
 		aria-label="Copy code to clipboard"
 		size={10}
 		customClass="absolute top-4 right-4"
 	/>
-	<Code lang={lang} theme={theme} code={code} />
 
+	<Code lang={lang} theme={theme} code={code} />
 </div>

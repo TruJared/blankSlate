@@ -107,16 +107,19 @@
 	}
 
 	pre:has(code) {
-@apply font-mono text-sm border border-theme-secondary rounded mt-3 p-4 pb-6 pr-12 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
+		@apply bg-none font-mono text-sm border border-theme-secondary mt-3 p-4 overflow-x-auto transition-colors duration-[1500ms] ease-linear;
+		display: inline-block;
+		width: 100%;
 	}
 
 	code,
 	blockquote {
-		word-wrap: break-word;
+		@apply break-words;
 	}
 
 	pre > code {
-		white-space: pre;
+		@apply whitespace-pre;
+		display: inline;
 	}
 
 	blockquote {
@@ -203,24 +206,30 @@
 	}
 
 	.prose ul {
-		@apply list-disc list-inside;
+		@apply list-inside marker:text-theme-primary;
 	}
 
 	.prose ol {
-		@apply list-decimal list-outside ml-6;
+		@apply list-decimal list-inside;
 	}
 
 	.prose li {
-		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1;
+		@apply text-theme-primary text-lg font-light leading-relaxed py-1;
 	}
 
 	.prose pre {
-		@apply font-mono text-sm border border-theme-secondary rounded mt-3 p-4 pb-6 pr-12 leading-relaxed overflow-x-auto whitespace-pre-line transition-colors duration-[1500ms] ease-linear;
-		/* No background highlight for code blocks */
+		@apply font-mono text-sm border border-theme-secondary mt-3 p-4 overflow-x-auto transition-colors duration-[1500ms] ease-linear;
+		display: inline-block;
+		width: 100%;
+	}
+
+	.prose pre code {
+		@apply whitespace-pre;
+		display: inline;
 	}
 
 	.prose code:not(pre code) {
-		@apply bg-theme-secondary text-theme-secondary px-1 rounded; /* Background highlight for inline code only */
+		@apply bg-theme-secondary text-theme-secondary px-1 inline-block;
 	}
 
 	.prose
