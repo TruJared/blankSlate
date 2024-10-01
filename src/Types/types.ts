@@ -14,61 +14,19 @@ export type Font = {
 	includeItalic?: boolean;
 };
 
-type Platforms =
-	| "behance"
-	| "bitbucket"
-	| "bluesky"
-	| "codepen"
-	| "deviantart"
-	| "discord"
-	| "dribbble"
-	| "email"
-	| "evernote"
-	| "facebook"
-	| "figma"
-	| "flickr"
-	| "github"
-	| "gitlab"
-	| "global"
-	| "instagram"
-	| "kickstarter"
-	| "lastfm"
-	| "line"
-	| "linkedin"
-	| "mastodon"
-	| "medium"
-	| "messenger"
-	| "notion"
-	| "patreon"
-	| "pinterest"
-	| "producthunt"
-	| "quora"
-	| "reddit"
-	| "rss"
-	| "skype"
-	| "slack"
-	| "snapchat"
-	| "soundcloud"
-	| "spotify"
-	| "stackoverflow"
-	| "telegram"
-	| "threads"
-	| "tiktok"
-	| "trello"
-	| "tumblr"
-	| "twitch"
-	| "twitter"
-	| "twitter-x"
-	| "viber"
-	| "vimeo"
-	| "vk"
-	| "web" // global
-	| "wechat"
-	| "whatsapp"
-	| "youtube";
+// these correspond to icon names for the remix icon library
+export const Platforms =
+  ["behance", "bluesky", "codepen", "discord",
+  "dribbble", "email", "evernote", "facebook", "flickr", "github",
+  "gitlab", "global", "instagram", "line", "linkedin",
+  "mastodon", "medium", "messenger", "notion", "patreon", "pinterest",
+  "reddit", "rss", "skype", "slack", "snapchat",
+  "soundcloud", "spotify", "telegram", "threads", "tiktok",
+  "trello", "tumblr", "twitch", "twitter", "twitter-x", "vimeo",
+  "vk", "web", "wechat", "whatsapp", "youtube"] as const;
 
 export type Socials = {
-	platform: Platforms;
+	platform: (typeof Platforms)[number] | string;
 	url: string;
 	userName?: string;
 };
@@ -115,18 +73,4 @@ export type Blog = {
 export type Docs = Blog;
 
 // This type is auto-generated. Do not edit manually.
-export type ThemeNames =
-	| "theme-light"
-	| "theme-dark"
-	| "theme-deep-sea"
-	| "theme-generic"
-	| "theme-haunted"
-	| "theme-invisible"
-	| "theme-leet"
-	| "theme-neon-bliss"
-	| "theme-old-couch"
-	| "theme-peppermint"
-	| "theme-pop-punk"
-	| "theme-slime"
-	| "theme-spring"
-	| "theme-syntax";
+export type ThemeNames = 'theme-light' | 'theme-dark' | 'theme-deep-sea' | 'theme-generic' | 'theme-haunted' | 'theme-invisible' | 'theme-leet' | 'theme-neon-bliss' | 'theme-old-couch' | 'theme-peppermint' | 'theme-pop-punk' | 'theme-slime' | 'theme-spring' | 'theme-syntax';

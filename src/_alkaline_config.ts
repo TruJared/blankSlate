@@ -1,4 +1,5 @@
-import { flattenDiagnosticMessageText } from "typescript";
+import { Platforms } from "./Types/types"; // as const
+
 import type {
 	Site,
 	Author,
@@ -25,11 +26,22 @@ export const socials: Socials[] = [
 	}
 ];
 
+// I use this to test new socials
+// - useful if you want to change the iconography
+export const testSocials: Socials[] = Platforms.map(platform => ({
+  platform,
+  url: `https://${platform}.com`,
+  userName: `test_user_${platform}`
+}));
+
 export const AUTHORS: Author[] = [
 	{
 		id: 1,
 		name: "Jared Truscott",
-		socials: socials, // assumes that the author has the same socials as the site - change if needed
+		socials: [
+			...socials,
+			...testSocials,
+		], // assumes that the author has the same socials as the site - change if needed
 		email: null,
 	},
 	{
