@@ -3,7 +3,7 @@ import { COLLECTION_NAMES_LIST } from "@config";
 import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 import TagCloud from "@components/Astro/TagCloud.astro";
-import PageHeading from "@components/Astro/utils/PageHeading.astro";
+import PageHeading from "@components/Astro/PageHeading.astro";
 // Get all entries from all collections
 const allEntries = await Promise.all(
 	COLLECTION_NAMES_LIST.map((collection) => getCollection(collection))

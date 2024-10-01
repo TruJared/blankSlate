@@ -1,9 +1,8 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import CodeCopy from "@components/Astro/CodeCopy.astro";
-import { Icon } from "astro-icon/components";
-import PageHeading from "@components/Astro/utils/PageHeading.astro";
-
+import Link from "@components/Astro/Link.astro";
+import PageHeading from "@components/Astro/PageHeading.astro";
 
 const code = `
 ---
@@ -46,8 +45,7 @@ const {
 	<Code lang={lang} theme={theme} code={code} />
 
 </div>
-`
-
+`;
 ---
 
 <Layout title="_Typography">
@@ -129,13 +127,19 @@ const {
 	<section>
 		<article>
 			<h2 class="mb-4">Links</h2>
-			<div class="flex items-center mb-2">
-				<a href="https://google.com" class="pr-1 text-blue-600 hover:underline"
-					>External Link</a
-				>
-				<Icon name="ri:link-m" size="18" class="inline" />
+			<div class="mb-2">
+				<Link
+					href="https://google.com"
+					class="pr-1 block"
+					text="Internal Link"
+				/>
+				<Link
+					href="https://google.com"
+					external
+					class="pr-1 block"
+					text="External Link"
+				/>
 			</div>
-			<a href="/" class="text-blue-600 hover:underline">Internal Link</a>
 		</article>
 	</section>
 </Layout>
