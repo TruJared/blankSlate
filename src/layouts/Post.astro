@@ -15,7 +15,7 @@ export interface Props {
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	slug: string;
 	tags: string[] | undefined;
-	class?: string | Record<string, boolean>;
+	class?: string | Record<string, boolean | string>;
 }
 
 const { class: className, collectionName, slug } = Astro.props;

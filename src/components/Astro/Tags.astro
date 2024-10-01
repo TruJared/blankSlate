@@ -3,7 +3,7 @@ import Tag from "@components/Astro/utils/Tag.astro";
 
 export interface Props {
 	tags: string[];
-	class?: string | Record<string, boolean>;
+	class?: string | Record<string, boolean | string>;
 }
 
 const { class: className, tags } = Astro.props;

@@ -106,6 +106,9 @@ export default {
 					},
 				},
 			},
+			minHeight: {
+				screen: '100vh',
+			},
 		},
 	},
 	plugins: [require("@tailwindcss/typography")],
