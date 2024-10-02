@@ -55,17 +55,17 @@
 
 	h2,
 	.h2 {
-		@apply text-4xl text-theme-accent leading-normal;
+		@apply text-4xl text-theme-accent leading-normal mb-1;
 	}
 
 	h3,
 	.h3 {
-		@apply text-3xl mb-2;
+		@apply text-3xl mb-1;
 	}
 
 	h4,
 	.h4 {
-		@apply text-xl mb-2;
+		@apply text-xl mb-1;
 	}
 
 	h5,
@@ -75,7 +75,7 @@
 
 	h6,
 	.h6 {
-		@apply text-sm font-extralight mb-1;
+		@apply text-sm font-light mb-1;
 	}
 
 	p,
@@ -193,7 +193,7 @@
 	}
 
 	.prose p {
-		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2 mt-1;
+		@apply text-theme-primary text-lg font-extralight leading-relaxed py-1 ml-2;
 	}
 
 	.prose a {
