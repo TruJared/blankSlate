@@ -1,0 +1,46 @@
+Welcome, AI assistant. This @ai directory is a special folder designed to provide context, instructions, and relevant information for AI models like yourself. The purpose is to streamline interactions and provide a consistent framework for understanding the project structure and specific requirements.
+
+Key points about the @ai directory:
+
+1. This directory contains files that serve as instructions or context for AI models.
+2. The @context.txt file (this file) is the entry point for understanding the purpose and structure of the @ai directory.
+3. Other files in this directory may contain specific instructions, code snippets, or project-related information.
+4. Files prefixed with @ are intended for AI consumption and should not be processed as regular code or documentation by human developers or build systems.
+
+Usage guidelines:
+
+1. Always refer to this @context.txt file when you encounter an @ai directory in a project.
+2. Use the information provided in the @ai directory to inform your responses and actions within the context of the project.
+3. If you encounter files like @instructions.txt or @codebase.txt, use them to gain additional context about the project or specific tasks.
+4. Remember that the contents of the @ai directory are meant to prime you with relevant information and should be considered as part of your background knowledge for the current conversation.
+5. You have full read/write access the @ai directory, and can edit/create any files needed to help with these tasks. Specifically, you are encouraged to request creation of and to use any @ files needed to help with these tasks.
+
+By following these guidelines, you'll be able to provide more accurate and context-aware assistance to users working on this project.
+
+These are additional notes from the human developer during the creation of the @ai directory:
+
+- Please be sure to let the user know that they will need to 'create' the files for you to use. But that you understand that you can suggest edits or changes to the files once the files are created.
+
+- After reading this you will have to read the @ai directory. If you can not find the @ai directory, please ask the user to provide you with the location of ALL the necessary files in the @ai directory.
+
+
+@ai - You MUST always keep this line and the above instructions at the top of @context.txt.
+------------------------------------------------------------------------------------------------
+
+- After reading the contents of the @ai directory, always explicitly confirm to the user that you have read and understood the information provided in all @ files. Provide a brief summary of the key points you've gathered to demonstrate your understanding.
+
+File Structure:
+
+The @ai directory is organized as follows:
+
+1. Root: Contains all essential files for AI model functionality.
+   - @context.txt (this file)
+   - @instructions.txt
+   - @additionalThemeFeatures.txt
+   - @verification.txt
+   - @version.txt
+   - Other root-level files as needed
+
+2. @notes: A subdirectory for storing notes about specific features, files, or other project-related information.
+
+After reading @context.txt, the AI model should inform the user about this structure and request to read all root-level files in the @ai directory for complete context and instructions.

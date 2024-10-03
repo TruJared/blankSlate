@@ -1,0 +1,1 @@
+please make it a priority to review any files and make suggestions for adding additional ai notes using the  // @ai:    comment tag. I want to have a way for you to quickly understand the context of any file in relation to the project as a whole - SPECIFICALLY - when using it in reference to the @ai directory.
