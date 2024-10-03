@@ -1,11 +1,11 @@
 ---
 export interface Props {
 	text: string;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
 	tooltip?: string;
+	class?: string | Record<string, boolean | string>;
 }
 
-const { text, customClass, tooltip = text } = Astro.props;
+const { text, class: className, tooltip = text } = Astro.props;
 ---
 
-<span class:list={["neon", customClass]} data-text={text} title={tooltip}>{text}</span>
+<span class:list={["neon", className]} data-text={text} title={tooltip}>{text}</span>

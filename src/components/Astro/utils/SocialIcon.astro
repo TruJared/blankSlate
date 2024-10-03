@@ -44,7 +44,7 @@ const iconName = buildIconName(platform, fill, iconPrefix);
 ---
 
 <a
-	href={url.includes("@") ? `mailto:${url}` : url}
+	href={platform === "email" ? `mailto:${url}` : url}
 	target="_blank"
 	class="hover:text-theme-accent no-underline m-0 p-0"
 >

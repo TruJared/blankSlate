@@ -1,12 +1,9 @@
 ---
-import Tooltip from "@components/Astro/utils/Tooltip.astro";
-
 export interface Props {
 	textToCopy: string;
 	size?: number;
 	customIcon?: JSX.Element;
 	ariaLabel?: string;
-	rounded?: boolean;
 	class?: string | Record<string, boolean | string>;
 }
 
@@ -16,13 +13,9 @@ const {
 	size = 12,
 	ariaLabel = "Copy to clipboard",
 	class: className,
-	rounded = false,
 } = Astro.props;
 
-const options = {
- "rounded-theme": rounded,
-
-};
+const options = { "rounded-theme": true };
 ---
 
 <button

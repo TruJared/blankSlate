@@ -8,6 +8,7 @@ export interface Props {
 
 const { tag, count, size = "md", class: className } = Astro.props;
 
+const options = { "rounded-theme": true };
 ---
 
 <span
@@ -17,6 +18,7 @@ const { tag, count, size = "md", class: className } = Astro.props;
 		{ "py-1 px-1 mr-2 mb-2": size === "sm" },
 		{ "py-1.5 px-1.5 mr-2.5 mb-2.5": size === "md" },
 		{ "py-2 px-2 my-3 mr-6 ": size === "lg" },
+		options,
 		className,
 	]}
 >

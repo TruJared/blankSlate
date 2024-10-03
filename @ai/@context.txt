@@ -36,9 +36,7 @@ The @ai directory is organized as follows:
 1. Root: Contains all essential files for AI model functionality.
    - @context.txt (this file)
    - @instructions.txt
-   - @additionalThemeFeatures.txt
    - @verification.txt
-   - @version.txt
    - Other root-level files as needed
 
 2. @notes: A subdirectory for storing notes about specific features, files, or other project-related information.

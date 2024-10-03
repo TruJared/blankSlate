@@ -3,6 +3,7 @@ import Layout from "@layouts/Layout.astro";
 import PageHeading from "@components/Astro/PageHeading.astro";
 import SocialIcon from "@components/Astro/utils/SocialIcon.astro";
 import SocialsCloud from "@components/Astro/SocialsCloud.astro";
+import Card from "@components/Astro/Card.astro";
 // export interface Props {
 // 	title?: string;
 // 	author?: string;
@@ -26,7 +27,15 @@ import SocialsCloud from "@components/Astro/SocialsCloud.astro";
 ---
 
 <Layout>
-	<PageHeading text="A Strong Base For Your Next Creation." showHeadingBackground={false} />
-	<section>
-	</section>
+	<PageHeading
+		text="A Strong Base For Your Next Creation."
+		showHeadingBackground={false}
+	/>
+	<div class="flex flex-wrap justify-center">
+		<Card title="Card" description="Card" />
+		<Card title="Card" description="Card" alt={true} />
+		<Card title="Card" description="Card" shadowSize="lg" />
+		<Card title="Card" description="Card" shadowSize="none" />
+	</div>
+	<section></section>
 </Layout>

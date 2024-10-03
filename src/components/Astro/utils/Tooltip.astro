@@ -2,15 +2,17 @@
 export interface Props {
 	text: string;
 	neonify?: boolean | "true" | "false";
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
+	class?: string | Record<string, boolean | string>;
 }
 
-const { text, customClass, neonify = false, } = Astro.props;
+const { text, neonify = false, class: className, } = Astro.props;
+
+const options = { "rounded-theme": true };
 ---
 
 <span class="relative inline-block group">
 	<span
-		class:list={[{ neon: neonify }, customClass]}
+		class:list={[{ neon: neonify }, className]}
 		data-text={text}
 		aria-label={text}
 	>
@@ -20,10 +22,11 @@ const { text, customClass, neonify = false, } = Astro.props;
 	<span
 		class:list={[
 			"absolute z-10 text-sm tracking-wide hidden group-hover:block font-semibold font-mono py-2 px-4 bottom-[40px] left-1/2 transform -translate-x-1/2 mb-2 whitespace-nowrap shadow-sm",
+			options,
 			{
 				"bg-theme-primary text-theme-primary text-base border-2 border-theme-accent shadow-theme-accent":
 					neonify,
-				"bg-[#747474] text-white border border-theme-primary shadow-theme-primary":
+				"bg-slate-400 text-white border border-theme-primary shadow-theme-primary":
 					!neonify,
 			},
 		]}

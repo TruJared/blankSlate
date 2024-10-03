@@ -1,15 +1,15 @@
 ---
 export interface Props {
 	page: any; // todo: types
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
+	class?: string | Record<string, boolean | string>;
 }
 
-const { page, customClass } = Astro.props;
+const { page, class: className } = Astro.props;
 const { currentPage, lastPage, url } = page;
 const { next, prev } = url;
 ---
 
-<nav class:list={["flex justify-start items-center", customClass]}>
+<nav class:list={["flex justify-start items-center", className]}>
 	<a href={prev} class:list={["text-theme-primary p-2", { disabled: !prev }]}>
 		{" "}
 		← Previous{" "}

@@ -7,13 +7,13 @@ export interface Props {
 }
 
 const { class: className } = Astro.props;
-
+const options = { "rounded-theme": true };
 let selectedTheme = themeNames[0];
 ---
 
 <div class:list={["relative inline-block mx-0 px-0", className]}>
 	<div
-		class="bg-theme-secondary text-theme-secondary tracking-widest min-w-32 border border-theme-secondary shadow shadow-theme-primary m-0"
+		class:list={["bg-theme-secondary text-theme-secondary tracking-widest min-w-32 border border-theme-secondary shadow shadow-theme-primary m-0", options]}
 	>
 		<Icon
 			name="ri:brush-2-line"
@@ -32,7 +32,7 @@ let selectedTheme = themeNames[0];
 			id="theme-dropdown"
 			role="listbox"
 			tabindex="-1"
-			class="absolute right-0 top-10 z-10 bg-theme-primary text-theme-primary border border-theme-primary m-0 shadow-md shadow-theme-grey p-1 min-w-full w-max opacity-0 invisible -translate-y-2 transition-all duration-150 ease-in-out"
+			class:list={["absolute right-0 top-10 z-10 bg-theme-primary text-theme-primary border border-theme-primary m-0 shadow-md shadow-theme-grey p-1 min-w-full w-max opacity-0 invisible -translate-y-2 transition-all duration-150 ease-in-out", options]}
 		>
 			{
 				themeNames.map((name) => (

@@ -5,10 +5,10 @@ export interface Props {
 	title: string;
 	showTitleBackground: boolean;
 	logoSrc: string | null;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
+	class?: string | Record<string, boolean | string>;
 }
 
-const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
+const { title, showTitleBackground, logoSrc, class: className } = Astro.props;
 ---
 
 <div
@@ -22,11 +22,7 @@ const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
 >
 	{
 		logoSrc && (
-			<span
-				class:list={[
-					"flex logo-wrapper items-center p-4 bg-theme-accent",
-				]}
-			>
+			<span class="flex logo-wrapper items-center p-4 bg-theme-accent">
 				<span class="flex items-center">
 					<Image src={logoSrc} alt="Logo" width={64} height={64} class="" />
 				</span>
@@ -41,7 +37,7 @@ const { title, showTitleBackground, logoSrc, customClass } = Astro.props;
 				"is-title p-0 pl-2": !showTitleBackground,
 				"pl-4": logoSrc,
 			},
-			customClass,
+			className,
 		]}
 	>
 		{title}
