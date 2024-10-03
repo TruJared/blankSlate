@@ -11,6 +11,7 @@
 	--color-accent: #249280;
 	--color-accent-alt: #ff4747;
 	--color-shadow: #1b2838;
+	--border-radius: 0.5rem;
 }
 .theme-dark {
 	--color-background: #1b2838;

@@ -10,6 +10,9 @@ export default {
 	theme: {
 		colors: {}, // delete this line to include the default Tailwind colors
 		extend: {
+			borderRadius: {
+				theme: "var(--border-radius)",
+			},
 			colors: {
 				white: colors.white || "#ffffff",
 				black: colors.black || "#000000",

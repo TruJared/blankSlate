@@ -6,7 +6,8 @@ export interface Props {
 	size?: number;
 	customIcon?: JSX.Element;
 	ariaLabel?: string;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
+	rounded?: boolean;
+	class?: string | Record<string, boolean | string>;
 }
 
 const {
@@ -14,15 +15,22 @@ const {
 	customIcon,
 	size = 12,
 	ariaLabel = "Copy to clipboard",
-	customClass,
+	class: className,
+	rounded = false,
 } = Astro.props;
+
+const options = {
+ "rounded-theme": rounded,
+
+};
 ---
 
 <button
 	aria-label={ariaLabel}
 	class:list={[
 		"group inline-flex items-center p-1 m-1 opacity-60 text-theme-accent border border-theme-primary transition-colors duration-[1500ms] active:bg-theme-secondary active:text-theme-secondary hover:opacity-100",
-		customClass,
+		className,
+		options,
 	]}
 	data-text-to-copy={textToCopy}
 >
