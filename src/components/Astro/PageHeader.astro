@@ -1,0 +1,137 @@
+---
+import PatternBackground from "@components/Astro/utils/PatternBackground.astro";
+import Image from "astro/components/Image.astro";
+
+export interface Props {
+	heading: string;
+	description?: string;
+	image?: string;
+	imageAlt?: string;
+	backgroundPattern?: string;
+	patternOpacity?: number;
+	patternHighlightClass?:
+		| "bg-theme-accent"
+		| "bg-theme-secondary"
+		| "bg-theme-accent"
+		| "bg-theme-accent-alt";
+	class?: string | Record<string, boolean | string>;
+}
+
+const {
+	heading,
+	description,
+	image,
+	imageAlt,
+	backgroundPattern,
+	patternOpacity,
+	patternHighlightClass,
+	class: className,
+} = Astro.props;
+
+const options = { "rounded-theme": true };
+---
+
+<div
+	class:list={[
+		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-14 pb-4 md:flex-row md:mt-0 md:pt-20 md:pb-32",
+		// pull bg up into nav //
+		{
+			"-mt-10 pt-14 sm:pt-16 sm:pb-20 md:pt-12 md:pb-12": backgroundPattern,
+		},
+	]}
+>
+	{
+		backgroundPattern && (
+			<PatternBackground
+				pattern={backgroundPattern}
+				patternOpacity={patternOpacity}
+				patternHighlightClass={patternHighlightClass}
+			/>
+		)
+	}
+	<div class="flex flex-col items-start justify-center md:w-1/2 mb-8 md:mb-0">
+		<h2
+			class="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl text-build"
+		>
+			{heading}
+		</h2>
+		<p class="mt-4 text-xl text-theme-primary text-build">{description}</p>
+	</div>
+
+	{
+		image && (
+			<div class="md:w-1/2 md:pl-8">
+				<Image
+					src={image}
+					alt={imageAlt ?? "Image"}
+					class:list={[
+						"w-full h-auto object-cover aspect-video shadow-lg border-2 border-theme-accent image-drop-in",
+						options,
+					]}
+					width={1000}
+					height={1000}
+				/>
+			</div>
+		)
+	}
+</div>
+
+<style>
+	.image-drop-in {
+		animation: dropIn 0.5s ease-out;
+		transition: transform 0.3s ease-in-out;
+	}
+
+	.image-drop-in:hover {
+		transform: scale(1.02);
+	}
+
+	@keyframes dropIn {
+		0% {
+			transform: scale(0.95);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+
+	.text-build {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: buildIn 0.5s ease-out forwards;
+	}
+
+	h2.text-build {
+		animation-delay: 0.2s;
+	}
+
+	p.text-build {
+		animation-delay: 0.4s;
+	}
+
+	@keyframes buildIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+</style>
+<!--
+      <Container className="">
+        <FadeIn className="max-w-3xl">
+          <h1 className="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl">
+            Award-winning development studio based in Denmark.
+          </h1>
+          <p className="mt-6 text-xl text-neutral-600">
+            We are a development studio working at the intersection of design
+            and technology. It’s a really busy intersection though — a lot of
+            our staff have been involved in hit and runs.
+          </p>
+        </FadeIn>
+      </Container> -->
