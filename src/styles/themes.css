@@ -62,7 +62,7 @@
 	--color-accent-alt: #b8a86a;
 	--color-shadow: #162019;
 	/* options */
-	--border-radius: 0.2rem;
+	--border-radius: 0.4rem;
 }
 .theme-leet {
 	--color-background: #0d0208;
@@ -122,7 +122,7 @@
 	--color-accent-alt: #e0cd91;
 	--color-shadow: var(--color-gradient);
 	/* options */
-	--border-radius: 0.8rem;
+	--border-radius: 0.4rem;
 }
 .theme-spring {
 	--color-background: #f5f3e8;
