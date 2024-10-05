@@ -2,7 +2,7 @@
 export interface Props {
   pattern: string;
   patternOpacity?: number;
-  patternHighlightClass?: "bg-theme-accent" | "bg-theme-secondary" | "bg-theme-accent" | "bg-theme-accent-alt";
+  patternHighlightClass?: "bg-theme-primary" | "bg-theme-secondary" | "bg-theme-accent" | "bg-theme-accent-alt";
   class?: string | Record<string, boolean | string>;
 }
 
@@ -11,7 +11,7 @@ const { pattern, patternOpacity = 0.1, patternHighlightClass = "bg-theme-accent"
 <div class={`absolute inset-0 -z-10 h-full w-full ${className}`} aria-hidden="true">
   <svg
     class:list={["absolute inset-0 h-full w-full", patternHighlightClass]}
-    style={`mask-image: radial-gradient(90% 80% at top right, hsla(0,0%,0%,${patternOpacity}), transparent);`}
+    style={`mask-image: radial-gradient(100% 90% at top right, hsla(0,0%,0%,${patternOpacity}), transparent);`}
     aria-hidden="true"
   >
     <defs>

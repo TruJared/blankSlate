@@ -10,7 +10,7 @@ export interface Props {
 	backgroundPattern?: string;
 	patternOpacity?: number;
 	patternHighlightClass?:
-		| "bg-theme-accent"
+		| "bg-theme-primary"
 		| "bg-theme-secondary"
 		| "bg-theme-accent"
 		| "bg-theme-accent-alt";
@@ -33,10 +33,10 @@ const options = { "rounded-theme": true };
 
 <div
 	class:list={[
-		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-14 pb-4 md:flex-row md:mt-0 md:pt-20 md:pb-32",
+		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-14 pb-4 md:flex-row md:my-8 md:pt-12 ",
 		// pull bg up into nav //
 		{
-			"-mt-10 pt-14 sm:pt-16 sm:pb-20 md:pt-12 md:pb-12": backgroundPattern,
+			"-mt-10 pt-14 sm:pt-16 sm:pb-20 md:pt-12 md:pb-10": backgroundPattern,
 		},
 	]}
 >
