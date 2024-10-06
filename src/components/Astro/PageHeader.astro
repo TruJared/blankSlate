@@ -33,11 +33,8 @@ const options = { "rounded-theme": true };
 
 <div
 	class:list={[
-		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-14 pb-4 md:flex-row md:my-8 md:pt-12 ",
-		// pull bg up into nav //
-		{
-			"-mt-10 pt-14 sm:pt-16 sm:pb-20 md:pt-12 md:pb-10": backgroundPattern,
-		},
+		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-14 pb-10 md:flex-row md:pt-18 md:pb-12",
+
 	]}
 >
 	{
@@ -61,38 +58,62 @@ const options = { "rounded-theme": true };
 	{
 		image && (
 			<div class="md:w-1/2 md:pl-8">
-				<Image
-					src={image}
-					alt={imageAlt ?? "Image"}
-					class:list={[
-						"w-full h-auto object-cover aspect-video shadow-lg border-2 border-theme-accent image-drop-in",
-						options,
-					]}
-					width={1000}
-					height={1000}
-				/>
+				<div class="image-container">
+					<Image
+						src={image}
+						alt={imageAlt ?? "Image"}
+						class:list={[
+							"w-full h-full object-cover image-drop-in",
+							options,
+						]}
+						width={400}
+						height={400}
+					/>
+				</div>
 			</div>
 		)
 	}
 </div>
 
 <style>
+	.image-container {
+		position: relative;
+		overflow: hidden;
+		border-radius: 50%;
+		aspect-ratio: 1 / 1;
+	}
+
 	.image-drop-in {
-		animation: dropIn 0.5s ease-out;
-		transition: transform 0.3s ease-in-out;
+		animation: spinAndGrow 1.25s ease-out;
+		transform-origin: center;
+		border-radius: 50%;
+		mask-image: linear-gradient(
+			to bottom,
+			transparent,
+			black 15%,
+			black 100%
+		),
+		linear-gradient(
+			to right,
+			transparent,
+			black 10%,
+			black 90%,
+			transparent
+		);
+		mask-composite: intersect;
 	}
 
-	.image-drop-in:hover {
-		transform: scale(1.02);
-	}
-
-	@keyframes dropIn {
+	@keyframes spinAndGrow {
 		0% {
-			transform: scale(0.95);
+			transform: scale(0.5) rotate(-180deg);
+			opacity: 0;
+		}
+		50% {
+			transform: scale(0.8) rotate(-80deg);
 			opacity: 0;
 		}
 		100% {
-			transform: scale(1);
+			transform: scale(1) rotate(0deg);
 			opacity: 1;
 		}
 	}

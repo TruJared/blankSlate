@@ -8,19 +8,19 @@
 	--color-background: #ffffff;
 	--color-gradient: #f0e6d2;
 	--color-text: #3a3a3a;
-	--color-accent: #249280;
-	--color-accent-alt: #ff4747;
+	--color-accent: #2c3e50;  /* Darker blue-gray, less dominant */
+	--color-accent-alt: #d35400;  /* Deeper orange, complementing the image */
 	--color-shadow: #1b2838;
 	/* options */
 	--border-radius: 0;
 }
 .theme-dark {
 	--color-background: #1b2838;
-	--color-gradient: #3a3a3a;
+	--color-gradient: #2c3e50;  /* Adjusted to match new accent color */
 	--color-text: #f0e6d2;
-	--color-accent: #ff4747;
-	--color-accent-alt: #249280;
-	--color-shadow: #ffffff;
+	--color-accent: #3498db;  /* Lighter version of our new accent color */
+	--color-accent-alt: #e67e22;  /* Adjusted to complement new accent */
+	--color-shadow: #0a1721;  /* Darker shadow for contrast */
 	/* options */
 	--border-radius: 0.4rem;
 }

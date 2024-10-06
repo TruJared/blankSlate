@@ -89,8 +89,9 @@
 		width: 1em;
 		height: 1em;
 		border-radius: 50%;
-		border: 0.25em solid gainsboro;
-		border-top-color: black;
+		/* uncomment for loading spinner animation */
+		/* border: 0.25em solid gainsboro;
+		border-top-color: black; */
 		animation: donut-spin 4s ease-in-out infinite;
 	}
 

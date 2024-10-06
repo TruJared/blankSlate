@@ -2,36 +2,80 @@
 import Layout from "@layouts/Layout.astro";
 import PageHeader from "@components/Astro/PageHeader.astro";
 import Card from "@components/Astro/Card.astro";
+
+import coverImage from "@assets/alk-cover-2.webp";
+
+
 ---
 
 <Layout>
 	<PageHeader
 		heading="A Neutral Base For Your Next Creation."
 		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. loorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. lorem	ipsume dor allakdfjadlfjoi aoidfjda"
-		image="https://picsum.photos/1000/1000"
+		image={coverImage}
 		imageAlt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
 		backgroundPattern="M0 0h10v10h10v-10h10v10h10v10h-10v10h-10v-10h-10v-10zM30 0h10v10h-10v-10zM0 20h10v10h-10v-10zM20 20h10v10h-10v-10zM0 40h10v10h-10v-10zM40 40h10v10h-10v-10z"
 		patternOpacity={0.1}
-		patternHighlightClass="bg-theme-secondary"
+		patternHighlightClass="bg-theme-accent"
 	/>
-	<section class="flex flex-no-wrap flex-col gap-1 justify-center md:flex-row lg:flex-wrap lg:justify-evenly">
-	<Card
-		title="Feature."
-		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
-		alt
-		shadowSize="md"
-	/>
-	<Card
-		title="Feature."
-		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
-		shadowSize="md"
-	/>
-	<Card
-		title="Feature."
-		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
-		shadowSize="md"
-		alt
-	/>
-
-</section>
+	<section class="flex flex-no-wrap flex-col gap-6 justify-center mx-0 md:flex-row lg:flex-wrap lg:justify-between card-container">
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			alt
+			shadowSize="md"
+			class="card-animation"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+			class="card-animation"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+			alt
+			class="card-animation"
+		/>
+	</section>
 </Layout>
+
+<style>
+	.card-container {
+		opacity: 0;
+		transform: scale(0.9);
+		animation: containerPopIn 0.5s ease-out forwards;
+		animation-delay: .75s;
+	}
+
+	.card-animation {
+		opacity: 0;
+		transform: scale(0.8);
+		animation: cardPopIn 0.5s ease-out forwards;
+	}
+
+	@keyframes containerPopIn {
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@keyframes cardPopIn {
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.card-container,
+		.card-animation {
+			animation: none;
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
+</style>
