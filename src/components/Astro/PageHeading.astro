@@ -1,21 +1,26 @@
 ---
+import type { AstroBuiltinAttributes } from "astro";
+
 export interface Props {
 	text: string;
 	showHeadingBackground?: boolean;
-	class?: string | Record<string, boolean | string>;
+	class?: string | AstroBuiltinAttributes["class:list"];
 }
 
 const { text, showHeadingBackground = true, class: className } = Astro.props;
 const options = { "rounded-theme": true };
 ---
 
-<div class:list={["flex justify-center mt-12 mb-10 md:mt-24 md:mb-12", className]}>
+<div
+	class:list={["flex justify-center mt-12 mb-10 md:mt-24 md:mb-12", className]}
+>
 	<p
 		class:list={[
 			"h6 text-4xl text-center mx-4 capitalize leading-relaxed",
 			options,
 			{
-				"bg-theme-secondary text-theme-secondary leading-none p-4 inline-block": showHeadingBackground,
+				"bg-theme-secondary text-theme-secondary leading-none p-4 inline-block":
+					showHeadingBackground,
 				"w-full": !showHeadingBackground,
 			},
 		]}

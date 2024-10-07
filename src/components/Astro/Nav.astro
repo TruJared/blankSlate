@@ -1,12 +1,13 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import ToggleTheme from "@components/Astro/ToggleTheme.astro";
 import type { NavEntry } from "../../Types/types";
 
 export interface Props {
 	links: NavEntry[];
 	themeNames?: string[];
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 	const { links = [], class: className } = Astro.props;
 ---

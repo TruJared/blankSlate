@@ -1,9 +1,10 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 export interface Props {
 	text: string;
 	tooltip?: string;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { text, class: className, tooltip = text } = Astro.props;
 ---

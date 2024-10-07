@@ -1,10 +1,11 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 export interface Props {
 	tag: string;
 	count?: number | string | undefined;
 	size?: "xs" | "sm" | "md" | "lg";
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { tag, count, size = "md", class: className } = Astro.props;
 

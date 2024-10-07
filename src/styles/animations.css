@@ -82,20 +82,27 @@
 
 	/*
 ===================================
-<(^.^)>  DONUT ANIMATION  <(^.^)>
+<(^.^)> DONUT ANIMATION  <(^.^)>
 ===================================
  */
-	.donut {
+	.donut--broken {
 		width: 1em;
 		height: 1em;
 		border-radius: 50%;
 		/* uncomment for loading spinner animation */
 		/* border: 0.25em solid gainsboro;
 		border-top-color: black; */
-		animation: donut-spin 4s ease-in-out infinite;
+		animation: donut-spin--broken 10s linear infinite;
 	}
 
-	@keyframes donut-spin {
+	.donut {
+		width: 1em;
+		height: 1em;
+		border-radius: 50%;
+		animation: donut-spin 2s linear infinite;
+	}
+
+	@keyframes donut-spin--broken {
 		0% {
 			transform: rotate(0deg);
 		}
@@ -125,22 +132,110 @@
 			transform: rotate(-360deg);
 		}
 	}
+
+	@keyframes donut-spin {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+
+	/*
+===================================
+<(^.^)>  SPIN AND GROW ANIMATION  <(^.^)>
+===================================
+ */
+	.spin-and-grow {
+		animation: spinAndGrow 1.25s ease-out;
+		transform-origin: center;
+		border-radius: 50% !important;
+		mask-image: linear-gradient(to bottom, transparent, black 15%, black 100%),
+			linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+		mask-composite: intersect;
+	}
+
+	@keyframes spinAndGrow {
+		0% {
+			transform: scale(0.5) rotate(-180deg);
+			opacity: 0;
+		}
+		50% {
+			transform: scale(0.8) rotate(-80deg);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1) rotate(0deg);
+			opacity: 1;
+		}
+	}
+
+	/*
+===================================
+<(^.^)>  BUILD IN ANIMATION  <(^.^)>
+===================================
+ */
+	.build-in {
+		opacity: 0;
+		transform: translateY(20px);
+		animation: buildIn 0.5s ease-out forwards;
+	}
+
+	@keyframes buildIn {
+		0% {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	/*
+===================================
+<(^.^)>  FADE IN ANIMATION  <(^.^)>
+===================================
+ */
+	.fade-in {
+		opacity: 0;
+		animation: fadeIn 0.5s ease-out forwards;
+		transform: scale(0.9);
+		animation-delay: 0.5s;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
+	}
 }
 
 @media (prefers-reduced-motion: reduce) {
-	/* tailwind handles this for us when we use animations, but it's good to have a fallback in case no animations are used via tailwind */
+	*,
+	::before,
+	::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
 
+	/* Disable specific animations */
+	.image-drop-in,
+	.spin-and-grow,
+	.build-in,
+	.fade-in,
+	.neon,
 	.donut,
-	.neon {
-		animation: none;
-	}
-	.neon {
-		text-shadow:
-			0 0 2px var(--color-accent),
-			0 0 4px var(--color-accent);
-	}
-	.neon::after {
-		animation: none;
-		opacity: 0.2;
+	.text-build {
+		animation: none !important;
+		opacity: 1 !important;
+		transform: none !important;
 	}
 }

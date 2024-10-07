@@ -27,4 +27,13 @@ export default defineConfig({
 	content: {
 		collections: COLLECTION_NAMES_LIST.map((collection) => ({ name: collection, type: 'content' })),
 	},
+	vite: {
+		css: {
+			preprocessorOptions: {
+				scss: {
+					additionalData: `@import "src/styles/animations.css";`
+				}
+			}
+		}
+	}
 });

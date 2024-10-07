@@ -1,4 +1,5 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
 import type { ShikiConfig } from "astro";
 import type {
 	BundledLanguage,
@@ -14,8 +15,7 @@ export interface Props {
 	code?: string;
 	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
 	theme?: ShikiConfig["theme"];
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	code = "",

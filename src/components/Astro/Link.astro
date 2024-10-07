@@ -1,12 +1,13 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 export interface Props {
   href: string;
   text: string;
   external?: boolean;
   hideIcon?: boolean;
   rel?: string;
-  class?: string | Record<string, boolean | string>;
-}
+  class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
   href,

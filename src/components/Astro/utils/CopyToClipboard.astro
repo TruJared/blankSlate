@@ -1,11 +1,12 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 export interface Props {
 	textToCopy: string;
 	size?: number;
 	customIcon?: JSX.Element;
 	ariaLabel?: string;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	textToCopy,

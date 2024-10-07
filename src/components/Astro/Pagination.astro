@@ -1,7 +1,9 @@
 ---
+import type { AstroBuiltinAttributes } from "astro";
+
 export interface Props {
 	page: any; // todo: types
-	class?: string | Record<string, boolean | string>;
+	class?: string | AstroBuiltinAttributes["class:list"];
 }
 
 const { page, class: className } = Astro.props;

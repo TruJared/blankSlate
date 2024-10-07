@@ -1,10 +1,11 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { Icon } from "astro-icon/components";
 import { themeNames } from "@utils/themeNames";
 
 export interface Props {
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { class: className } = Astro.props;
 const options = { "rounded-theme": true };

@@ -1,4 +1,6 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
 import { SITE } from "@config";
 import { Image } from "astro:assets";
@@ -18,8 +20,7 @@ export interface Props {
 	filter?: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	includeDrafts?: boolean;
 	subtitle?: string;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	posts,

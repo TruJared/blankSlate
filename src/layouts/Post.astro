@@ -1,4 +1,6 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { COLLECTION_NAMES_LIST, AUTHORS } from "@config";
 
 import { getCollection } from "astro:content";
@@ -15,8 +17,7 @@ export interface Props {
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	slug: string;
 	tags: string[] | undefined;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { class: className, collectionName, slug } = Astro.props;
 const options = { "rounded-theme": true };

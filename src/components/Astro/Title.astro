@@ -1,12 +1,13 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { Image } from "astro:assets";
 
 export interface Props {
 	title: string;
 	showTitleBackground: boolean;
 	logoSrc: string | null;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { title, showTitleBackground, logoSrc, class: className } = Astro.props;
 ---

@@ -1,9 +1,10 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 export interface Props {
 	text: string;
 	neonify?: boolean | "true" | "false";
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { text, neonify = false, class: className, } = Astro.props;
 
