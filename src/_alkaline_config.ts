@@ -63,7 +63,7 @@ export const SITE: Site = {
 	description: "A Neutral Base For Your Next Creation",
 	keywords: ["astro", "theme", "blog"],
 	disableIndexing: false, // true for no indexing
-	logoSrc: "/logo.png" || null, // in public folder png or svg
+	logoSrc: "/alkaline-logo-2.png" || null, // in public folder png or svg
 	faviconSrc: "/favicon.png" || null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
 	socials: socials,
