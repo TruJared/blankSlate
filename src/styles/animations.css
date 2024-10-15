@@ -148,12 +148,13 @@
 ===================================
  */
 	.spin-and-grow {
-		animation: spinAndGrow 1.25s ease-out;
 		transform-origin: center;
 		border-radius: 50% !important;
-		mask-image: linear-gradient(to bottom, transparent, black 15%, black 100%),
-			linear-gradient(to right, transparent, black 10%, black 90%, transparent);
-		mask-composite: intersect;
+		animation: spinAndGrow 1.25s ease-out;
+	}
+
+	.spin-and-grow-reverse {
+		animation: spinAndGrowReverse 1.25s ease-out;
 	}
 
 	@keyframes spinAndGrow {
@@ -170,6 +171,22 @@
 			opacity: 1;
 		}
 	}
+
+	@keyframes spinAndGrowReverse {
+		0% {
+			transform: scale(0.5) rotate(180deg);
+			opacity: 0;
+		}
+		50% {
+			transform: scale(0.8) rotate(80deg);
+			opacity: 0;
+		}
+		100% {
+			transform: scale(1) rotate(0deg);
+			opacity: 1;
+		}
+	}
+
 
 	/*
 ===================================
