@@ -1,32 +1,46 @@
 ---
 import Layout from "@layouts/Layout.astro";
-import PageHeading from "@components/Astro/PageHeading.astro";
-import SocialIcon from "@components/Astro/utils/SocialIcon.astro";
-import SocialsCloud from "@components/Astro/SocialsCloud.astro";
-// export interface Props {
-// 	title?: string;
-// 	author?: string;
-// 	profile?: string;
-// 	description?: string;
-// 	ogImage?: string;
-// 	canonicalURL?: string;
-// 	pubDatetime?: Date;
-// 	modDatetime?: Date | null;
-// }
+import PageHeader from "@components/Astro/PageHeader.astro";
+import Card from "@components/Astro/Card.astro";
 
-// const {
-// 	title,
-// 	author,
-// 	description,
-// 	ogImage,
-// 	canonicalURL,
-// 	pubDatetime,
-// 	modDatetime,
-// } = Astro.props;
+import coverImage from "@assets/alk-cover-2.webp";
 ---
 
 <Layout>
-	<PageHeading text="A Strong Base For Your Next Creation." showHeadingBackground={false} />
-	<section>
+	<PageHeader
+		heading="A Neutral Base For Your Next Creation."
+		description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. loorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos. lorem	ipsume dor allakdfjadlfjoi aoidfjda"
+		image={coverImage}
+		imageAlt="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+		backgroundPattern="M0 0h10v10h10v-10h10v10h10v10h-10v10h-10v-10h-10v-10zM30 0h10v10h-10v-10zM0 20h10v10h-10v-10zM20 20h10v10h-10v-10zM0 40h10v10h-10v-10zM40 40h10v10h-10v-10z"
+		patternOpacity={0.1}
+		patternHighlightClass="bg-theme-accent"
+	/>
+	<section
+		class="flex flex-no-wrap flex-col gap-6 justify-center mx-0 md:flex-row lg:flex-wrap lg:justify-between opacity-0 transform scale-90 build-in"
+	>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			alt
+			shadowSize="md"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+		/>
+		<Card
+			title="Feature."
+			description="Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, quos."
+			shadowSize="md"
+			alt
+		/>
 	</section>
 </Layout>
+
+<style>
+	.build-in {
+		animation-delay: .85s;
+	}
+</style>

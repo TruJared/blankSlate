@@ -8,17 +8,21 @@
 	--color-background: #ffffff;
 	--color-gradient: #f0e6d2;
 	--color-text: #3a3a3a;
-	--color-accent: #249280;
-	--color-accent-alt: #ff4747;
+	--color-accent: #2c3e50;  /* Darker blue-gray, less dominant */
+	--color-accent-alt: #d35400;  /* Deeper orange, complementing the image */
 	--color-shadow: #1b2838;
+	/* options */
+	--border-radius: 0;
 }
 .theme-dark {
 	--color-background: #1b2838;
-	--color-gradient: #3a3a3a;
+	--color-gradient: #2c3e50;  /* Adjusted to match new accent color */
 	--color-text: #f0e6d2;
-	--color-accent: #ff4747;
-	--color-accent-alt: #249280;
-	--color-shadow: #ffffff;
+	--color-accent: #3498db;  /* Lighter version of our new accent color */
+	--color-accent-alt: #e67e22;  /* Adjusted to complement new accent */
+	--color-shadow: #0a1721;  /* Darker shadow for contrast */
+	/* options */
+	--border-radius: 0.4rem;
 }
 .theme-deep-sea {
 	--color-background: #1a3c3c;
@@ -27,6 +31,8 @@
 	--color-accent: #50fa7b;
 	--color-accent-alt: #0a9b83;
 	--color-shadow: #005f5f;
+	/* options */
+	--border-radius: 0.2rem;
 }
 .theme-generic {
 	--color-background: #f0f0f0;
@@ -35,6 +41,8 @@
 	--color-accent: #d74247;
 	--color-accent-alt: #264899;
 	--color-shadow: #aacfd5;
+	/* options */
+	--border-radius: 0;
 }
 .theme-haunted {
 	--color-background: #0f0f0f;
@@ -43,6 +51,8 @@
 	--color-accent: #7a1717;
 	--color-accent-alt: #000000;
 	--color-shadow: hsla(248, 30%, 24%, 0.747);
+	/* options */
+	--border-radius: 0.2rem;
 }
 .theme-invisible {
 	--color-background: #1e2723;
@@ -51,6 +61,8 @@
 	--color-accent: #7d5a3c;
 	--color-accent-alt: #b8a86a;
 	--color-shadow: #162019;
+	/* options */
+	--border-radius: 0.4rem;
 }
 .theme-leet {
 	--color-background: #0d0208;
@@ -59,6 +71,8 @@
 	--color-accent: #08f7fe;
 	--color-accent-alt: #005f2c;
 	--color-shadow: #003b00;
+	/* options */
+	--border-radius: 0rem;
 }
 .theme-neon-bliss {
 	--color-background: #0d0221;
@@ -67,6 +81,8 @@
 	--color-accent: #00ff9f;
 	--color-accent-alt: #fe53bb;
 	--color-shadow: hsla(182, 99%, 51%, 0.3);
+	/* options */
+	--border-radius: 0.7rem;
 }
 .theme-old-couch {
 	--color-background: #1a110d;
@@ -75,6 +91,8 @@
 	--color-accent: #ff7f00;
 	--color-accent-alt: #a85400;
 	--color-shadow: hsla(0, 0%, 0%, 0.6);
+	/* options */
+	--border-radius: 0.25rem;
 }
 .theme-peppermint {
 	--color-background: #ffffff;
@@ -83,6 +101,8 @@
 	--color-accent: #ff0000;
 	--color-accent-alt: #7fbfbf;
 	--color-shadow: hsla(0, 100%, 50%, 0.15);
+	/* options */
+	--border-radius: 0.8rem;
 }
 .theme-pop-punk {
 	--color-background: #1a1a1a;
@@ -91,14 +111,18 @@
 	--color-accent: #ff1493;
 	--color-accent-alt: #1ab81a;
 	--color-shadow: hsla(328, 100%, 54%, 0.5);
+	/* options */
+	--border-radius: 0.5rem;
 }
 .theme-slime {
 	--color-background: #030901;
 	--color-gradient: #ed880c;
 	--color-text: #f8f1dd;
 	--color-accent: #cfd742;
-	--color-accent-alt: #2b303b;
+	--color-accent-alt: #e0cd91;
 	--color-shadow: var(--color-gradient);
+	/* options */
+	--border-radius: 0.4rem;
 }
 .theme-spring {
 	--color-background: #f5f3e8;
@@ -107,6 +131,8 @@
 	--color-accent: #d17844;
 	--color-accent-alt: #a85751;
 	--color-shadow: #b8cc94;
+	/* options */
+	--border-radius: 0.5rem;
 }
 .theme-syntax {
 	--color-background: #0f0e17;
@@ -115,4 +141,6 @@
 	--color-accent: #fed941;
 	--color-accent-alt: #133057;
 	--color-shadow: hsla(48, 99%, 63%, 0.3);
+	/* options */
+	--border-radius: 0;
 }

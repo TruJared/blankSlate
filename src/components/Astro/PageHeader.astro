@@ -1,0 +1,85 @@
+---
+import type { AstroBuiltinAttributes } from "astro";
+import type { ImageMetadata } from "astro";
+import PatternBackground from "@components/Astro/utils/PatternBackground.astro";
+import Image from "astro/components/Image.astro";
+
+export interface Props {
+	heading: string;
+	description?: string;
+	image?: string | ImageMetadata;
+	imageAlt?: string;
+	backgroundPattern?: string;
+	patternOpacity?: number;
+	patternHighlightClass?:
+		| "bg-theme-primary"
+		| "bg-theme-secondary"
+		| "bg-theme-accent"
+		| "bg-theme-accent-alt";
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
+
+const {
+	heading,
+	description,
+	image,
+	imageAlt,
+	backgroundPattern,
+	patternOpacity,
+	patternHighlightClass,
+	class: className,
+} = Astro.props;
+
+const options = { "rounded-theme": true };
+---
+
+<div
+	class:list={[
+		"flex flex-col items-center justify-between w-full max-w-6xl mx-auto px-4 pt-4 pb-10 md:flex-row md:pt-24 md:pb-32",
+		className,
+	]}
+>
+	{
+		backgroundPattern && (
+			<PatternBackground
+				pattern={backgroundPattern}
+				patternOpacity={patternOpacity}
+				patternHighlightClass={patternHighlightClass}
+			/>
+		)
+	}
+	<div class="flex flex-col items-start justify-center md:w-1/2 mb-8 md:mb-0">
+		<h2
+			class="font-display text-5xl font-medium tracking-tight text-neutral-950 [text-wrap:balance] sm:text-7xl build-in"
+		>
+			{heading}
+		</h2>
+		<p class="mt-4 text-xl text-theme-primary build-in">{description}</p>
+	</div>
+
+	{
+		image && (
+			<div class="md:w-1/2 md:pl-8">
+				<div class="relative overflow-hidden rounded-full aspect-square">
+					<Image
+						src={image as string}
+						alt={imageAlt ?? "Image"}
+						class:list={["w-full h-full object-cover spin-and-grow", options]}
+						width={400}
+						height={400}
+					/>
+				</div>
+			</div>
+		)
+	}
+</div>
+
+<style>
+	h2.build-in {
+		animation-delay: 0.2s;
+	}
+
+	p.build-in {
+		animation-delay: 0.4s;
+	}
+</style>

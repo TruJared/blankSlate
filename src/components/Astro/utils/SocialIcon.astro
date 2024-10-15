@@ -1,4 +1,6 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { Icon } from "astro-icon/components";
 
 export interface Props {
@@ -8,8 +10,7 @@ export interface Props {
 	size?: number;
 	fill?: boolean;
 	iconPrefix?: string; //  i.e. "ri"
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	platform,
@@ -44,7 +45,7 @@ const iconName = buildIconName(platform, fill, iconPrefix);
 ---
 
 <a
-	href={url.includes("@") ? `mailto:${url}` : url}
+	href={platform === "email" ? `mailto:${url}` : url}
 	target="_blank"
 	class="hover:text-theme-accent no-underline m-0 p-0"
 >

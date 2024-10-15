@@ -56,14 +56,14 @@ export const AUTHORS: Author[] = [
 ];
 
 export const SITE: Site = {
-	title: "Alkaline - AI",
+	title: "Alkaline",
 	showTitleBackground: true,
 	url: "https://fakesite.fake", // ! make sure to change this ! //
 	author: AUTHORS[0].name, // Made with ❤️ by {your-name}
 	description: "A Neutral Base For Your Next Creation",
 	keywords: ["astro", "theme", "blog"],
 	disableIndexing: false, // true for no indexing
-	logoSrc: "/logo.png" || null, // in public folder png or svg
+	logoSrc: "/alk-4.png" || null, // in public folder png or svg
 	faviconSrc: "/favicon.png" || null, // in public folder png or svg
 	ogImage: "/og-image.png", // in public folder
 	socials: socials,

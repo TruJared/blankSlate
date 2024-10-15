@@ -1,4 +1,6 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
 import { SITE } from "@config";
 import { Image } from "astro:assets";
@@ -15,11 +17,10 @@ export interface Props {
 	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	title?: string | undefined;
 	description?: string;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
 	filter?: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	includeDrafts?: boolean;
 	subtitle?: string;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	posts,
@@ -28,11 +29,13 @@ const {
 	title,
 	subtitle,
 	description = title,
-	customClass,
+	class: className,
 } = Astro.props;
+
+const options = { "rounded-theme": true };
 ---
 
-<Layout title={title} description={description} customClass={customClass}>
+<Layout title={title} description={description} class={className}>
 	{subtitle && <PageHeading text={subtitle} showHeadingBackground />}
 	<section>
 		{
@@ -50,7 +53,7 @@ const {
 										alt={post.data.alt || post.data.title || "Post Image"}
 										width={128}
 										height={128}
-										class="object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0"
+										class:list={["object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0", options]}
 										loading="lazy"
 									/>
 								)}

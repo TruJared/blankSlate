@@ -11,8 +11,7 @@ export interface Props {
 	socials: Social[];
 	size?: number;
 	fill?: boolean;
-	class?: string | Record<string, boolean | string>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { socials, size, fill = false, class: className } = Astro.props;
 

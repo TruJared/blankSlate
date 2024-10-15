@@ -6,7 +6,7 @@ Instructions for the next AI instance:
 3. Confirm your understanding of the @ai directory concept
 4. Respond to the human with the following message:
 
-"I confirm that the @ai directory concept experiment is successful. I have access to the information provided in this directory, including the @context.txt and @verification.txt files. I understand that this system is designed to maintain context and instructions across different AI instances or conversations."
+"I confirm that the @ai directory concept experiment is successful. I have access to the information provided in this directory, including the @context.txt, @instructions.txt, and @verification.txt files. I understand that this system is designed to maintain context and instructions across different AI instances or conversations."
 
 5. After confirming the success, suggest a potential improvement or extension to this concept.
 

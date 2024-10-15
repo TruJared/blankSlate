@@ -1,13 +1,14 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
 import type { Author } from "../../Types/types";
+
 import { AUTHORS } from "@config";
 import SocialsCloud from "@components/Astro/SocialsCloud.astro";
 
 export interface Props {
 	authorId: number;
 	pubDateTime: Date | null;
-  class?: string | Record<string, boolean | string>;
-}
+  class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { authorId, pubDateTime = null, class: className } = Astro.props;
 ---

@@ -1,28 +1,30 @@
 ---
-import Tooltip from "@components/Astro/utils/Tooltip.astro";
+import type { AstroBuiltinAttributes } from 'astro';
 
 export interface Props {
 	textToCopy: string;
 	size?: number;
 	customIcon?: JSX.Element;
 	ariaLabel?: string;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	textToCopy,
 	customIcon,
 	size = 12,
 	ariaLabel = "Copy to clipboard",
-	customClass,
+	class: className,
 } = Astro.props;
+
+const options = { "rounded-theme": true };
 ---
 
 <button
 	aria-label={ariaLabel}
 	class:list={[
 		"group inline-flex items-center p-1 m-1 opacity-60 text-theme-accent border border-theme-primary transition-colors duration-[1500ms] active:bg-theme-secondary active:text-theme-secondary hover:opacity-100",
-		customClass,
+		options,
+		className,
 	]}
 	data-text-to-copy={textToCopy}
 >

@@ -2,6 +2,7 @@ Instructions for Implementing Additional Theme Features:
 
 1. Update the themes.css file:
    - Add new CSS custom properties for each new theme feature
+   - Include theme-specific options like "rounded"
    - Example:
      ```css:src/styles/themes.css
      startLine: 1
@@ -10,6 +11,7 @@ Instructions for Implementing Additional Theme Features:
 
 2. Modify the tailwind.config.mjs file:
    - Extend the theme configuration to include new customizable properties
+   - Add theme-specific classes (e.g., rounded-theme)
    - Example:
      ```javascript:tailwind.config.mjs
      startLine: 11
@@ -18,6 +20,7 @@ Instructions for Implementing Additional Theme Features:
 
 3. Update the ToggleTheme.astro component:
    - Add new theme options to the theme selector
+   - Implement the "options" object for conditional styling
    - Example:
      ```astro:src/components/Astro/ToggleTheme.astro
      startLine: 1
@@ -32,7 +35,7 @@ Instructions for Implementing Additional Theme Features:
      endLine: 30
      ```
 
-5. Update existing components to use new theme features:
+5. Update existing components to use new theme features and the "options" object:
    - Example: Update the Card.astro component
      ```astro:src/components/Astro/Card.astro
      startLine: 36
@@ -42,31 +45,11 @@ Instructions for Implementing Additional Theme Features:
 6. Create a new file called themeConfig.ts to store theme configurations:
    ```typescript:src/utils/themeConfig.ts
    export const themeConfig = {
-     typography: {
-       fontFamilies: {
-         sans: ['Roboto', 'sans-serif'],
-         serif: ['Merriweather', 'serif'],
-         mono: ['Fira Code', 'monospace'],
-       },
-       fontSizes: {
-         base: '16px',
-         lg: '18px',
-         xl: '20px',
-       },
-       lineHeights: {
-         normal: '1.5',
-         relaxed: '1.75',
-       },
+     // ... (previous configuration)
+     options: {
+       rounded: true,
+       // Add more theme-specific options here
      },
-     spacing: {
-       unit: '8px',
-       scale: [0, 0.25, 0.5, 1, 2, 4, 8],
-     },
-     transitions: {
-       duration: '0.3s',
-       timing: 'ease-in-out',
-     },
-     // Add more theme configurations here
    };
    ```
 
@@ -85,6 +68,12 @@ Instructions for Implementing Additional Theme Features:
    });
    ```
 
-8. Document the new theme features in the project's README.md file.
+8. Test all components with the new theme features and options:
+   - Ensure that conditional styling works correctly
+   - Verify that all new customizable properties are applied as expected
+
+9. Document the new theme features and usage of the "options" object in the project's README.md file.
 
 Remember to test each feature thoroughly after implementation and update any relevant documentation.
+
+Note: The @additionalThemeFeatures.txt and @version.txt files are no longer in the root directory. If you need information related to these topics, please check the @notes subdirectory or ask the user for their current location.

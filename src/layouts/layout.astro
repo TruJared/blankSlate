@@ -1,4 +1,6 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
+
 import { SITE, NAVIGATION } from "@config";
 
 import { ViewTransitions } from "astro:transitions";
@@ -7,6 +9,7 @@ import GoogleFonts from "@components/Astro/Head/GoogleFonts.astro";
 import DynamicMetaTags from "@components/Astro/Head/DynamicMetaTags.astro";
 import SocialMeta from "@components/Astro/Head/SocialMeta.astro";
 import ResourceLinks from "@components/Astro/Head/ResourceLinks.astro";
+
 
 import Nav from "@components/Astro/Nav.astro";
 import Title from "@components/Astro/Title.astro";
@@ -27,8 +30,7 @@ export interface Props {
 	logoSrc?: string;
 	faviconSrc?: string;
 	showTitleBackground?: boolean;
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	title = SITE.title,
@@ -42,7 +44,7 @@ const {
 	faviconSrc = SITE.faviconSrc,
 	publishedTime = "",
 	modifiedTime = "",
-	customClass = "",
+	class: className = "",
 } = Astro.props;
 
 const metaTags = [
@@ -56,6 +58,9 @@ const metaTags = [
 
 ];
 const fonts = SITE.fonts || [];
+const options = {
+  "rounded-theme": true,
+}
 ---
 
 <html lang="en">
@@ -77,7 +82,7 @@ const fonts = SITE.fonts || [];
 		<ViewTransitions />
 		{/*<ResourceLinks />*/}
 	</head>
-	<body class:list={[customClass]}>
+	<body class:list={[options, className]}>
 		<div class="flex flex-col min-h-screen">
 			<Title
 				title={title}

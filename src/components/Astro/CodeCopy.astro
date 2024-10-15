@@ -1,4 +1,5 @@
 ---
+import type { AstroBuiltinAttributes } from 'astro';
 import type { ShikiConfig } from "astro";
 import type {
 	BundledLanguage,
@@ -10,28 +11,29 @@ import { SITE } from "@config";
 import { Code } from "astro:components";
 import CopyToClipboard from "./utils/CopyToClipboard.astro";
 
-export interface CopyCodeProps {
+export interface Props {
 	code?: string;
 	lang: BundledLanguage | SpecialLanguage | LanguageRegistration;
 	theme?: ShikiConfig["theme"];
-	customClass?: string | Array<{ [key: string]: boolean | string }>;
-}
+	class?: string | AstroBuiltinAttributes['class:list'];}
 
 const {
 	code = "",
 	lang,
-	customClass,
 	theme = SITE.shikiConfig.theme,
-} = Astro.props as CopyCodeProps;
+	class: className,
+} = Astro.props;
+
+const options = { "rounded-theme": true };
 ---
 
-<div class:list={["relative py-1 px-4 m-0", customClass]}>
+<div class:list={["relative py-1 px-4 m-0", className]}>
 	<CopyToClipboard
 		textToCopy={code}
 		aria-label="Copy code to clipboard"
 		size={10}
-		customClass="absolute top-4 right-4"
+		class="absolute top-4 right-4"
 	/>
 
-	<Code lang={lang} theme={theme} code={code} class="rounded-none"/>
+	<Code lang={lang} theme={theme} code={code} class:list={options} />
 </div>

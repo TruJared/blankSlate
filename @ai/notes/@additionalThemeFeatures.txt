@@ -42,4 +42,11 @@ Additional Theme Features to Implement:
 13. Text shadow:
     - Customizable text shadow for enhanced contrast
 
-Remember to implement these features in a way that allows easy customization through the theme configuration.
+14. Theme-specific options:
+    - Implement an "options" object for conditional styling
+    - Include properties like "rounded" for theme-specific border-radius
+
+Next steps:
+1. Update all components to use the new "options" object for conditional styling
+2. Modify theme styles to incorporate the new customizable features
+3. Test thoroughly to ensure all new features work as expected across different themes
