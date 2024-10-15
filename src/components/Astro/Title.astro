@@ -6,10 +6,10 @@ import { Image } from "astro:assets";
 export interface Props {
 	title: string;
 	showTitleBackground: boolean;
-	logoSrc: string | null;
+	logoSrc?: string;
 	class?: string | AstroBuiltinAttributes['class:list'];}
 
-const { title, showTitleBackground, logoSrc, class: className } = Astro.props;
+const { title, showTitleBackground,class: className, logoSrc } = Astro.props;
 ---
 
 <div

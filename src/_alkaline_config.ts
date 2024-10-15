@@ -92,7 +92,7 @@ export const SITE: Site = {
 			fontWeights: [400, 500, 700],
 		},
 	],
-	// If you're having trouble with the fonts not loading, it's probably because the font family name is incorrect or the font weights are not supported for that font family
+	// If you're having trouble with the fonts not loading, it's probably because the font family name isn't EXACTLY correct or the font weights are not supported for that font family
 };
 
 export const NAVIGATION: NavEntry[] = [
@@ -100,25 +100,29 @@ export const NAVIGATION: NavEntry[] = [
 		href: "/",
 		text: "Home",
 	},
-	{
-		href: "/blog",
-		text: "Blog",
-	},
+	// {
+	// 	href: "/blog",
+	// 	text: "Blog",
+	// },
 	{
 		href: "/docs",
 		text: "Docs",
 	},
 	{
 		href: "/tags",
-		text: "Tags",
+		text: "Docs By Tag",
 	},
 	{
 		href: "/elements",
 		text: "Elements",
 	},
 	{
-		href: "/typography",
-		text: "Typography",
+		href: "/features",
+		text: "Features",
+	},
+	{
+		href: "/404",
+		text: "404",
 	},
 ];
 

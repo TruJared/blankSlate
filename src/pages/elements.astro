@@ -3,6 +3,8 @@ import Layout from "@layouts/Layout.astro";
 import CodeCopy from "@components/Astro/CodeCopy.astro";
 import Link from "@components/Astro/Link.astro";
 import PageHeading from "@components/Astro/PageHeading.astro";
+import Title from "@components/Astro/Title.astro";
+import PageHeader from "@components/Astro/PageHeader.astro";
 
 const code = `
 ---
@@ -48,8 +50,41 @@ const {
 `;
 ---
 
-<Layout title="Typography & Elements">
-	<PageHeading text="Typography Examples" />
+<Layout title="Elements">
+	<PageHeading text="Components" />
+
+	<section>
+		<article>
+			<h2>Title</h2>
+			<p>Various configurations are available for the title component.</p>
+			<Title title="No Background" showTitleBackground={false} />
+			<div class="h-8"></div>
+			<Title title="With Background" showTitleBackground class="break-words" />
+			<div class="h-8"></div>
+			<Title title="Logo Shown" showTitleBackground logoSrc="/alk-4.png" />
+			<div class="h-8"></div>
+
+			<h2>Page Header</h2>
+			<p>Simple page header with heading and description.</p>
+			<PageHeader
+				heading="Page Header"
+				description="The page header is a component that is used to display the page header."
+			/>
+			<p>Page header with image, background pattern, and pattern highlight.</p>
+			<PageHeader
+				heading="Page Header"
+				description="The page header is a component that is used to display the page header."
+				image="/alk-4.png"
+				imageAlt="ALK Logo"
+				backgroundPattern="M10 10L20 10M10 18L20 18M4 4L28 28M28 4L4 28"
+				patternOpacity={0.1}
+				patternHighlightClass="bg-theme-accent"
+        class="relative"
+			/>
+		</article>
+	</section>
+
+	<PageHeading text="Typography" />
 	<section>
 		<article>
 			<h1>Heading 1</h1>
