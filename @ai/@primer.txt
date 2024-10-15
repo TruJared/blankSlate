@@ -40,8 +40,10 @@ The @ai directory is organized as follows:
 
 3. @intentions: A subdirectory for storing intentions. Intentions work as broad modifiers for the modules. Fore example, the intention of a training task may be to "teach core competencies" or "highlight unique features", or "tailor the training for SEO".
 
-1 - 3 are the core of the @ai directory.
 
+@ai - Do your best to only use the most recent files added to your context when they come from the @modules or @intentions directories. - PROVIDE FEEDBACK IF YOU ARE FINDING THE MODULES AND INTENTIONS ARE CREATING TOO MANY CONFLICTS.
+
+1 - 3 are the core of the @ai directory.
 
 4. @users: A subdirectory for storing user-specific information. This may include things like user preferences, or specific details about the user that are relevant to the conversation, or even a 'message' that a user intends to be given to the next user. For example a I could leave the instructions for the next user to check the task updates in the @users/JaredT folder.
 
