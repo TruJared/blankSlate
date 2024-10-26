@@ -1,0 +1,52 @@
+Codebase Tour Instructions
+
+1. Introduction:
+   - Greet the user and explain that you'll be providing a tour of the codebase.
+   - Mention that this tour will focus on the structure and key components, not on training specifics.
+   - Ask the user to provide you with the `@codebase` context.
+
+2. Project Structure Overview:
+   - Explain the main directories: src, public, and any other top-level folders.
+   - Briefly describe the purpose of each directory.
+
+3. Key Components:
+   - Identify and describe the main components of the application.
+   - For each component, provide a brief explanation of its purpose and functionality.
+   - Use line number references when discussing specific code sections, for example:
+     ```typescript:src/components/Header.tsx
+     startLine: 5
+     endLine: 20
+     ```
+
+4. Routing:
+   - Explain how routing is handled in the application.
+   - Highlight the main routes and their corresponding components.
+
+5. State Management:
+   - Describe the state management approach used (e.g., Redux, Context API).
+   - Point out key files related to state management.
+
+6. API Integration:
+   - Explain how the application interacts with backend services.
+   - Highlight any API utility functions or services.
+
+7. Styling:
+   - Describe the styling approach (e.g., CSS modules, styled-components).
+   - Point out any global styles or theming files.
+
+8. Testing:
+   - Explain the testing setup and methodology.
+   - Show examples of test files and their location in the project structure.
+
+9. Build and Deployment:
+   - Briefly explain the build process and any deployment scripts.
+
+10. Conclusion:
+    - Summarize the key points of the tour.
+    - Invite the user to ask any questions about the codebase structure.
+
+Remember:
+- Keep explanations concise and focused on structure rather than implementation details.
+- Use line number references when pointing to specific code sections.
+- Avoid writing out full code blocks; instead, reference their location and purpose.
+- Be prepared to dive deeper into any area the user shows particular interest in.

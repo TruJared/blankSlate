@@ -1,0 +1,57 @@
+Welcome to our Astro-based project! 🚀
+
+This guide will help you get started with our custom Astro theme. We'll cover the basics of the project structure and key Astro concepts relevant to our setup.
+
+1. Project Structure:
+   - src/: This is where most of our code lives.
+   - public/: Static assets are stored here.
+   - astro.config.mjs: Our Astro configuration file.
+
+2. Key Directories:
+   - src/pages/: Each file here becomes a route in our site.
+   - src/layouts/: Our reusable page layouts.
+   - src/components/: Our reusable UI components.
+
+3. Astro Components:
+   Our project uses .astro files for components. They have two main parts:
+   - Frontmatter: JavaScript code between --- fences at the top.
+   - Component Template: HTML-like syntax for the component's structure.
+
+   For an example, check out:
+   ```astro:src/components/Header.astro
+   startLine: 1
+   endLine: 15
+   ```
+
+4. Pages and Routing:
+   - Our pages are located in src/pages/.
+   - The file name becomes the URL path.
+
+5. Layouts:
+   - Use layouts in src/layouts/ for consistent page structures.
+   - Import and use layouts in your pages.
+
+6. Styling:
+   - Styles in .astro files are scoped by default.
+   - Use <style is:global> for global styles.
+
+7. Markdown Support:
+   - Use .md or .mdx files in src/pages/ for content-heavy pages.
+   - Add frontmatter at the top for metadata.
+
+8. Astro Islands:
+   - Astro allows you to use interactive components from other frameworks.
+   - These are called "islands" of interactivity in a sea of static HTML.
+
+9. Building and Deploying:
+   - Use `astro build` to create a production-ready version of your site.
+   - Deploy to various platforms with `astro deploy`.
+
+Remember, our Astro theme is designed to be flexible and extensible. Start with the basics and explore more features as you grow comfortable.
+
+Helpful Resources:
+- Astro Docs: https://docs.astro.build
+- Our project's README.md file
+- The @theme_training.txt file for more in-depth information
+
+If you have any questions, don't hesitate to ask. Happy coding!

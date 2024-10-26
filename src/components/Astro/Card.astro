@@ -1,11 +1,12 @@
 ---
 import type { AstroBuiltinAttributes } from 'astro';
+import { Icon } from 'astro-icon/components';
 
 export interface Props {
 	title: string;
 	description: string;
 	alt?: boolean;
-	image?: string;
+	iconSrc?: string;
 	shadowSize?: "sm" | "md" | "lg" | "none" | null;
 	class?: string | AstroBuiltinAttributes['class:list'];}
 
@@ -13,6 +14,7 @@ const {
 	title,
 	description,
 	alt = false,
+	iconSrc = null,
 	shadowSize = "sm",
 	class: className,
 } = Astro.props;
@@ -44,6 +46,19 @@ const options = {
 			{ "text-theme-primary": !alt, "text-theme-secondary": alt },
 		]}
 	>
+
+			{
+		iconSrc && (
+			<span class="flex logo-wrapper items-center p-4 bg-theme-accent">
+				<span class="flex items-center border-2 border-theme-secondary rounded-full">
+					<Icon name="ri:brush-2-line" size="16" class="absolute m-1" />
+			class="absolute m-1" />
+				</span>
+			</span>
+		)
+	}
+
+
 		{title}
 	</h2>
 	<hr

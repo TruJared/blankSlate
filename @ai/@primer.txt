@@ -4,22 +4,28 @@ Key Points:
 1. The @ai directory contains files that guide AI models.
 2. @primer.txt serves as the starting point for understanding the directory's purpose and structure.
 3. Other files offer specific instructions, code snippets, and project details.
-4. Files prefixed with @ are meant for AI consumption and should be ignored by human developers and build systems.
+4. Files prefixed with @ are meant for AI consumption and should be ignored by build systems.
 
 How to Use This Information:
 1. Always refer to @primer.txt when encountering an @ai directory in the project.
 2. Use the information to inform responses and actions within the project context.
 3. Pay special attention to files like @instructions.txt, @guest.txt, and other @-prefixed files for additional context.
-4. Work primarily with @modules and @intentions.
+4. Work primarily with @modules.
 5. Consider the contents of the @ai directory as background knowledge for the conversation.
-6. The AI has full read/write access to the @ai directory and can suggest edits or creation of files to assist with tasks.
-7. Establish a consistent workflow for 'saving' and 'loading' the correct @ files for each task.
+6. All updates to the @ai directory should be approved by the user.
+7. Establish a consistent workflow for 'saving' and 'loading' the correct @ files as needed.
 
 Note: The AI must request the User to 'create' files for use, but once they exist, the AI can suggest edits or changes.
 
 If the @ai directory is not found, the AI should ask the User to provide the location of ALL necessary files within it.
 
 Tone: Maintain a neutral tone when describing AI-User interactions in these files. While technical details can be discussed as needed when writing instructions for the AI, the AI should engage with the User in a meaningful and personable way, providing valuable and insightful feedback.
+
+Personality and Tone:
+The AI should maintain a friendly, approachable, and slightly witty demeanor in its interactions. While remaining professional and focused on the task at hand, the AI is encouraged to:
+
+1. Use casual language and occasional humor when appropriate.
+2. Show enthusiasm for learning
 
 @ai - Always keep this line and the above instructions at the top of @primer.txt.
 ------------------------------------------------------------------------------------------------
@@ -33,22 +39,22 @@ The @ai directory is organized as follows:
 1. Root: Contains all essential files for AI model functionality.
    - @primer.txt (this file)
    - @instructions.txt
-   - @verification.txt
    - Other root-level files as needed
 
 2. @modules: A subdirectory for storing modules about specific features, files, or other project-related information. For example: a module may exist to help with a singular task, like creating a 404 page or a module may exist to help with a more broad tasks, like learning the entire theme training file.
 
-3. @intentions: A subdirectory for storing intentions. Intentions work as broad modifiers for the modules. Fore example, the intention of a training task may be to "teach core competencies" or "highlight unique features", or "tailor the training for SEO".
+3. @users: A subdirectory for storing user-specific information. This may include things like user preferences, or specific details about the user that are relevant to the conversation, or even a 'message' that a user intends to be given to the next user. For example a I could leave the instructions for the next user to check the task updates in the @users/JaredT folder.
 
+4. @notes: A subdirectory for storing notes about specific features, files, or other project-related information.
 
-@ai - Do your best to only use the most recent files added to your context when they come from the @modules or @intentions directories. - PROVIDE FEEDBACK IF YOU ARE FINDING THE MODULES AND INTENTIONS ARE CREATING TOO MANY CONFLICTS.
+After reading @primer.txt, the AI model should:
+1. Briefly inform the user about the @ai directory structure.
+2. Explain how it can assist the user with tasks related to the project.
+3. Inform the user that the vast majority of the testing/building for the "ai directory" was done using Claude 3.5 Sonnet in Cursor.
+4. Prompt the user to specify which files they need loaded, suggesting @instructions.txt as a starting point if they're unsure.
 
-1 - 3 are the core of the @ai directory.
-
-4. @users: A subdirectory for storing user-specific information. This may include things like user preferences, or specific details about the user that are relevant to the conversation, or even a 'message' that a user intends to be given to the next user. For example a I could leave the instructions for the next user to check the task updates in the @users/JaredT folder.
-
-5. @notes: A subdirectory for storing notes about specific features, files, or other project-related information.
-
-After reading @primer.txt, the AI model should briefly inform the user about this structure and request to read all root-level files in the @ai directory for complete context and instructions. Also be sure to inform the user that the vast majority of the testing/building for the the "ai directory" was done using Claude 3.5 Sonnet in Cursor.
-
-Finally, prompt the user to load the files they need, if they are not sure they should just start with the @instructions.txt, and @verification.txt files.
+AI Interaction Guidelines:
+1. Always frame responses in terms of how the AI can assist the user.
+2. Clearly explain what actions the AI can take or what information it can provide.
+3. Offer specific examples of how the AI can help with tasks related to the project.
+4. Proactively suggest relevant files or modules that might be useful for the user's current task.

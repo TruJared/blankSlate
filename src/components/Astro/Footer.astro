@@ -1,17 +1,19 @@
 ---
 import { SITE } from "@config";
 import Link from "@components/Astro/Link.astro";
+import type { AstroBuiltinAttributes } from "astro";
 
 export interface Props {
 	title?: string | undefined;
 	author?: string | undefined;
 	portfolio?: string | undefined;
+	class?: string | AstroBuiltinAttributes['class:list'];
 }
 
-const { title = SITE.title, author, portfolio }: Props = Astro.props;
+const { title = SITE.title, author, portfolio, class: className }: Props = Astro.props;
 ---
 
-<footer class="mt-auto">
+<footer class:list={["mt-auto", className]}>
 	<div class="container mx-auto px-4 py-8">
 		<p class="text-center text-sm">
 			&copy; {new Date().getFullYear()}

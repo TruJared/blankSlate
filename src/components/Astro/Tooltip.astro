@@ -1,12 +1,13 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+import type { AstroBuiltinAttributes } from "astro";
 
 export interface Props {
 	text: string;
 	neonify?: boolean | "true" | "false";
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
-const { text, neonify = false, class: className, } = Astro.props;
+const { text, neonify = false, class: className } = Astro.props;
 
 const options = { "rounded-theme": true };
 ---
@@ -42,7 +43,6 @@ const options = { "rounded-theme": true };
 					"border-t-[8px] border-t-theme-accent": neonify,
 					"border-t-[8px] border-t-[#747474]": !neonify,
 				},
-			]}
-		></span>
+			]}></span>
 	</span>
 </span>

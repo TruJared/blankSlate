@@ -1,5 +1,5 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+import type { AstroBuiltinAttributes } from "astro";
 
 import { Icon } from "astro-icon/components";
 
@@ -10,7 +10,8 @@ export interface Props {
 	size?: number;
 	fill?: boolean;
 	iconPrefix?: string; //  i.e. "ri"
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
 const {
 	platform,
@@ -56,3 +57,10 @@ const iconName = buildIconName(platform, fill, iconPrefix);
 		class:list={["mr-2 mt-1 md:mr-0.5", { className }]}
 	/>
 </a>
+
+{/* @ai SocialIcon component uses 'ri' (Remix Icon) as the default icon theme.
+Users can change the iconPrefix prop to use different icon sets. For more icon
+options and usage, refer to: - https://www.astroicon.dev/ -
+https://iconify.design/ These resources provide extensive icon collections and
+implementation guides for Astro projects.
+*/}

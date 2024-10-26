@@ -5,6 +5,9 @@ import Link from "@components/Astro/Link.astro";
 import PageHeading from "@components/Astro/PageHeading.astro";
 import Title from "@components/Astro/Title.astro";
 import PageHeader from "@components/Astro/PageHeader.astro";
+import Card from "@components/Astro/Card.astro";
+import Author from "@components/Astro/Author.astro";
+import BackToTop from "@components/Astro/BackToTop.astro";
 
 const code = `
 ---
@@ -79,10 +82,33 @@ const {
 				backgroundPattern="M10 10L20 10M10 18L20 18M4 4L28 28M28 4L4 28"
 				patternOpacity={0.1}
 				patternHighlightClass="bg-theme-accent"
-        class="relative"
+				class="relative"
 			/>
 		</article>
 	</section>
+
+	<section>
+		<article>
+			<h2>Cards</h2>
+			<div class="flex gap-6">
+				<Card title="Card" description="Card with medium shadow." shadowSize="md" />
+				<Card title="Card" description="Alt card with medium shadow." shadowSize="md" alt />
+				<Card title="Card" description="Card with large shadow." shadowSize="lg"  />
+				<Card title="Card" description="Alt Card with no shadow." shadowSize="none" alt />
+			</div>
+		</article>
+	</section>
+
+	<section class="flex gap-6">
+		<article>
+			<h2>Author with Socials</h2>
+			<div class="flex gap-6">
+				<Author authorId={1} pubDateTime={null} />
+			</div>
+		</article>
+	</section>
+
+	<!-- Typography -->
 
 	<PageHeading text="Typography" />
 	<section>
