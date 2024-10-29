@@ -1,0 +1,36 @@
+---
+import PageHeading from "@components/Astro/PageHeading.astro";
+import Layout from "@layouts/Layout.astro";
+import Link from "@components/Astro/Link.astro";
+import { Icon } from "astro-icon/components";
+import QwithA from "@components/Astro/QwithA.astro";
+---
+
+<Layout title="Elements">
+	<div class="max-w-4xl mx-auto px-6">
+		<PageHeading text="Feature List" />
+		<div class="mb-12">
+			<p class="flex items-center justify-center gap-2">
+				<Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80"/>
+				Looking for the <Link href="/features/faq" text="FAQ?" />
+			</p>
+		</div>
+		<section>
+			<article>
+				<ul class="space-y-6">
+					<QwithA
+						question="Includes pre-packaged components to help get you started."
+						answer="I tried to include some of the common components you'll use in most projects. All components are customizable and are framework agnostic."
+					/>
+					<QwithA question="Includes 14 different color themes, and includes a system to easily create your own." answer="Highly customizable" />
+					<QwithA question="SEO Friendly" answer="Well documented" />
+					<QwithA question="Built using an AI first approach" answer="Typescript that won't get in your way" />
+					<QwithA question="No CSS framework lock-in" answer="No JS framework lock-in" />
+					<QwithA question="Perfect score on Lighthouse" answer="Easy to learn." />
+					<QwithA question="Easy to use." answer="Wide-range of features for many types of projects" />
+					<QwithA question="Ongoing support" answer="It's FREE" />
+				</ul>
+			</article>
+		</section>
+	</div>
+</Layout>

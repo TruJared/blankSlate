@@ -7,7 +7,7 @@ import Title from "@components/Astro/Title.astro";
 import PageHeader from "@components/Astro/PageHeader.astro";
 import Card from "@components/Astro/Card.astro";
 import Author from "@components/Astro/Author.astro";
-import BackToTop from "@components/Astro/BackToTop.astro";
+import Tooltip from "@components/Astro/Tooltip.astro";
 
 const code = `
 ---
@@ -66,9 +66,17 @@ const {
 			<div class="h-8"></div>
 			<Title title="Logo Shown" showTitleBackground logoSrc="/alk-4.png" />
 			<div class="h-8"></div>
+		</article>
 
+		<article>
 			<h2>Page Header</h2>
-			<p>Simple page header with heading and description.</p>
+			<p>
+				There are several configurations available for the page header. These
+				configuration options should make it easy to build a variety of headers.
+				For example, shown below are examples of a simple header, and a more
+				complex header with image, animation, and a background pattern. Both are
+				possible with Alakline's built in page header component.
+			</p>
 			<PageHeader
 				heading="Page Header"
 				description="The page header is a component that is used to display the page header."
@@ -83,27 +91,56 @@ const {
 				patternOpacity={0.1}
 				patternHighlightClass="bg-theme-accent"
 				class="relative"
+
 			/>
 		</article>
-	</section>
 
-	<section>
 		<article>
 			<h2>Cards</h2>
-			<div class="flex gap-6">
-				<Card title="Card" description="Card with medium shadow." shadowSize="md" />
-				<Card title="Card" description="Alt card with medium shadow." shadowSize="md" alt />
-				<Card title="Card" description="Card with large shadow." shadowSize="lg"  />
-				<Card title="Card" description="Alt Card with no shadow." shadowSize="none" alt />
+			<div class="flex flex-row flex-wrap gap-2 w-full">
+				<Card
+					title="Card"
+					description="Card with medium shadow."
+					shadowSize="md"
+				/>
+				<Card
+					title="Card"
+					description="Alt card with medium shadow."
+					shadowSize="md"
+					alt
+				/>
+				<Card
+					title="Card"
+					description="Card with large shadow."
+					shadowSize="lg"
+				/>
+				<Card
+					title="Card"
+					description="Alt Card with no shadow."
+					shadowSize="none"
+					alt
+				/>
 			</div>
 		</article>
-	</section>
 
-	<section class="flex gap-6">
-		<article>
-			<h2>Author with Socials</h2>
-			<div class="flex gap-6">
-				<Author authorId={1} pubDateTime={null} />
+		<article class="mt-12">
+			<h2>Author with socials</h2>
+			<Author authorId={1} pubDateTime={null} />
+		</article>
+
+		<article class="mt-12">
+			<h2>Tooltip</h2>
+			<!-- Basic usage -->
+			<div>
+				<Tooltip triggerText="Hover me" tooltipText="I'm a tooltip!" />
+			</div>
+
+			<!-- With slots -->
+			<div>
+				<Tooltip neonify>
+					<span slot="trigger">Hover me</span>
+					<div slot="content">So am I.</div>
+				</Tooltip>
 			</div>
 		</article>
 	</section>

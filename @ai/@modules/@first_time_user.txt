@@ -1,6 +1,6 @@
-Welcome to our Astro-based project! 🚀
+Welcome to our Astro-based project with AI-assisted development! 🚀
 
-This guide will help you get started with our custom Astro theme. We'll cover the basics of the project structure and key Astro concepts relevant to our setup.
+This guide will help you get started with our custom Astro theme and introduce you to our AI-assisted workflow.
 
 1. Project Structure:
    - src/: This is where most of our code lives.
@@ -47,11 +47,31 @@ This guide will help you get started with our custom Astro theme. We'll cover th
    - Use `astro build` to create a production-ready version of your site.
    - Deploy to various platforms with `astro deploy`.
 
-Remember, our Astro theme is designed to be flexible and extensible. Start with the basics and explore more features as you grow comfortable.
+10. AI-Assisted Development:
+    Our project uses an AI-assisted development approach to enhance productivity and code quality.
+
+    - @ai directory: Contains files that guide AI models in understanding our project structure and requirements.
+    - Key files in @ai:
+      - @primer.txt: The starting point for AI to understand the directory's purpose.
+      - @instructions.txt: Provides specific tasks and guidelines for the project.
+      - @modules/: Contains specialized modules for various aspects of the project.
+
+    When working with the AI:
+    - Reference the @ai directory for project-specific information.
+    - Use the AI to assist with code generation, problem-solving, and best practices.
+    - The AI can help explain Astro concepts and provide guidance on using our custom theme.
+
+11. Getting Started with AI Assistance:
+    - Familiarize yourself with the contents of the @ai directory.
+    - When asking the AI for help, be specific about which part of the project you're working on.
+    - Use the AI to help understand complex Astro concepts or our custom theme features.
+
+Remember, our Astro theme is designed to be flexible and extensible. The AI is here to assist you, but always review and understand the code it suggests.
 
 Helpful Resources:
 - Astro Docs: https://docs.astro.build
 - Our project's README.md file
 - The @theme_training.txt file for more in-depth information
+- The @ai directory for project-specific guidance
 
-If you have any questions, don't hesitate to ask. Happy coding!
+If you have any questions about the project or how to work with the AI assistant, don't hesitate to ask. Happy coding!

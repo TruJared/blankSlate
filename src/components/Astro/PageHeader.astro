@@ -9,6 +9,7 @@ export interface Props {
 	description?: string;
 	image?: string | ImageMetadata;
 	imageAlt?: string;
+	animateImage?: boolean;
 	backgroundPattern?: string;
 	patternOpacity?: number;
 	patternHighlightClass?:
@@ -24,14 +25,14 @@ const {
 	description,
 	image,
 	imageAlt,
+	animateImage = true,
 	backgroundPattern,
 	patternOpacity,
 	patternHighlightClass,
 	class: className,
 } = Astro.props;
-
-
 ---
+
 <!-- by not making this relative, we can use the absolute positioning of the PatternBackground to be within the PageHeader and the top nav -->
 <div
 	class:list={[
@@ -64,7 +65,11 @@ const {
 					<Image
 						src={image as string}
 						alt={imageAlt ?? "Image"}
-						class:list={["w-full h-full object-cover spin-and-grow", { "rounded-theme": true }]}
+						class:list={[
+							"w-full h-full object-cover",
+							{ "spin-and-grow": animateImage },
+							{ "rounded-theme": true },
+						]}
 						width={400}
 						height={400}
 					/>

@@ -1,12 +1,16 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+import type { AstroBuiltinAttributes } from "astro";
 
 export interface Props {
-	text: string;
-	tooltip?: string;
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	titleText?: string;
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
-const { text, class: className, tooltip = text } = Astro.props;
+const { titleText = null, class: className } = Astro.props;
 ---
 
-<span class:list={["neon", className]} data-text={text} title={tooltip}>{text}</span>
+<span class:list={["neon", className]} data-text={titleText} title={titleText}
+	><slot name="neon">
+		{titleText}
+	</slot></span
+>

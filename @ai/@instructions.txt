@@ -1,15 +1,12 @@
 Instructions for Completing the Project:
 
-1. Finalize the @ai directory:
-   - Review all existing files in the @ai directory
-   - Conduct thorough testing of the @modules
+1. Finalize the @ai directory (complete):
    - Make any final adjustments or refinements as needed
 
-2. Implement global elements:
-   - Create a Header component
-   - Implement a Footer component
-   - Develop a Navigation component
-   - Design a consistent layout structure
+2. Develop individual pages:
+   - Create a 404 error page
+   - Implement an About page
+   - Develop any other required content pages
 
 3. Create and update documentation:
    - Update the project's README.md file
@@ -17,11 +14,11 @@ Instructions for Completing the Project:
    - Document the theme system and its usage
    - Create API documentation if applicable
 
-4. Develop individual pages:
-   - Create a 404 error page
-   - Implement an About page
-   - Add a Contact page
-   - Develop any other required content pages
+4. Component Updates:
+   - Update Tooltip component to support:
+     * Slot-based content
+     * Fallback to text if slot is null
+     * Document the new slot functionality
 
 5. Design and implement the Home page:
    - Create a visually appealing layout
@@ -39,5 +36,3 @@ Instructions for Completing the Project:
    - Prepare deployment scripts or instructions
 
 Remember to commit changes regularly and maintain clear documentation throughout the process.
-
-Note: The @ai directory is almost complete. Focus on reviewing and testing the existing @modules and @intentions to ensure they provide accurate and helpful guidance for each task.

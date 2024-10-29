@@ -117,7 +117,7 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Elements",
 	},
 	{
-		href: "/features",
+		href: "/features/feature-list",
 		text: "Features",
 	},
 	{

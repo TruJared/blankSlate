@@ -1,6 +1,6 @@
 --- example of a "saved note" based on some fun suggestions for a pirate-themed 404 error page ---
 
-Ahoy, Jared ye scurvy dog!
+Ahoy, ye scurvy dog!
 
 Yer mission, should ye choose to accept it, be to craft a fearsome pirate-themed 404 error page for our website. Make it so grand that even Davy Jones himself would be impressed!
 
