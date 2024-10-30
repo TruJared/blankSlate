@@ -121,6 +121,10 @@ export const NAVIGATION: NavEntry[] = [
 		text: "Features",
 	},
 	{
+		href: "/features/faq",
+		text: "FAQ",
+	},
+	{
 		href: "/404",
 		text: "404",
 	},

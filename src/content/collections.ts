@@ -7,7 +7,6 @@ const collectionNames = COLLECTION_NAMES_LIST;
 // base schema for all collections
 const postCollectionSchema = {
 	author: z.string().default(SITE.author),
-	// todo: authorContact should support more than just email //
 	authorContact: z.string().optional(),
 	title: z.string(),
 	subtitle: z.string().optional(),
@@ -37,7 +36,9 @@ const postCollectionSchema = {
 	// slug: no need to define slug, it will be generated automatically but you can add it manually in the frontmatter as well - https://docs.astro.build/en/guides/content-collections/#defining-custom-slugs
 };
 
-// use destructuring for overrides or additional fields
+// Advanced customization options //
+
+// use destructuring for overrides or to add additional fields
 
 let collectionSchemas: { [key: string]: any } = {};
 
@@ -49,19 +50,22 @@ collectionNames.forEach((collectionName) => {
 			z.object({
 				...postCollectionSchema,
 
-				// example overrides
+				// * -- Example overrides -- * //
 
-				//new field to all collections
-				customField: z.string().optional(),
+				// * -- Add new field to all collections -- * //
 
-				// override the default author for all collections
-				author: z.string().optional(),
+				// customField: z.string().optional(),
 
-				//override the default title for a single collection or multiple collections
-				title: z
-					.string()
-					.default(collectionName === "blog" ? BLOG.title : DOCS.title)
-					.optional(),
+				// * -- Override the default author for all collections -- * //
+
+				// author: z.string().optional(),
+
+				// * -- Override the default title for a single collection or multiple collections -- * //
+
+				// title: z
+				// 	.string()
+				// 	.default(collectionName === "blog" ? BLOG.title : DOCS.title)
+				// 	.optional(),
 			}),
 	});
 });

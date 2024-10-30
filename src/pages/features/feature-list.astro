@@ -1,35 +1,73 @@
 ---
+import { Icon } from "astro-icon/components";
 import PageHeading from "@components/Astro/PageHeading.astro";
 import Layout from "@layouts/Layout.astro";
 import Link from "@components/Astro/Link.astro";
-import { Icon } from "astro-icon/components";
-import QwithA from "@components/Astro/QwithA.astro";
+import FeaturesList from "@components/Astro/FeaturesList.astro";
+
+const features = [
+	{
+		title: "JS Framework Agnostic",
+		description: "Thanks to the power of Astro, Alkaline can be used with any JS framework, or even none at all.",
+	},
+	{
+		title: "Tailwind CSS Included",
+		description: "Alkaline includes a simple but fully functional Tailwind CSS setup. Easily customize, extend, or replace with your own. Not a fan of Tailwind? No problem, Alkaline is built with Astro, so you can use any CSS framework you want, or none at all.",
+	},
+	{
+		title: "Supports dark, light, and custom color themes",
+		description: "14 different color themes are included, along with a system to easily add your own.",
+	},
+	{
+		title: "SEO Friendly",
+		description: "Alkaline is packed full of SEO features, including Open Graph image support, and structured data. All easily configurable and customizable.",
+	},
+	{
+		title: "Future First Developer Experience",
+		description: "It's dangerous to go alone, take this. Alkaline was built in Cursor for Cursor and contains a special @ai directory system exclusively for working with AI assistance. It's as simple as pointing your AI to `@primer`. No documentation needed! * This is very much a work in progress, and user experience may vary, but throughout building Alkaline I've been very surprised at how well the included @ai directory system is working.",
+	},
+	{
+		title: "Supports Syntax Highlighting",
+		description: "Alkaline includes a simple but fully functional syntax highlighting system, thanks to Shiki.",
+	},
+	{
+		title: "Google Fonts Galore",
+		description: "Alkaline makes it easy to add Google Fonts to your project.",
+	},
+	{
+		title: "Blog Support",
+		description: "Get creative, get serious, or get personal using Astro's built in MDX support. Blog like it's 2999.",
+	},
+	{
+		title: "Lower Your Brain Strain",
+		description: "Much of Alkaline is built with the 'set it and forget it' mentality. Building a page can be as simple as adding a few lines of HTML, or even just plain markdown.",
+	},
+	{
+		title: "Advanced Features",
+		description: "Alkaline includes every feature that I wish I had when I first started building websites, while making sure that Alkaline offers great features for advanced users as well.",
+	},
+	{
+		title: "Ongoing Support",
+		description: "Alkaline will be actively supported and maintained for the foreseeable future. For now the focus is on usability, bug smashing, and creating a great developer experience.",
+	},
+	{
+		title: "It's Free",
+		description: "Alkaline is fully open source, and will remain free for everyone forever.",
+	},
+
+];
 ---
 
 <Layout title="Elements">
 	<div class="max-w-4xl mx-auto px-6">
 		<PageHeading text="Feature List" />
-		<div class="mb-12">
+		<section>
 			<p class="flex items-center justify-center gap-2">
-				<Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80"/>
+				<Icon name="ri:questionnaire-line" size="1.5em" class="opacity-80" />
 				Looking for the <Link href="/features/faq" text="FAQ?" />
 			</p>
-		</div>
-		<section>
 			<article>
-				<ul class="space-y-6">
-					<QwithA
-						question="Includes pre-packaged components to help get you started."
-						answer="I tried to include some of the common components you'll use in most projects. All components are customizable and are framework agnostic."
-					/>
-					<QwithA question="Includes 14 different color themes, and includes a system to easily create your own." answer="Highly customizable" />
-					<QwithA question="SEO Friendly" answer="Well documented" />
-					<QwithA question="Built using an AI first approach" answer="Typescript that won't get in your way" />
-					<QwithA question="No CSS framework lock-in" answer="No JS framework lock-in" />
-					<QwithA question="Perfect score on Lighthouse" answer="Easy to learn." />
-					<QwithA question="Easy to use." answer="Wide-range of features for many types of projects" />
-					<QwithA question="Ongoing support" answer="It's FREE" />
-				</ul>
+				<FeaturesList features={features} />
 			</article>
 		</section>
 	</div>
