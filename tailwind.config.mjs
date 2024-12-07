@@ -2,7 +2,7 @@
 const defaultTheme = require("tailwindcss/defaultTheme");
 const { colors } = require("tailwindcss/defaultTheme");
 
-const { SITE } = require("./src/_alkaline_config.ts");
+const { SITE } = require("./src/alkaline.config.ts");
 
 export default {
 	darkMode: "class",

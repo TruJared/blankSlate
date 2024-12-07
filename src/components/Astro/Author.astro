@@ -2,7 +2,7 @@
 import type { AstroBuiltinAttributes } from 'astro';
 import type { Author } from "../../Types/types";
 
-import { AUTHORS } from "@config";
+import { AUTHORS } from "src/alkaline.config";
 import SocialsCloud from "@components/Astro/SocialsCloud.astro";
 
 export interface Props {
@@ -11,9 +11,10 @@ export interface Props {
   class?: string | AstroBuiltinAttributes['class:list'];}
 
 const { authorId, pubDateTime = null, class: className } = Astro.props;
----
 
+---
 <span class:list={["text-theme-primary font-mono", className]}>
+
 	{AUTHORS.find((author) => author.id === authorId)?.name}
 	{pubDateTime ? `on ${pubDateTime.toDateString()}` : ""}
 	<SocialsCloud

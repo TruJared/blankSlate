@@ -1,6 +1,8 @@
+
+
 import rss from '@astrojs/rss';
 import { getCollection } from 'astro:content';
-import { SITE, BLOG } from "@config";
+import { SITE, DOCS } from "@config";
 import { COLLECTION_NAMES } from "@content/collectionsData";
 
 export async function GET(context) {
@@ -17,12 +19,12 @@ export async function GET(context) {
       title: post.data?.title || 'Untitled',
       pubDate: post.data?.pubDatetime ? new Date(post.data.pubDatetime) : new Date(),
       description: post.data?.description || '',
-      link: `${context.site}${post.collection}/${post.slug}/`,
+      link: `${context.site}${post.collection}/${post.id}/`,
     }));
 
   return rss({
     title: SITE.title,
-    description: BLOG.description || SITE.description,
+    description: DOCS.description || SITE.description,
     site: context.site,
     items: items,
     customData: `<language>${SITE.language || 'en-us'}</language>`,

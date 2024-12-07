@@ -89,6 +89,9 @@ async function main() {
   console.log(chalk.greenBright('Theme names extraction and file generation completed successfully! 🎉'));
   console.log('');
   console.log(chalk.magentaBright('Astro preparing for lift off! 🚀'));
+  console.log('');
+  console.log(chalk.bgYellow('Note that the initial build times can be a bit long. '));
+  console.log('');
 }
 
 main().catch(error => {

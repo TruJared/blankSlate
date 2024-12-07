@@ -14,7 +14,7 @@ export type Font = {
 	includeItalic?: boolean;
 };
 
-// these correspond to icon names for the remix icon library
+// these correspond to icon names for the remix icon library, they may need updated if you change the icon library
 export const Platforms =
   ["behance", "bluesky", "codepen", "discord",
   "dribbble", "email", "evernote", "facebook", "flickr", "github",

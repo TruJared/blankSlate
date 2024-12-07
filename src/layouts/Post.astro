@@ -1,9 +1,9 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+import type { AstroBuiltinAttributes } from "astro";
 
-import { COLLECTION_NAMES_LIST, AUTHORS } from "@config";
+import { COLLECTION_NAMES_LIST, AUTHORS } from "src/alkaline.config";
 
-import { getCollection } from "astro:content";
+import { getCollection, getEntry, render } from "astro:content";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
@@ -14,18 +14,17 @@ import Author from "@components/Astro/Author.astro";
 import placeholderImage from "@assets/placehold.jpg";
 
 export interface Props {
-	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
-	slug: string;
-	tags: string[] | undefined;
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	collectionName: (typeof COLLECTION_NAMES_LIST)[number] | string;
+	postId: string | number;
+	tags: string[] | undefined | null;
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
-const { class: className, collectionName, slug } = Astro.props;
+const { class: className, collectionName, postId } = Astro.props;
+
 const options = { "rounded-theme": true };
 
-const entry = collectionName
-	? // @ts-ignore
-		(await getCollection(collectionName)).find((entry) => entry.slug === slug)
-	: undefined;
+const entry = await getEntry(collectionName, postId);
 
 if (!entry) {
 	return new Response(null, {
@@ -34,7 +33,7 @@ if (!entry) {
 	});
 }
 
-const { Content } = await entry.render();
+const { Content } = await render(entry);
 ---
 
 <Layout
@@ -45,10 +44,6 @@ const { Content } = await entry.render();
 	<section>
 		{entry.data.subtitle && <p class="h2 md:mx-14">{entry.data.subtitle}</p>}
 		<article class:list={["prose", className]}>
-			Posted by <Author
-				authorId={entry.data.author}
-				pubDateTime={entry.data.pubDatetime}
-			/>
 			{
 				entry.data.tags && (
 					<span class="flex items-baseline mt-3">
@@ -63,6 +58,11 @@ const { Content } = await entry.render();
 				width={1200}
 				height={630}
 			/>
+			Posted by <Author
+				authorId={entry.data.authorId}
+				pubDateTime={entry.data.pubDatetime}
+			/>
+
 			<Content />
 		</article>
 	</section>

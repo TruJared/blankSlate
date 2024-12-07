@@ -1,5 +1,5 @@
 import type { RobotsTxtOptions } from 'astro-robots-txt';
-import { SITE } from '../_alkaline_config';
+import { SITE } from '../alkaline.config';
 
 const robotsConfig: RobotsTxtOptions = {
   policy: [

@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import Posts from "@layouts/Posts.astro";
 
 const entries = await getCollection("docs");
+console.log("🚀 ~ entries:", entries)
 ---
 
 <Posts
@@ -10,4 +11,5 @@ const entries = await getCollection("docs");
   title="Docs"
   posts={entries}
   subtitle="Documentation"
+
 />

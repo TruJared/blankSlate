@@ -1,8 +1,8 @@
 ---
-import type { AstroBuiltinAttributes } from 'astro';
+import type { AstroBuiltinAttributes } from "astro";
 
-import { AUTHORS, COLLECTION_NAMES_LIST } from "@config";
-import { SITE } from "@config";
+import { AUTHORS, COLLECTION_NAMES_LIST } from "src/alkaline.config";
+import { SITE } from "src/alkaline.config";
 import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 import Pagination from "@components/Astro/Pagination.astro";
@@ -20,7 +20,8 @@ export interface Props {
 	filter?: (typeof COLLECTION_NAMES_LIST)[number] | string | undefined;
 	includeDrafts?: boolean;
 	subtitle?: string;
-	class?: string | AstroBuiltinAttributes['class:list'];}
+	class?: string | AstroBuiltinAttributes["class:list"];
+}
 
 const {
 	posts,
@@ -43,7 +44,7 @@ const options = { "rounded-theme": true };
 				<article class="mb-12">
 					<div class="">
 						<a
-							href={`/${post.collection || collectionName}/${post.slug}`}
+							href={`/${post.collection || collectionName}/${post.id}`}
 							class="no-underline flex flex-row items-center mb-2 group"
 						>
 							<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
@@ -53,38 +54,48 @@ const options = { "rounded-theme": true };
 										alt={post.data.alt || post.data.title || "Post Image"}
 										width={128}
 										height={128}
-										class:list={["object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0", options]}
+										class:list={[
+											"object-cover w-full h-full border border-theme-accent group-hover:rotate-6 transition-transform duration-500 m-0",
+											options,
+										]}
 										loading="lazy"
 									/>
 								)}
 							</div>
 							<h2 class="">{post.data.title}</h2>
 						</a>
-						<div class="flex flex-wrap mb-5">
-							{post.data.tags?.map((tag: string) => (
-								<Tag tag={tag} size="sm" />
-							))}
-						</div>
 					</div>
 					<p>
 						{post.data.description}{" "}
 						<a
-							href={`/${post.collection || collectionName}/${post.slug}`}
+							href={`/${post.collection || collectionName}/${post.id}`}
 							class="text-theme-primary pl-2"
 						>
 							Read more...
 						</a>
 					</p>
-					{post.data.pubDatetime && (
-						<p>{post.data.pubDatetime?.toDateString()}</p>
+					{post.data.modDatetime && (
+						<p class="text-theme-primary font-mono text-sm">
+							updated: {post.data.modDatetime?.toDateString()}
+						</p>
 					)}
-					<p class="text-theme-primary font-mono">
+					<p class="text-theme-primary font-mono ml-4 text-sm">
+						<Icon
+							name="ri:quill-pen-line"
+							size="16"
+							class="-mr-1 align-middle inline"
+						/>
 						Posted by{" "}
 						<Author
-							authorId={post.data.author}
+							authorId={post.data.authorId || 1}
 							pubDateTime={post.data.pubDatetime}
 						/>
 					</p>
+					<div class="flex flex-wrap mb-5">
+						{post.data.tags?.map((tag: string) => (
+							<Tag tag={tag} size="sm" />
+						))}
+					</div>
 				</article>
 			))
 		}

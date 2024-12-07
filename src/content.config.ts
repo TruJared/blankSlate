@@ -1,12 +1,12 @@
-import { SITE, COLLECTION_NAMES_LIST } from "../_alkaline_config";
-import { BLOG, DOCS } from "../_alkaline_config";
+import { SITE, COLLECTION_NAMES_LIST } from "./alkaline.config";
 import { defineCollection, z } from "astro:content";
+import { glob, file } from 'astro/loaders'
 
 const collectionNames = COLLECTION_NAMES_LIST;
 
 // base schema for all collections
 const postCollectionSchema = {
-	author: z.string().default(SITE.author),
+	authorId: z.number().default(1),
 	authorContact: z.string().optional(),
 	title: z.string(),
 	subtitle: z.string().optional(),
@@ -33,19 +33,18 @@ const postCollectionSchema = {
 		})
 		.optional(),
 	canonicalURL: z.string().url().optional(),
-	// slug: no need to define slug, it will be generated automatically but you can add it manually in the frontmatter as well - https://docs.astro.build/en/guides/content-collections/#defining-custom-slugs
 };
 
 // Advanced customization options //
 
-// use destructuring for overrides or to add additional fields
 
 let collectionSchemas: { [key: string]: any } = {};
 
+// use destructuring for overrides or to add additional fields
 // @ts-ignore
 collectionNames.forEach((collectionName) => {
 	collectionSchemas[collectionName] = defineCollection({
-		type: "content",
+	loader: glob({ pattern: '*.md*', base: "./src/data/"+collectionName.toLowerCase() }),
 		schema: () =>
 			z.object({
 				...postCollectionSchema,
@@ -68,6 +67,8 @@ collectionNames.forEach((collectionName) => {
 				// 	.optional(),
 			}),
 	});
+console.log("🚀 ~ collectionSchemas:", './src/data/'+collectionName.toLowerCase() )
 });
+
 
 export const collections = collectionSchemas;

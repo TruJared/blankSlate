@@ -54,199 +54,213 @@ const {
 ---
 
 <Layout title="Elements">
-	<PageHeading text="Components" />
+	<span class="elements-page">
+		<PageHeading text="Components" />
 
-	<section>
-		<article>
-			<h2>Title</h2>
-			<p>Various configurations are available for the title component.</p>
-			<Title title="No Background" showTitleBackground={false} />
-			<div class="h-8"></div>
-			<Title title="With Background" showTitleBackground class="break-words" />
-			<div class="h-8"></div>
-			<Title title="Logo Shown" showTitleBackground logoSrc="/alk-4.png" />
-			<div class="h-8"></div>
-		</article>
-
-		<article>
-			<h2>Page Header</h2>
-			<p>
-				There are several configurations available for the page header. These
-				configuration options should make it easy to build a variety of headers.
-				For example, shown below are examples of a simple header, and a more
-				complex header with image, animation, and a background pattern. Both are
-				possible with Alakline's built in page header component.
-			</p>
-			<PageHeader
-				heading="Page Header"
-				description="The page header is a component that is used to display the page header."
-			/>
-			<p>Page header with image, background pattern, and pattern highlight.</p>
-			<PageHeader
-				heading="Page Header"
-				description="The page header is a component that is used to display the page header."
-				image="/alk-4.png"
-				imageAlt="ALK Logo"
-				backgroundPattern="M10 10L20 10M10 18L20 18M4 4L28 28M28 4L4 28"
-				patternOpacity={0.1}
-				patternHighlightClass="bg-theme-accent"
-				class="relative"
-
-			/>
-		</article>
-
-		<article>
-			<h2>Cards</h2>
-			<div class="flex flex-row flex-wrap justify-center items-center gap-6 w-full">
-				<Card
-					title="Card"
-					description="Alt Card with no shadow."
-					shadowSize="none"
-					alt
+		<section>
+			<article>
+				<h2>Title</h2>
+				<p>Various configurations are available for the title component.</p>
+				<Title title="No Background" showTitleBackground={false} />
+				<div class="h-8"></div>
+				<Title
+					title="With Background"
+					showTitleBackground
+					class="break-words"
 				/>
-				<Card
-					title="Card"
-					description="Alt card with medium shadow."
-					shadowSize="md"
-					alt
-				/>
-				<Card
-					title="Card"
-					description="Alt card with large shadow."
-					shadowSize="lg"
-					alt
-				/>
-				<Card
-					title="Card"
-					description="Card with no shadow."
-					shadowSize="none"
-				/>
-				<Card
-					title="Card"
-					description="Card with medium shadow."
-					shadowSize="md"
-				/>
-				<Card
-					title="Card"
-					description="Card with large shadow."
-					shadowSize="lg"
-				/>
-			</div>
-		</article>
+				<div class="h-8"></div>
+				<Title title="Logo Shown" showTitleBackground logoSrc="/alk-4.png" />
+				<div class="h-8"></div>
+			</article>
 
-		<article class="mt-12">
-			<h2>Author with socials</h2>
-			<Author authorId={1} pubDateTime={null} />
-		</article>
-
-		<article class="mt-12">
-			<h2>Tooltip</h2>
-			<!-- Basic usage -->
-			<div>
-				<Tooltip triggerText="Hover me" tooltipText="I'm a tooltip!" />
-			</div>
-
-			<!-- With slots -->
-			<div>
-				<Tooltip neonify>
-					<span slot="trigger">Hover me</span>
-					<div slot="content">So am I.</div>
-				</Tooltip>
-			</div>
-		</article>
-	</section>
-
-	<!-- Typography -->
-
-	<PageHeading text="Typography" />
-	<section>
-		<article>
-			<p class="px-10">
-			  Alakline comes with built-in typography, layouts, and essential styling powered by Tailwind CSS. You can easily customize or remove any styling to match your needs.
-			</p>
-		</article>
-	</section>
-
-	<section>
-		<article>
-			<h2 class="mb-4">Paragraphs</h2>
-			<h3 class="mb-2">Sample Paragraph</h3>
-			<p class="mb-4">
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna nec
-				purus lacinia tincidunt nec lorem ipsum dolor sit amet.
-			</p>
-			<p>
-				Ut urna nec purus lacinia tincidunt nec lorem ipsum dolor sit amet,
-				consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt
-				nec.
-			</p>
-		</article>
-	</section>
-
-	<section>
-		<article class="">
-			<h2 class="mb-4">Lists</h2>
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-				<span>
-					<h3 class="mb-2">Unordered List</h3>
-					<ul class="list-disc pl-5">
-						<li>Item 1</li>
-						<li>Item 2</li>
-						<li>Item 3</li>
-					</ul>
-				</span>
-				<div>
-					<h3 class="mb-2">Ordered List</h3>
-					<ol class="list-decimal pl-5">
-						<li>Item 1</li>
-						<li>Item 2</li>
-						<li>Item 3</li>
-					</ol>
-				</div>
-			</div>
-		</article>
-	</section>
-
-	<section>
-		<article>
-			<h2 class="mb-4">Blockquotes</h2>
-			<blockquote class="border-l-4 border-gray-300 pl-4 italic">
+			<article>
+				<h2>Page Header</h2>
 				<p>
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
-					nec purus lacinia tincidunt nec.
+					There are several configurations available for the page header. These
+					configuration options should make it easy to build a variety of
+					headers. For example, shown below are examples of a simple header, and
+					a more complex header with image, animation, and a background pattern.
+					Both are possible with Alakline's built in page header component. You
+					may need to refresh the page to see the animation.
 				</p>
-			</blockquote>
-		</article>
-	</section>
-
-	<section>
-		<article>
-			<h2 class="mb-4">Code</h2>
-			<p class="mb-4">
-				Here's an example of inline code: <code>const x = 42;</code>
-			</p>
-			<p>Here's an example of a code block:</p>
-			<CodeCopy lang="astro" code={code} />
-		</article>
-	</section>
-
-	<section>
-		<article>
-			<h2 class="mb-4">Links</h2>
-			<div class="mb-2">
-				<Link
-					href="/elements"
-					class="pr-1 "
-					text="Internal Link"
+				<PageHeader
+					heading="Page Header"
+					description="The page header is a component that is used to display the page header."
 				/>
-				<div class="h-2"></div>
-				<Link
-					href="https://google.com"
-					external
-					class="pr-1 "
-					text="External Link"
+				<p>
+					Page header with image, background pattern, and pattern highlight.
+				</p>
+				<PageHeader
+					heading="Page Header"
+					description="The page header is a component that is used to display the page header."
+					image="/alk-4.png"
+					imageAlt="ALK Logo"
+					backgroundPattern="M10 10L20 10M10 18L20 18M4 4L28 28M28 4L4 28"
+					patternOpacity={0.1}
+					patternHighlightClass="bg-theme-accent"
+					class="relative"
 				/>
-			</div>
-		</article>
-	</section>
+			</article>
+
+			<article>
+				<h2>Cards</h2>
+				<div
+					class="flex flex-row flex-wrap justify-center items-center gap-6 w-full"
+				>
+					<Card
+						title="Card"
+						description="Alt Card with no shadow."
+						shadowSize="none"
+						alt
+					/>
+					<Card
+						title="Card"
+						description="Alt card with medium shadow."
+						shadowSize="md"
+						alt
+					/>
+					<Card
+						title="Card"
+						description="Alt card with large shadow."
+						shadowSize="lg"
+						alt
+					/>
+					<Card
+						title="Card"
+						description="Card with no shadow."
+						shadowSize="none"
+					/>
+					<Card
+						title="Card"
+						description="Card with medium shadow."
+						shadowSize="md"
+					/>
+					<Card
+						title="Card"
+						description="Card with large shadow."
+						shadowSize="lg"
+					/>
+				</div>
+			</article>
+
+			<article class="mt-12">
+				<h2>Author with socials</h2>
+				<Author authorId={1} pubDateTime={null} />
+			</article>
+
+			<article class="mt-12">
+				<h2>Tooltip</h2>
+				<!-- Basic usage -->
+				<div>
+					<Tooltip triggerText="Hover me" tooltipText="I'm a tooltip!" />
+				</div>
+
+				<!-- With slots -->
+				<div>
+					<Tooltip neonify>
+						<span slot="trigger">Hover me</span>
+						<div slot="content">So am I.</div>
+					</Tooltip>
+				</div>
+			</article>
+		</section>
+
+		<!-- Typography -->
+
+		<PageHeading text="Typography" />
+		<section>
+			<article>
+				<p class="px-10">
+					Alakline comes with built-in typography, layouts, and essential
+					styling powered by Tailwind CSS. You can easily customize or remove
+					any styling to match your needs.
+				</p>
+			</article>
+		</section>
+
+		<section>
+			<article>
+				<h2 class="mb-4">Paragraphs</h2>
+				<h3 class="mb-2">Sample Paragraph</h3>
+				<p class="mb-4">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
+					nec purus lacinia tincidunt nec lorem ipsum dolor sit amet.
+				</p>
+				<p>
+					Ut urna nec purus lacinia tincidunt nec lorem ipsum dolor sit amet,
+					consectetur adipiscing elit. Sed ut urna nec purus lacinia tincidunt
+					nec.
+				</p>
+			</article>
+		</section>
+
+		<section>
+			<article class="">
+				<h2 class="mb-4">Lists</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+					<span>
+						<h3 class="mb-2">Unordered List</h3>
+						<ul class="list-disc pl-5">
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+						</ul>
+					</span>
+					<div>
+						<h3 class="mb-2">Ordered List</h3>
+						<ol class="list-decimal pl-5">
+							<li>Item 1</li>
+							<li>Item 2</li>
+							<li>Item 3</li>
+						</ol>
+					</div>
+				</div>
+			</article>
+		</section>
+
+		<section>
+			<article>
+				<h2 class="mb-4">Blockquotes</h2>
+				<blockquote class="border-l-4 border-gray-300 pl-4 italic">
+					<p>
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut urna
+						nec purus lacinia tincidunt nec.
+					</p>
+				</blockquote>
+			</article>
+		</section>
+
+		<section>
+			<article>
+				<h2 class="mb-4">Code</h2>
+				<p class="mb-4">
+					Here's an example of inline code: <code>const x = 42;</code>
+				</p>
+				<p>Here's an example of a code block:</p>
+				<CodeCopy lang="astro" code={code} />
+			</article>
+		</section>
+
+		<section>
+			<article>
+				<h2 class="mb-4">Links</h2>
+				<div class="mb-2">
+					<Link href="/elements" class="pr-1" text="Internal Link" />
+					<div class="h-2"></div>
+					<Link
+						href="https://google.com"
+						external
+						class="pr-1"
+						text="External Link"
+					/>
+				</div>
+			</article>
+		</section>
+	</span>
 </Layout>
+
+<style>
+.elements-page {
+	@apply text-lg;
+}
+</style>

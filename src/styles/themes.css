@@ -1,5 +1,6 @@
 /*
 	must start with .theme- (UI will render without the .theme- prefix)
+	if you add any options, make sure to add them to the tailwind.config.js file, see border-radius for example
 */
 
 :root,
@@ -12,7 +13,7 @@
 	--color-accent-alt: #d35400;  /* Deeper orange, complementing the image */
 	--color-shadow: #1b2838;
 	/* options */
-	--border-radius: 0;
+
 }
 .theme-dark {
 	--color-background: #1b2838;
@@ -42,7 +43,7 @@
 	--color-accent-alt: #264899;
 	--color-shadow: #aacfd5;
 	/* options */
-	--border-radius: 0;
+
 }
 .theme-haunted {
 	--color-background: #0f0f0f;
@@ -72,7 +73,7 @@
 	--color-accent-alt: #005f2c;
 	--color-shadow: #003b00;
 	/* options */
-	--border-radius: 0rem;
+
 }
 .theme-neon-bliss {
 	--color-background: #0d0221;
@@ -142,5 +143,4 @@
 	--color-accent-alt: #133057;
 	--color-shadow: hsla(48, 99%, 63%, 0.3);
 	/* options */
-	--border-radius: 0;
 }

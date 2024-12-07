@@ -6,7 +6,7 @@
     "jsxImportSource": "react",
     "paths": {
       "@config": [
-        "src/_alkaline_config.ts"
+        "src/alkaline.config.ts"
       ],
       "@assets/*": [
         "src/assets/*"
@@ -15,7 +15,7 @@
         "src/components/*"
       ],
       "@content/*": [
-        "src/content/*"
+        "src/data/*"
       ],
       "@layouts/*": [
         "src/layouts/*"

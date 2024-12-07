@@ -3,7 +3,7 @@
  * This file contains a curated selection of top Google font families as TypeScript types.
  * Created by Jared Truscott, compiled by ChatGPT (OpenAI GPT-4)
  * Date: 2024-09-09
- * "there probably is a better way to do this"
+ * "there probably was a better way to do this"
  */
 
 export type GoogleFontFamily =

@@ -1,4 +1,11 @@
 ---
+/**
+ * @description This component is used to load a favicon into the page.
+ * @param {string} url - The URL of the favicon.
+ * @param {boolean} isVector - Whether the favicon is a vector image.
+ * @returns An Astro component that renders the favicon links
+ */
+
 export interface Props {
     url?: string;
     isVector?: boolean;
@@ -11,6 +18,8 @@ const { url = "/favicon.svg", isVector = false } = Astro.props;
 {/* Render the favicon links */}
 
 <link rel="icon" type="image/svg+xml" href={url} />
+
+{/* Svg will always be vector, but this pattern allows us to force vector for other files if needed */}
 
 {(isVector || url.endsWith('.svg')) && (
     <>
