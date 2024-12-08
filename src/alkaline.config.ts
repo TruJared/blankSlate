@@ -119,7 +119,7 @@ export const NAVIGATION: NavEntry[] = [
 	},
 	{
 		href: "/tags",
-		text: "Docs By Tag",
+		text: "Tags",
 	},
 	{
 		href: "/elements",

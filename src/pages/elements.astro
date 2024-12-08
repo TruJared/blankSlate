@@ -56,7 +56,11 @@ const {
 <Layout title="Elements">
 	<span class="elements-page">
 		<PageHeading text="Components" />
-
+		<h3 class="mb-10 mx-auto w-3/4 text-center">
+			Alkaline comes with several custom Astro components. Save time and build
+			your next great idea faster.
+		</h3>
+		<hr class="mx-10" />
 		<section>
 			<article>
 				<h2>Title</h2>
@@ -95,8 +99,8 @@ const {
 					description="The page header is a component that is used to display the page header."
 					image="/alk-4.png"
 					imageAlt="ALK Logo"
-					backgroundPattern="M10 10L20 10M10 18L20 18M4 4L28 28M28 4L4 28"
-					patternOpacity={0.1}
+					backgroundPattern="M0 0h10v10h10v-10h10v10h10v10h-10v10h-10v-10h-10v-10zM30 0h10v10h-10v-10zM0 20h10v10h-10v-10zM20 20h10v10h-10v-10zM0 40h10v10h-10v-10zM40 40h10v10h-10v-10z"
+					patternOpacity={0.9}
 					patternHighlightClass="bg-theme-accent"
 					class="relative"
 				/>
@@ -260,7 +264,7 @@ const {
 </Layout>
 
 <style>
-.elements-page {
-	@apply text-lg;
-}
+	.elements-page {
+		@apply text-lg;
+	}
 </style>

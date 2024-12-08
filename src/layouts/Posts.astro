@@ -47,8 +47,8 @@ const options = { "rounded-theme": true };
 							href={`/${post.collection || collectionName}/${post.id}`}
 							class="no-underline flex flex-row items-center mb-2 group"
 						>
-							<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
-								{post.data.image && (
+							{post.data.image && (
+								<div class="w-20 h-20 mr-4 flex-shrink-0 hidden md:block">
 									<Image
 										src={post.data.image}
 										alt={post.data.alt || post.data.title || "Post Image"}
@@ -60,10 +60,15 @@ const options = { "rounded-theme": true };
 										]}
 										loading="lazy"
 									/>
-								)}
-							</div>
+								</div>
+							)}
 							<h2 class="">{post.data.title}</h2>
 						</a>
+											<div class="flex flex-wrap -mt-2 mb-5">
+						{post.data.tags?.map((tag: string) => (
+							<Tag tag={tag} size="sm" />
+						))}
+					</div>
 					</div>
 					<p>
 						{post.data.description}{" "}
@@ -79,7 +84,7 @@ const options = { "rounded-theme": true };
 							updated: {post.data.modDatetime?.toDateString()}
 						</p>
 					)}
-					<p class="text-theme-primary font-mono ml-4 text-sm">
+					<p class="text-theme-primary font-mono ml-2 text-sm">
 						<Icon
 							name="ri:quill-pen-line"
 							size="16"
@@ -91,11 +96,7 @@ const options = { "rounded-theme": true };
 							pubDateTime={post.data.pubDatetime}
 						/>
 					</p>
-					<div class="flex flex-wrap mb-5">
-						{post.data.tags?.map((tag: string) => (
-							<Tag tag={tag} size="sm" />
-						))}
-					</div>
+
 				</article>
 			))
 		}
